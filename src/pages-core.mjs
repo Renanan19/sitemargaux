@@ -32,8 +32,24 @@ const home = {
     <p class="lede">Margaux Stouls is an interior architect in Paris. She searches and visits for you, draws the plans, runs the building site and furnishes the place. You buy the apartment and hand her the keys.</p>
     ${c.buttons()}
   </div>
-  <div class="arch">${c.img("hero", "Apartment in Paris redesigned by Stouls Studio") || planSvg}</div>
+  <div class="arch-wrap"><div class="arch">${c.img("hero", "Arched doorway opening onto a bathroom in a Paris apartment designed by Stouls Studio", "", true) || planSvg}</div></div>
 </section>
+
+${c.photo("project-1") ? `<section class="band">
+  <div class="band-grid">
+    <h2>Recent apartments</h2>
+    <div class="gallery">
+      ${["Bedroom corner with a curved mirror against a green half-height wall", "Arched niche with bookshelves beside an exposed timber post", "Cane-fronted cupboard doors with oak handles", "Marble fireplace with an ornate gilt mirror", "Sleeping corner with oak cupboards and botanical wallpaper", "Corridor with teal panelling to half height"].map((alt, n) => c.img(`project-${n + 1}`, `${alt}, apartment by Stouls Studio`)).filter(Boolean).map((i) => `<figure>${i}</figure>`).join("\n      ")}
+      <p class="gallery-more"><a href="${c.link("projects/")}">See the five projects</a></p>
+    </div>
+  </div>
+</section>` : `<section class="band">
+  <div class="band-grid">
+    <h2>Recent apartments</h2>
+    <div><p>Finished projects are on the studio's Instagram: arched doorways, limewashed walls, cane and oak joinery, deep green paint.</p>
+    <p><a href="https://www.instagram.com/${c.cfg.instagram}/">See the work on Instagram @${c.cfg.instagram}</a></p></div>
+  </div>
+</section>`}
 
 <section class="band">
   <div class="band-grid">
@@ -94,20 +110,6 @@ const home = {
   </div>
 </section>
 
-${c.photo("project-1") ? `<section class="band">
-  <div class="band-grid">
-    <h2>Recent apartments</h2>
-    <div class="gallery">
-      ${[1, 2, 3, 4, 5, 6].map((n) => c.img(`project-${n}`, `Paris apartment interior by Stouls Studio, project ${n}`)).filter(Boolean).map((i) => `<figure>${i}</figure>`).join("\n      ")}
-    </div>
-  </div>
-</section>` : `<section class="band">
-  <div class="band-grid">
-    <h2>Recent apartments</h2>
-    <div><p>Finished projects are on the studio's Instagram: arched doorways, limewashed walls, cane and oak joinery, deep green paint.</p>
-    <p><a href="https://www.instagram.com/${c.cfg.instagram}/">See the work on Instagram @${c.cfg.instagram}</a></p></div>
-  </div>
-</section>`}
 
 <section class="band">
   <div class="band-grid">

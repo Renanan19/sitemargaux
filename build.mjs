@@ -12,6 +12,8 @@ const siteUrl = cfg.siteUrl.replace(/\/$/, "");
 const photoDir = join(root, "photos");
 const photoFiles = existsSync(photoDir) ? readdirSync(photoDir).filter((f) => /\.(jpe?g|webp|png|avif)$/i.test(f)) : [];
 const photo = (name) => photoFiles.find((f) => f.replace(/\.[^.]+$/, "").toLowerCase() === name) || null;
+// Pixel sizes written by the photo export, so every <img> reserves its space before loading.
+const sizes = existsSync(join(photoDir, "manifest.json")) ? JSON.parse(readFileSync(join(photoDir, "manifest.json"), "utf8")) : {};
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
 
@@ -24,16 +26,16 @@ if (cfg.email) channels.push({ label: `Email ${cfg.email}`, href: `mailto:${cfg.
 channels.push({ label: channels.length ? "Instagram" : "Message Margaux on Instagram", href: `https://ig.me/m/${cfg.instagram}` });
 
 const nav = [
-  ["", "Studio"],
+  ["projects/", "Projects"],
   ["apartment-sourcing-paris/", "Sourcing"],
   ["paris-apartment-renovation/", "Renovation"],
   ["paris-rental-investment/", "Rental investment"],
   ["paris-pied-a-terre/", "Pied-à-terre"],
   ["guide/buying-renovating-paris-apartment/", "Buyer's guide"],
-  ["glossary/", "Glossary"],
   ["about/", "About"],
 ];
 const footExtra = [
+  ["glossary/", "Glossary"],
   ["paris-apartment-renovation-cost/", "Renovation cost per m²"],
   ["canadian-buyers-paris/", "Canadian buyers"],
   ["glossary/pied-a-terre/", "What is a pied-à-terre?"],
@@ -52,9 +54,10 @@ const ctx = (page) => {
   return {
     cfg, rel, photo,
     link: (p) => rel + p || "./",
-    img: (name, alt, cls = "") => {
+    img: (name, alt, cls = "", eager = false) => {
       const f = photo(name);
-      return f ? `<img src="${rel}photos/${f}" alt="${esc(alt)}" loading="lazy" decoding="async"${cls ? ` class="${cls}"` : ""}>` : "";
+      const s = sizes[name] ? ` width="${sizes[name].w}" height="${sizes[name].h}"` : "";
+      return f ? `<img src="${rel}photos/${f}" alt="${esc(alt)}"${s}${eager ? ' fetchpriority="high"' : ' loading="lazy"'} decoding="async"${cls ? ` class="${cls}"` : ""}>` : "";
     },
     buttons: () => `<div class="actions">${channels.map((c, i) => `<a class="btn${i ? " quiet" : ""}" href="${c.href}">${esc(c.label)}</a>`).join("")}</div>`,
   };
@@ -116,7 +119,7 @@ function render(page) {
 ${og ? `<meta property="og:image" content="${og}">\n<meta name="twitter:card" content="summary_large_image">` : `<meta name="twitter:card" content="summary">`}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400..700&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${c.rel}styles.css">
 <link rel="icon" href="${c.rel}favicon.svg" type="image/svg+xml">
 <script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": graph })}</script>
@@ -124,7 +127,7 @@ ${og ? `<meta property="og:image" content="${og}">\n<meta name="twitter:card" co
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head">
-  <a class="wordmark" href="${c.link("")}">${esc(cfg.studio)}</a>
+  <a class="logo" href="${c.link("")}" aria-label="${esc(cfg.studio)}, interior architecture, home"></a>
   <nav class="site-nav" aria-label="Main">
     ${nav.map(([p, l]) => `<a href="${c.link(p)}"${p === page.path ? ' aria-current="page"' : ""}>${l}</a>`).join("\n    ")}
   </nav>
@@ -145,7 +148,8 @@ ${body}
     </ul>
   </div>
   <div class="legal">
-    <span>${esc(cfg.studio)}, interior architecture, Paris</span>
+    <span class="logo" role="img" aria-label="${esc(cfg.studio)}"></span>
+    <span>Interior architecture, Paris</span>
     <span>General information, not legal or tax advice.</span>
   </div>
 </footer>
@@ -162,7 +166,8 @@ for (const page of pages) {
   writeFileSync(join(dir, "index.html"), render(page));
 }
 copyFileSync(join(root, "src", "styles.css"), join(out, "styles.css"));
-writeFileSync(join(out, "favicon.svg"), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M4 32V16a12 12 0 0 1 24 0v16z" fill="#163a2e"/></svg>`);
+copyFileSync(join(root, "src", "logo.svg"), join(out, "logo.svg"));
+writeFileSync(join(out, "favicon.svg"), readFileSync(join(root, "src", "monogram.svg"), "utf8").replaceAll("currentColor", "#92916B"));
 if (photoFiles.length) {
   mkdirSync(join(out, "photos"), { recursive: true });
   for (const f of photoFiles) copyFileSync(join(photoDir, f), join(out, "photos", f));
