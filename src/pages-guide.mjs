@@ -16,7 +16,7 @@ const rental = {
   path: "paris-rental-investment/",
   crumb: "Rental investment",
   service: "Rental investment apartment sourcing and renovation in Paris",
-  title: "Paris rental investment for US and Canadian buyers: what is allowed and what to build | Stouls Studio",
+  title: "Paris rental investment: what is allowed | Stouls Studio",
   description: "Short tourist lets of a second home are all but closed in Paris. What still works, the energy-rating rules, and how an interior architect sources and builds a rental apartment for you.",
   faq: [
     ["Can I put my Paris apartment on Airbnb?", "If it is not your main home, only with a change-of-use authorisation from the City of Paris, which requires compensation: converting commercial space into housing elsewhere. For most individual buyers that closes the door. A main home can be let to tourists for up to 90 days a year, with a registration number."],
@@ -84,7 +84,7 @@ const rental = {
 const guide = {
   path: "guide/buying-renovating-paris-apartment/",
   crumb: "Buyer's guide",
-  title: "Can Americans buy an apartment in Paris? A plain guide to buying and renovating | Stouls Studio",
+  title: "Can Americans buy an apartment in Paris? | Stouls Studio",
   description: "The purchase steps, the costs on top of the price, building approvals, energy ratings, rental rules and taxes to ask your adviser about, each with its official source.",
   faq: [
     ["Can Americans buy property in France?", "Yes, and so can Canadians. France places no nationality restriction on buying residential property. Ownership does not give a right to live in France."],

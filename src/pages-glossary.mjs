@@ -26,7 +26,7 @@ const pied = {
   path: "glossary/pied-a-terre/",
   crumb: "Pied-à-terre",
   term: ["Pied-à-terre", "A small second home in a city, kept for regular short stays and not used as a main residence."],
-  title: "What is a pied-à-terre? Meaning, pronunciation and how it works in Paris | Stouls Studio",
+  title: "What is a pied-à-terre? Meaning and pronunciation | Stouls Studio",
   description: "A pied-à-terre is a small second home in a city, kept for short stays. Meaning, pronunciation, plural, and what owning one in Paris involves.",
   faq: [
     ["What does pied-à-terre mean?", "A pied-à-terre is a small second home in a city, kept for regular short stays and not used as a main residence. The French words mean \"foot on the ground\"."],
@@ -93,7 +93,7 @@ const bonne = {
   path: "glossary/chambre-de-bonne/",
   crumb: "Chambre de bonne",
   term: ["Chambre de bonne", "A former servant's room under the roof of a Paris apartment building, usually 6 to 12 m², reached by a service staircase."],
-  title: "What is a chambre de bonne? The Paris maid's room explained | Stouls Studio",
+  title: "What is a chambre de bonne? | Stouls Studio",
   description: "A chambre de bonne is a former servant's room under the roof of a Paris building, usually 6 to 12 m². What it is, the legal minimum size to rent one, and what can be done with it.",
   faq: [
     ["What is a chambre de bonne?", "A chambre de bonne is a former servant's room on the top floor of a Paris apartment building, usually 6 to 12 m², reached by a separate service staircase."],
@@ -155,8 +155,8 @@ const haussmann = {
   path: "glossary/haussmann-apartment/",
   crumb: "Haussmann apartment",
   term: ["Haussmann apartment", "An apartment in one of the stone buildings put up during and after the rebuilding of Paris led by Georges-Eugène Haussmann from 1853 to 1870."],
-  title: "What is a Haussmann apartment? Features, layout and what renovating one involves | Stouls Studio",
-  description: "A Haussmann (Haussmannian) apartment is in one of the cut-stone buildings from the rebuilding of Paris, 1853 to 1870 and after. How to recognise one, the typical layout, and what changes in a renovation.",
+  title: "What is a Haussmann apartment? | Stouls Studio",
+  description: "A Haussmann (Haussmannian) apartment is in one of the cut-stone buildings from the rebuilding of Paris, 1853 to 1870. How to recognise one, its layout, and what a renovation changes.",
   faq: [
     ["What is a Haussmann apartment?", "A Haussmann apartment is a flat in one of the cut-stone buildings put up during the rebuilding of Paris led by Georges-Eugène Haussmann between 1853 and 1870, and in the same style until about 1914."],
     ["Is it Haussmann or Haussmannian?", "Both are used in English. Haussmannian is the adjective, from the French haussmannien. They describe the same buildings."],
@@ -230,7 +230,7 @@ const copro = {
   path: "glossary/copropriete-syndic/",
   crumb: "Copropriété and syndic",
   term: ["Copropriété", "The French form of shared building ownership: each owner holds a private unit and a share of the common parts."],
-  title: "Copropriété and syndic explained: how a French apartment building is owned and run | Stouls Studio",
+  title: "Copropriété and syndic explained | Stouls Studio",
   description: "A copropriété is a building owned in shares by its apartment owners. The syndic is the manager they appoint. What each does, what you pay, and what they decide about your renovation.",
   faq: [
     ["What is a copropriété?", "A copropriété is a building divided into privately owned units, where each owner also holds a share of the common parts such as the roof, stairs and façade. It is the French equivalent of a condominium."],
@@ -311,7 +311,7 @@ const hub = {
   path: "glossary/",
   crumb: "Glossary",
   terms: [pied.term, bonne.term, haussmann.term, copro.term, ["Syndic", "The manager appointed by the co-owners of a French apartment building to run it."], ...terms],
-  title: "Paris property glossary: the French terms a foreign buyer meets | Stouls Studio",
+  title: "Paris property glossary in plain English | Stouls Studio",
   description: "Plain-English definitions of the French words in a Paris apartment purchase and renovation: notaire, compromis, copropriété, syndic, DPE, loi Carrez, chambre de bonne, pied-à-terre.",
   body: (c) => `${head(c, false, "Glossary", "Paris property glossary", "The French words you will meet when buying and renovating an apartment in Paris, each defined in a sentence or two.")}
 
@@ -340,7 +340,7 @@ const hub = {
 const cost = {
   path: "paris-apartment-renovation-cost/",
   crumb: "Renovation cost",
-  title: "Paris apartment renovation cost per square metre: published ranges and what moves them | Stouls Studio",
+  title: "Paris apartment renovation cost per m² | Stouls Studio",
   description: "What Paris firms publish for renovation cost per m², from a refresh to a full premium renovation, why two apartments of the same size differ, and the costs on top of the contractor's quote.",
   faq: [
     ["How much does it cost to renovate an apartment in Paris?", "Paris firms publish ranges from about €500 to €900 per m² for a refresh, €1,200 to €2,000 per m² for a complete renovation and €2,000 to €3,500 per m² or more for a premium one. The state of the wiring, plumbing and structure matters more than the floor area."],
@@ -414,7 +414,7 @@ const canada = {
   path: "canadian-buyers-paris/",
   crumb: "Canadian buyers",
   service: "Paris apartment search and renovation for Canadian buyers",
-  title: "Buying and renovating an apartment in Paris from Canada | Stouls Studio",
+  title: "Buying an apartment in Paris from Canada | Stouls Studio",
   description: "Stouls Studio's first overseas clients were Canadian. How a Canadian buyer finds, buys, renovates and furnishes a Paris apartment without being on site, in English or French.",
   faq: [
     ["Can Canadians buy property in France?", "Yes. France places no nationality restriction on buying residential property, and you do not need to live in France to buy."],

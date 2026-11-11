@@ -41,11 +41,14 @@ const footExtra = [
   ["glossary/chambre-de-bonne/", "What is a chambre de bonne?"],
   ["glossary/copropriete-syndic/", "Copropriété and syndic"],
 ];
-const today = new Date().toISOString().slice(0, 10);
+// Each page carries the date its content last changed (page.updated). The build date is
+// never used: a lastmod that moves on every deploy teaches crawlers to ignore it.
+const DEFAULT_UPDATED = "2026-11-11";
+const updatedOf = (page) => page.updated || DEFAULT_UPDATED;
 
 const ctx = (page) => {
   const depth = page.path ? page.path.split("/").filter(Boolean).length : 0;
-  const rel = "../".repeat(depth);
+  const rel = page.absolute ? `${siteUrl}/` : "../".repeat(depth);
   return {
     cfg, rel, photo,
     link: (p) => rel + p || "./",
@@ -63,7 +66,7 @@ const org = {
   name: cfg.studio,
   url: `${siteUrl}/`,
   description: "Interior architecture studio in Paris. Apartment sourcing, design, renovation management and furnishing for buyers based in the United States and Canada.",
-  founder: { "@type": "Person", name: cfg.founder, jobTitle: "Interior architect" },
+  founder: { "@id": `${siteUrl}/about/#margaux` },
   foundingDate: String(cfg.foundingYear),
   address: { "@type": "PostalAddress", addressLocality: "Paris", addressCountry: "FR" },
   areaServed: { "@type": "City", name: "Paris" },
@@ -72,12 +75,23 @@ const org = {
   ...(cfg.email ? { email: cfg.email } : {}),
   ...(cfg.whatsapp ? { telephone: cfg.whatsapp } : {}),
 };
+const person = {
+  "@type": "Person",
+  "@id": `${siteUrl}/about/#margaux`,
+  name: cfg.founder,
+  jobTitle: "Interior architect",
+  url: `${siteUrl}/about/`,
+  worksFor: { "@id": `${siteUrl}/#studio` },
+  workLocation: { "@type": "City", name: "Paris" },
+  knowsLanguage: ["en", "fr"],
+  sameAs: [cfg.linkedin, `https://www.instagram.com/${cfg.instagram}/`].filter(Boolean),
+};
 
 function render(page) {
   const c = ctx(page);
   const url = `${siteUrl}/${page.path}`;
   const body = page.body(c);
-  const graph = [org, { "@type": "WebPage", "@id": url, url, name: page.title, description: page.description, isPartOf: { "@id": `${siteUrl}/#site` }, about: { "@id": `${siteUrl}/#studio` }, inLanguage: "en", dateModified: today }];
+  const graph = [org, person, { "@type": "WebPage", "@id": url, url, name: page.title, description: page.description, isPartOf: { "@id": `${siteUrl}/#site` }, about: { "@id": `${siteUrl}/#studio` }, inLanguage: "en", dateModified: updatedOf(page), author: { "@id": `${siteUrl}/about/#margaux` } }];
   if (!page.path) graph.push({ "@type": "WebSite", "@id": `${siteUrl}/#site`, url: `${siteUrl}/`, name: cfg.studio, inLanguage: "en" });
   if (page.crumb) graph.push({ "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: cfg.studio, item: `${siteUrl}/` }, { "@type": "ListItem", position: 2, name: page.crumb, item: url }] });
   if (page.faq) graph.push({ "@type": "FAQPage", mainEntity: page.faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a.replace(/<[^>]+>/g, "") } })) });
@@ -153,9 +167,9 @@ if (photoFiles.length) {
   mkdirSync(join(out, "photos"), { recursive: true });
   for (const f of photoFiles) copyFileSync(join(photoDir, f), join(out, "photos", f));
 }
-writeFileSync(join(out, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map((p) => `  <url><loc>${siteUrl}/${p.path}</loc><lastmod>${today}</lastmod></url>`).join("\n")}\n</urlset>\n`);
-writeFileSync(join(out, "robots.txt"), !cfg.indexable ? `User-agent: *\nDisallow: /\n` : `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}/sitemap.xml\n`);
+writeFileSync(join(out, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map((p) => `  <url><loc>${siteUrl}/${p.path}</loc><lastmod>${updatedOf(p)}</lastmod></url>`).join("\n")}\n</urlset>\n`);
+writeFileSync(join(out, "robots.txt"), !cfg.indexable ? `User-agent: *\nDisallow: /\n` : `User-agent: *\nAllow: /\n\n# AI search and assistant crawlers are welcome.\n${["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "PerplexityBot", "Google-Extended", "Applebot-Extended", "Bingbot"].map((b) => `User-agent: ${b}\nAllow: /\n`).join("\n")}\nSitemap: ${siteUrl}/sitemap.xml\n`);
 writeFileSync(join(out, "llms.txt"), `# ${cfg.studio}\n\n> Interior architecture studio in Paris run by ${cfg.founder}. For buyers based in the United States and Canada: apartment sourcing, design, renovation management and furnishing, for a rental investment or a pied-à-terre.\n\n${pages.map((p) => `- [${p.title}](${siteUrl}/${p.path}): ${p.description}`).join("\n")}\n`);
 writeFileSync(join(out, ".nojekyll"), "");
-writeFileSync(join(out, "404.html"), render({ path: "", title: `Page not found | ${cfg.studio}`, description: "This page does not exist.", body: (c) => `<section class="page-head"><h1>That page isn't here.</h1><p class="lede">Go back to the <a href="${siteUrl}/">studio page</a>.</p></section>` }).replace(/(href|src)="(styles\.css|favicon\.svg)"/g, `$1="${siteUrl}/$2"`));
+writeFileSync(join(out, "404.html"), render({ path: "404.html", absolute: true, title: `Page not found | ${cfg.studio}`, description: "This page does not exist.", body: () => `<section class="page-head"><h1>That page isn't here.</h1><p class="lede">Go back to the <a href="${siteUrl}/">studio page</a>.</p></section>` }).replace(/<link rel="canonical"[^>]*>(\n<meta name="robots"[^>]*>)?/, '<meta name="robots" content="noindex">'));
 console.log(`Built ${pages.length} pages, ${photoFiles.length} photos -> docs/`);

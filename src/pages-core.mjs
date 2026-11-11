@@ -16,7 +16,7 @@ const planSvg = `<svg class="plan" viewBox="0 0 300 430" role="img" aria-label="
 
 const home = {
   path: "",
-  title: "Buy and renovate an apartment in Paris from the US or Canada | Stouls Studio, interior architect",
+  title: "Buy and renovate an apartment in Paris | Stouls Studio",
   description: "Margaux Stouls, interior architect in Paris, finds your apartment, draws the plans, runs the renovation and furnishes it while you stay in the US or Canada. Rental investment or pied-à-terre.",
   faq: [
     ["Do I have to come to Paris?", "Not for the search or the works. Margaux visits apartments for you and sends video, measurements and her read on what the renovation involves. During the works she sends photo and video reports from site. Most buyers come once to see the apartment before they commit, and once for the handover."],
@@ -120,6 +120,18 @@ ${c.photo("project-1") ? `<section class="band">
   </div>
 </section>
 
+<section class="band">
+  <div class="band-grid">
+    <h2>What protects you when you are not there</h2>
+    <ul class="rows">
+      <li><h3>Your deposit sits with the notaire</h3><p>The deposit you pay at the preliminary contract is held by the notaire, a public legal officer, until the sale completes. You have ten days after signing to withdraw.</p></li>
+      <li><h3>You own the contracts</h3><p>You buy in your own name and sign with each contractor yourself. Their quotes and invoices are addressed to you, and you pay them directly.</p></li>
+      <li><h3>The builders are insured by law</h3><p>In France every contractor must carry ten-year liability insurance covering serious defects after the works are accepted. Margaux collects each certificate before work starts. <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F2034">Service-Public</a></p></li>
+      <li><h3>You pay for work done</h3><p>Payments follow the stages of the site. Each one is released after Margaux has checked the work against the drawings and sent you the photos.</p></li>
+    </ul>
+  </div>
+</section>
+
 <section class="band paper">
   <div class="band-grid">
     <h2>Questions buyers ask first</h2>
@@ -132,7 +144,7 @@ const sourcing = {
   path: "apartment-sourcing-paris/",
   crumb: "Apartment sourcing",
   service: "Apartment sourcing in Paris",
-  title: "Buying an apartment in Paris from abroad: search, visits and renovation estimate | Stouls Studio",
+  title: "Buying an apartment in Paris from abroad | Stouls Studio",
   description: "Looking at apartments for sale in Paris from the US or Canada? An interior architect visits them for you and prices the renovation before you make an offer.",
   faq: [
     ["How is this different from a property finder?", "A property finder judges location and price. Margaux also judges the works: structure, plumbing runs, electrical state, what the building will allow. You get a purchase price and a renovation estimate side by side."],
@@ -187,7 +199,7 @@ const renovation = {
   path: "paris-apartment-renovation/",
   crumb: "Renovation",
   service: "Turnkey apartment renovation in Paris",
-  title: "Turnkey apartment renovation in Paris, managed for owners abroad | Stouls Studio",
+  title: "Paris apartment renovation, managed for you | Stouls Studio",
   description: "Plans, building approvals, contractors, site visits and furnishing for your Paris apartment, run by interior architect Margaux Stouls and reported to you in English.",
   faq: [
     ["Do I need the building's permission to renovate?", "For work inside your apartment that touches nothing shared, usually not. For anything affecting structure, shared pipes, the façade or windows, the co-owners' association has to agree, and some work also needs a filing at the town hall. Margaux checks the building's rules before the design is fixed."],
@@ -240,7 +252,7 @@ const pied = {
   path: "paris-pied-a-terre/",
   crumb: "Pied-à-terre",
   service: "Paris pied-à-terre search, renovation and furnishing",
-  title: "Pied-à-terre in Paris: buying, renovating and furnishing one from abroad | Stouls Studio",
+  title: "A pied-à-terre in Paris, found and renovated | Stouls Studio",
   description: "Your own apartment in Paris, found, renovated and furnished by an interior architect while you are at home. Arrive to a finished place.",
   faq: [
     ["What is a pied-à-terre?", "A second home in a city, kept for regular short stays, not as a main residence. The French means \"foot on the ground\". In Paris it is usually a one- or two-bedroom apartment in a central neighbourhood."],
@@ -297,7 +309,7 @@ const pied = {
 const about = {
   path: "about/",
   crumb: "About",
-  title: "Margaux Stouls, English-speaking interior architect in Paris | Stouls Studio",
+  title: "English-speaking interior architect in Paris | Stouls Studio",
   description: "Margaux Stouls founded Stouls Studio in Paris in 2019. She designs and manages apartment renovations, and works with owners based in North America.",
   body: (c) => `
 <section class="page-head">
@@ -330,6 +342,39 @@ const about = {
         <li>Decisions put to you with a picture and a price.</li>
         <li>Paris only, so she can be on site.</li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="band-grid prose">
+    <h2>What an interior architect does in France</h2>
+    <div>
+      <p>An <em>architecte d'intérieur</em> redesigns the inside of a building: where the walls, kitchen and bathrooms go, how the rooms are lit, what everything is made of. She draws the plans contractors build from and manages the site.</p>
+      <table>
+        <thead><tr><th>Who</th><th>What they do</th></tr></thead>
+        <tbody>
+          <tr><td>Interior architect</td><td>Layout, technical drawings, materials, lighting, joinery, contractors and site management.</td></tr>
+          <tr><td>Decorator</td><td>Furniture, colour, fabrics and styling, without changing the layout or the services.</td></tr>
+          <tr><td>Structural engineer</td><td>Calculates and signs off any change to a load-bearing wall or floor. Brought in when the plan needs one.</td></tr>
+          <tr><td>Buyer's agent</td><td>Searches and negotiates the purchase. Their work ends when you sign.</td></tr>
+        </tbody>
+      </table>
+      <p>Margaux does the first two for you, brings in the third when the plan requires it, and searches for the apartment so that the fourth step and the works are judged together.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band paper">
+  <div class="band-grid prose">
+    <h2>What she does not do</h2>
+    <div>
+      <ul>
+        <li>Tax or legal advice. Your notaire and a cross-border tax adviser cover that.</li>
+        <li>Rental management. She hands the finished apartment to the manager you choose.</li>
+        <li>Hold your money. The notaire holds the purchase funds, and you pay contractors directly.</li>
+      </ul>
+      <p>Common questions about the purchase itself are answered in the <a href="${c.link("guide/buying-renovating-paris-apartment/")}">buyer's guide</a>, and the French vocabulary in the <a href="${c.link("glossary/")}">glossary</a>.</p>
     </div>
   </div>
 </section>`,
