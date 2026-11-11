@@ -41,10 +41,10 @@ const groups = [
   },
   {
     id: "3d-visualisations", name: "3D visualisations", key: "render",
-    text: "Before work starts, rooms and furniture are modelled in three dimensions. A client abroad sees the result on screen and can change it while changing still costs nothing.",
+    text: "Before work starts, the rooms are modelled in three dimensions. A client abroad sees the result on screen and can change it while changing still costs nothing.",
     alts: [
       "3D visualisation of a living room", "3D visualisation of a kitchen and dining corner", "3D visualisation of a bedroom", "3D visualisation of a dining banquette",
-      "3D visualisation of a walnut kitchen with an island", "3D visualisation of a marble bathroom", "3D visualisation of a dressing room", "3D visualisation of a sideboard with handle details", "3D visualisation of a desk with metal legs",
+      "3D visualisation of a walnut kitchen with an island", "3D visualisation of a marble bathroom", "3D visualisation of a dressing room",
     ],
   },
   {
