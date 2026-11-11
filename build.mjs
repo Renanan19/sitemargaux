@@ -99,7 +99,10 @@ function render(page) {
   const body = page.body(c);
   const graph = [org, person, { "@type": "WebPage", "@id": url, url, name: page.title, description: page.description, isPartOf: { "@id": `${siteUrl}/#site` }, about: { "@id": `${siteUrl}/#studio` }, inLanguage: "en", dateModified: updatedOf(page), author: { "@id": `${siteUrl}/about/#margaux` } }];
   if (!page.path) graph.push({ "@type": "WebSite", "@id": `${siteUrl}/#site`, url: `${siteUrl}/`, name: cfg.studio, inLanguage: "en" });
-  if (page.crumb) graph.push({ "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: cfg.studio, item: `${siteUrl}/` }, { "@type": "ListItem", position: 2, name: page.crumb, item: url }] });
+  if (page.crumb) {
+    const trail = [[cfg.studio, `${siteUrl}/`], ...(page.parent ? [[page.parent[1], `${siteUrl}/${page.parent[0]}`]] : []), [page.crumb, url]];
+    graph.push({ "@type": "BreadcrumbList", itemListElement: trail.map(([name, item], i) => ({ "@type": "ListItem", position: i + 1, name, item })) });
+  }
   if (page.faq) graph.push({ "@type": "FAQPage", mainEntity: page.faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a.replace(/<[^>]+>/g, "") } })) });
   if (page.service) graph.push({ "@type": "Service", name: page.service, provider: { "@id": `${siteUrl}/#studio` }, areaServed: { "@type": "City", name: "Paris" }, url });
   const defined = page.terms || (page.term ? [page.term] : null);
