@@ -16,7 +16,7 @@ const planSvg = `<svg class="plan" viewBox="0 0 300 430" role="img" aria-label="
 
 const home = {
   path: "",
-  title: "English-speaking interior architect in Paris: apartment sourcing and turnkey renovation | Stouls Studio",
+  title: "Buy and renovate an apartment in Paris from the US or Canada | Stouls Studio, interior architect",
   description: "Margaux Stouls, interior architect in Paris, finds your apartment, draws the plans, runs the renovation and furnishes it while you stay in the US or Canada. Rental investment or pied-à-terre.",
   faq: [
     ["Do I have to come to Paris?", "Not for the search or the works. Margaux visits apartments for you and sends video, measurements and her read on what the renovation involves. During the works she sends photo and video reports from site. Most buyers come once to see the apartment before they commit, and once for the handover."],
@@ -132,8 +132,8 @@ const sourcing = {
   path: "apartment-sourcing-paris/",
   crumb: "Apartment sourcing",
   service: "Apartment sourcing in Paris",
-  title: "Apartment sourcing in Paris for overseas buyers | Stouls Studio",
-  description: "An interior architect searches and visits Paris apartments for you, and prices the renovation before you make an offer. For buyers in the US and Canada.",
+  title: "Buying an apartment in Paris from abroad: search, visits and renovation estimate | Stouls Studio",
+  description: "Looking at apartments for sale in Paris from the US or Canada? An interior architect visits them for you and prices the renovation before you make an offer.",
   faq: [
     ["How is this different from a property finder?", "A property finder judges location and price. Margaux also judges the works: structure, plumbing runs, electrical state, what the building will allow. You get a purchase price and a renovation estimate side by side."],
     ["Do you find off-market apartments?", "Sometimes, through agents and contractors she works with. Most good apartments in Paris are listed, and go quickly. What matters is seeing them in the first days and knowing at once whether the layout can be fixed."],
@@ -142,8 +142,8 @@ const sourcing = {
   body: (c) => `
 <section class="page-head">
   <p class="crumbs"><a href="${c.link("")}">Stouls Studio</a> / Apartment sourcing</p>
-  <h1>Apartment sourcing in Paris, by someone who will have to renovate it</h1>
-  <p class="lede">Margaux searches, visits and reports. You see every apartment on video with her notes on what it needs, and you make an offer knowing what the works will cost.</p>
+  <h1>Buying an apartment in Paris, with someone who will have to renovate it</h1>
+  <p class="lede">The listings of apartments for sale in Paris look alike from across the Atlantic. Margaux searches, visits and reports. You see every apartment on video with her notes on what it needs, and you make an offer knowing what the works will cost.</p>
   ${c.buttons()}
 </section>
 
@@ -240,9 +240,10 @@ const pied = {
   path: "paris-pied-a-terre/",
   crumb: "Pied-à-terre",
   service: "Paris pied-à-terre search, renovation and furnishing",
-  title: "Buying a pied-à-terre in Paris from the US or Canada | Stouls Studio",
+  title: "Pied-à-terre in Paris: buying, renovating and furnishing one from abroad | Stouls Studio",
   description: "Your own apartment in Paris, found, renovated and furnished by an interior architect while you are at home. Arrive to a finished place.",
   faq: [
+    ["What is a pied-à-terre?", "A second home in a city, kept for regular short stays, not as a main residence. The French means \"foot on the ground\". In Paris it is usually a one- or two-bedroom apartment in a central neighbourhood."],
     ["How long can I stay in my apartment each year?", "Owning property gives no right of residence. US and Canadian citizens can stay in the Schengen area for up to 90 days in any 180-day period without a visa. Longer stays need a French long-stay visa."],
     ["Who looks after it when I am away?", "Margaux can hand over to a concierge or property manager for cleaning, mail and checks. Ask her for the ones her clients use."],
     ["Can I rent it out when I am not there?", `Short tourist lets of a second home are tightly restricted in Paris. Longer furnished leases are possible. The <a href="../guide/buying-renovating-paris-apartment/">buyer's guide</a> sets out the rules.`],
@@ -259,6 +260,7 @@ const pied = {
   <div class="band-grid prose">
     <h2>What North American owners ask for</h2>
     <div>
+      <p>A pied-à-terre is a second home in a city, kept for regular short stays. In Paris that usually means a one- or two-bedroom apartment in a central neighbourhood.</p>
       <p>Paris apartments were not laid out for the way most Americans and Canadians live. The requests come up again and again, and each has a Paris answer.</p>
       <ul>
         <li>A bathroom for each bedroom. Possible more often than sellers think, once the drainage is understood.</li>

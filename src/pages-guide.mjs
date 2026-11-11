@@ -84,10 +84,10 @@ const rental = {
 const guide = {
   path: "guide/buying-renovating-paris-apartment/",
   crumb: "Buyer's guide",
-  title: "Buying and renovating a Paris apartment from the US or Canada: a plain guide | Stouls Studio",
+  title: "Can Americans buy an apartment in Paris? A plain guide to buying and renovating | Stouls Studio",
   description: "The purchase steps, the costs on top of the price, building approvals, energy ratings, rental rules and taxes to ask your adviser about, each with its official source.",
   faq: [
-    ["Can Americans and Canadians buy property in Paris?", "Yes. France places no nationality restriction on buying residential property. Ownership does not give a right to live in France."],
+    ["Can Americans buy property in France?", "Yes, and so can Canadians. France places no nationality restriction on buying residential property. Ownership does not give a right to live in France."],
     ["How long does a purchase take?", "Expect two to three months between the preliminary contract and the final deed. The buyer has a ten-day withdrawal period after signing the preliminary contract."],
     ["Do I need the building's approval to renovate?", "Not for work inside your apartment that touches nothing shared. Work affecting load-bearing walls, floors, shared pipes or the façade needs a vote of the co-owners."],
     ["Is there a wealth tax on French property?", "The French real-estate wealth tax (IFI) applies when net taxable property exceeds €1,300,000. Non-residents are assessed on their French property only."],
@@ -103,6 +103,7 @@ const guide = {
   <div class="band-grid prose">
     <h2>Who is buying</h2>
     <div>
+      <p>Americans and Canadians can buy property in France. There is no nationality restriction on residential purchases, and you do not need to live in France. Owning an apartment does not give you a right to stay beyond the usual 90 days in any 180.</p>
       <p>Americans were the first nationality among foreign non-resident buyers in Paris in 2025: 220 purchases, 26% of that group. The median purchase by a foreign non-resident in Paris was €864,000 for 65 m². Foreign non-residents made 3.7% of all Paris purchases (<a href="${SRC.notaires}">Notaires du Grand Paris, 25 June 2026</a>).</p>
       <p>The notaires publish no separate figure for Canadian buyers.</p>
     </div>
