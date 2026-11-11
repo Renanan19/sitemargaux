@@ -12,7 +12,7 @@ for (const file of walk("docs")) {
   try { JSON.parse(ld[1]); } catch { bad++; console.log("BAD JSON-LD", file); }
   if (file.endsWith("404.html")) continue;
   for (const [, href] of html.matchAll(/href="([^"#]+)"/g)) {
-    if (/^(https?:|mailto:)/.test(href)) continue;
+    if (/^(https?:|mailto:|tel:)/.test(href)) continue;
     let target = normalize(join(dirname(file), href));
     if (existsSync(target) && statSync(target).isDirectory()) target = join(target, "index.html");
     if (!existsSync(target)) { bad++; console.log("BROKEN LINK", file, href); }
