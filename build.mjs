@@ -171,5 +171,7 @@ writeFileSync(join(out, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\
 writeFileSync(join(out, "robots.txt"), !cfg.indexable ? `User-agent: *\nDisallow: /\n` : `User-agent: *\nAllow: /\n\n# AI search and assistant crawlers are welcome.\n${["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "PerplexityBot", "Google-Extended", "Applebot-Extended", "Bingbot"].map((b) => `User-agent: ${b}\nAllow: /\n`).join("\n")}\nSitemap: ${siteUrl}/sitemap.xml\n`);
 writeFileSync(join(out, "llms.txt"), `# ${cfg.studio}\n\n> Interior architecture studio in Paris run by ${cfg.founder}. For buyers based in the United States and Canada: apartment sourcing, design, renovation management and furnishing, for a rental investment or a pied-à-terre.\n\n${pages.map((p) => `- [${p.title}](${siteUrl}/${p.path}): ${p.description}`).join("\n")}\n`);
 writeFileSync(join(out, ".nojekyll"), "");
+const host = new URL(siteUrl).hostname;
+if (!host.endsWith("github.io")) writeFileSync(join(out, "CNAME"), host + "\n");
 writeFileSync(join(out, "404.html"), render({ path: "404.html", absolute: true, title: `Page not found | ${cfg.studio}`, description: "This page does not exist.", body: () => `<section class="page-head"><h1>That page isn't here.</h1><p class="lede">Go back to the <a href="${siteUrl}/">studio page</a>.</p></section>` }).replace(/<link rel="canonical"[^>]*>(\n<meta name="robots"[^>]*>)?/, '<meta name="robots" content="noindex">'));
 console.log(`Built ${pages.length} pages, ${photoFiles.length} photos -> docs/`);
