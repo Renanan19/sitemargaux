@@ -149,7 +149,7 @@ const sourcing = {
   faq: [
     ["How is this different from a property finder?", "A property finder judges location and price. Margaux also judges the works: structure, plumbing runs, electrical state, what the building will allow. You get a purchase price and a renovation estimate side by side."],
     ["Do you find off-market apartments?", "Sometimes, through agents and contractors she works with. Most good apartments in Paris are listed, and go quickly. What matters is seeing them in the first days and knowing at once whether the layout can be fixed."],
-    ["Who signs the purchase?", "You do, with a notaire, in your own name or through your own company. Margaux does not hold your money and is not a party to the sale."],
+    ["Who signs the purchase?", "You do, with a notaire, in your own name or through your own company. The sale itself goes through licensed Paris estate agents and the notaire. Margaux's part is the brief, the visits and the assessment of each apartment. She does not hold your money and is not a party to the sale."],
   ],
   body: (c) => `
 <section class="page-head">
