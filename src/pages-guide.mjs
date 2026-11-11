@@ -22,7 +22,7 @@ const rental = {
     ["Can I put my Paris apartment on Airbnb?", "If it is not your main home, only with a change-of-use authorisation from the City of Paris, which requires compensation: converting commercial space into housing elsewhere. For most individual buyers that closes the door. A main home can be let to tourists for up to 90 days a year, with a registration number."],
     ["What is a bail mobilité?", "A furnished lease of one to ten months, not renewable, with no deposit, for tenants who qualify: students, people on a work assignment, in training or on a temporary posting."],
     ["Does the energy rating matter?", "Yes. Apartments rated G can no longer be let on a new or renewed lease since 1 January 2025. F follows in 2028 and E in 2034. Many small Paris apartments are rated F or G, so the rating belongs in the purchase decision."],
-    ["Will you manage the tenants?", "No. Margaux hands the finished apartment to the rental manager you choose and can introduce you to ones her clients use."],
+    ["Will you manage the tenants?", "No. I hand the finished apartment to the rental manager you choose and can introduce you to ones my clients use."],
   ],
   body: (c) => `
 <section class="page-head">
@@ -56,30 +56,30 @@ const rental = {
     <div>
       <p>Every apartment for sale in France carries an energy rating from A to G. Since 1 January 2025 an apartment rated G cannot be let on a new or renewed lease. The same applies to F from 2028 and to E from 2034 (<a href="${SRC.dpeLet}">Ministry of Ecology</a>).</p>
       <p>Poorly rated apartments sell at a discount for that reason. Whether the rating can be raised depends on the building: windows the city will accept, insulation from the inside, the heating system, ventilation.</p>
-      <p>Margaux looks at this on the visit. A G-rated apartment that can reach D with the works you were going to do anyway is an opportunity. One that cannot is a trap.</p>
+      <p>I look at this on the visit. A G-rated apartment that can reach D with the works you were going to do anyway is an opportunity. One that cannot is a trap.</p>
     </div>
   </div>
 </section>
 
 <section class="band">
   <div class="band-grid">
-    <h2>Rental apartments she has built</h2>
+    <h2>Rental apartments I have designed</h2>
     <div>
       <div class="figs">
-        ${["x-gra6", "x-stu15", "x-gra9"].map((n, i) => c.img(n, ["Studio Mazarine: living room under old beams with a mezzanine bed, rental studio by Stouls Studio", "Studio in Saint-Germain-des-Prés: black kitchen against a brick wall, rental apartment by Stouls Studio", "Studio Mazarine: staircase built as storage, rental studio by Stouls Studio"][i])).filter(Boolean).map((img) => `<figure>${img}</figure>`).join("\n        ")}
+        ${["x-maz6", "x-stu15", "x-gra10"].map((n, i) => c.img(n, ["Studio Mazarine: living area and kitchen under old beams, rental studio by Stouls Studio", "Studio in Saint-Germain-des-Prés: black kitchen against a brick wall, rental apartment by Stouls Studio", "Studio Grands-Augustins: staircase built as storage, rental studio by Stouls Studio"][i])).filter(Boolean).map((img) => `<figure>${img}</figure>`).join("\n        ")}
       </div>
-      <p><a href="${c.link("portfolio/studio-mazarine/")}">Studio Mazarine, 24 m² in the 6th</a> and the <a href="${c.link("portfolio/studio-saint-germain-des-pres/")}">studio in Saint-Germain-des-Prés</a>: see both rental projects.</p>
+      <p><a href="${c.link("portfolio/studio-mazarine/")}">Studio Mazarine, 24 m² in the 6th</a>, the <a href="${c.link("portfolio/studio-saint-germain-des-pres/")}">studio in Saint-Germain-des-Prés</a> and the <a href="${c.link("portfolio/studio-grands-augustins/")}">Studio Grands-Augustins</a>: see the three rental projects.</p>
     </div>
   </div>
 </section>
 
 <section class="band">
   <div class="band-grid">
-    <h2>What she builds into a rental</h2>
+    <h2>What I build into a rental</h2>
     <ul class="rows">
       <li><h3>A layout that rents</h3><p>A real bedroom door, a desk that is not the dining table, storage for a tenant who arrives with a year of belongings.</p></li>
       <li><h3>Materials that last</h3><p>Floors, worktops and bathroom fittings chosen for the fifth tenant, and paint colours that can be touched up between leases.</p></li>
-      <li><h3>Complete furnishing</h3><p>French law lists what a furnished let must contain. She supplies that list and the things tenants look for beyond it.</p></li>
+      <li><h3>Complete furnishing</h3><p>French law lists what a furnished let must contain. I supply that list and the things tenants look for beyond it.</p></li>
       <li><h3>A file for your manager</h3><p>Plans, appliance manuals, paint references, contractor contacts and photos of every room on handover day.</p></li>
     </ul>
   </div>
@@ -156,7 +156,7 @@ const guide = {
       </table>
       <p>General meetings are often held once a year. If your project needs a vote, the date of the next meeting can set your timetable, so it is worth asking before you buy.</p>
       <h3>What a renovation costs</h3>
-      <p>It depends on the state of the wiring, plumbing and structure far more than on the floor area. Figures quoted per square metre online range so widely that they mislead. Margaux gives an estimate for the apartment in front of her, at the visit, and a fixed set of contractor quotes once the plans are drawn. <a href="${c.link("paris-apartment-renovation-cost/")}">Published cost ranges per m²</a>.</p>
+      <p>It depends on the state of the wiring, plumbing and structure far more than on the floor area. Figures quoted per square metre online range so widely that they mislead. I give an estimate for the apartment in front of me, at the visit, and a fixed set of contractor quotes once the plans are drawn. <a href="${c.link("paris-apartment-renovation-cost/")}">Published cost ranges per m²</a>.</p>
     </div>
   </div>
 </section>
@@ -180,7 +180,7 @@ const guide = {
   <div class="band-grid prose">
     <h2>Tax questions for your adviser</h2>
     <div>
-      <p>Margaux is an interior architect, not a tax adviser. These are the questions to take to someone who handles both French and US or Canadian returns.</p>
+      <p>I am an interior architect, not a tax adviser. These are the questions to take to someone who handles both French and US or Canadian returns.</p>
       <ul>
         <li>French income tax on rent received by a non-resident, and how your home country credits it.</li>
         <li>French social charges on rental income for residents of the US or Canada.</li>

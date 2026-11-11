@@ -138,7 +138,7 @@ const bonne = {
         <li>Two or three joined into a studio, with a real shower room and kitchenette.</li>
         <li>Storage that frees a room in the main apartment.</li>
       </ul>
-      <p>The limits are almost always the drainage and the building's rules. Before buying an apartment for its maid's room, have someone check where waste water can go and what the co-owners have allowed before. Margaux looks at both on the visit. <a href="${c.link("apartment-search-paris/")}">How she assesses an apartment before you offer</a>.</p>
+      <p>The limits are almost always the drainage and the building's rules. Before buying an apartment for its maid's room, have someone check where waste water can go and what the co-owners have allowed before. I look at both on the visit. <a href="${c.link("apartment-search-paris/")}">How I assess an apartment before you offer</a>.</p>
     </div>
   </div>
 </section>
@@ -281,7 +281,7 @@ const copro = {
     <h2>What does the copropriété decide about a renovation?</h2>
     <div>
       <p>Inside your own walls, with nothing shared touched, you need no vote. As soon as the work affects load-bearing walls, floors, shared pipes, the façade or the windows, the owners must approve it at a general meeting (<a href="${SRC.copro}">Service-Public</a>).</p>
-      <p>Since meetings are often held once a year, the date of the next one can set the start of your works. Margaux checks the rule book and the calendar before the design is fixed. <a href="${c.link("paris-apartment-renovation/")}">How she handles building approvals</a>.</p>
+      <p>Since meetings are often held once a year, the date of the next one can set the start of your works. I check the rule book and the calendar before the design is fixed. <a href="${c.link("paris-apartment-renovation/")}">How I handle building approvals</a>.</p>
     </div>
   </div>
 </section>
@@ -363,7 +363,7 @@ const cost = {
           <tr><td>Renovation with a design team</td><td>€3,000 to €4,000</td><td>€279 to €372</td><td><a href="${SRC.parisBuyer}">Paris Buyer</a></td></tr>
         </tbody>
       </table>
-      <p class="note">These are figures published by other Paris firms, quoted here so you can compare like with like. They are not Stouls Studio quotes. Margaux prices the apartment in front of her.</p>
+      <p class="note">These are figures published by other Paris firms, quoted here so you can compare like with like. They are not Stouls Studio quotes. I price the apartment in front of me.</p>
       <p>On the median foreign purchase in Paris, 65 m² (<a href="${SRC.notaires}">Notaires du Grand Paris</a>), a complete renovation at €1,200 to €2,000 per m² comes to €78,000 to €130,000 before design fees and furniture.</p>
     </div>
   </div>
@@ -397,7 +397,7 @@ const cost = {
         <li>Fees charged by the building manager for handling an approval.</li>
         <li>A contingency. In an old building, something is always found behind a wall.</li>
       </ul>
-      <p>The useful number is the whole project: purchase, notaire fees, works, fees and furniture. Margaux gives a first estimate of the works at the visit, before you make an offer. <a href="${c.link("apartment-search-paris/")}">How the pre-offer assessment works</a>.</p>
+      <p>The useful number is the whole project: purchase, notaire fees, works, fees and furniture. I give a first estimate of the works at the visit, before you make an offer. <a href="${c.link("apartment-search-paris/")}">How the pre-offer assessment works</a>.</p>
     </div>
   </div>
 </section>
@@ -419,20 +419,20 @@ const canada = {
   faq: [
     ["Can Canadians buy property in France?", "Yes. France places no nationality restriction on buying residential property, and you do not need to live in France to buy."],
     ["How long can a Canadian stay in France without a visa?", "Up to 90 days in any 180-day period in the Schengen area. Owning an apartment does not extend that. Longer stays need a French long-stay visa."],
-    ["Do you work in French as well as English?", "Yes. Margaux is French. Clients from Québec and francophone Canada work with her in French; everyone else in English."],
+    ["Do you work in French as well as English?", "Yes. I am French. Clients from Québec and francophone Canada work with me in French; everyone else in English."],
     ["Do I have to travel for the purchase?", "Not necessarily. The final deed can be signed by power of attorney. Most buyers come once to see the apartment before committing."],
   ],
   body: (c) => `${head(c, false, "Canadian buyers", "A Paris apartment, bought and renovated from Canada", "Stouls Studio's first overseas clients were Canadian. They bought in Paris, handed over the keys, and came back to a finished apartment.")}
 <section class="band">
   <div class="band-grid prose">
-    <h2>What Margaux does for a buyer in Canada</h2>
+    <h2>What I do for a buyer in Canada</h2>
     <div>
       <ul>
-        <li>Searches and visits apartments for you, with video and a renovation estimate for each. <a href="${c.link("apartment-search-paris/")}">Apartment search</a></li>
-        <li>Draws the plans and gets the building's approvals.</li>
-        <li>Hires the contractors and runs the site. <a href="${c.link("paris-apartment-renovation/")}">Renovation</a></li>
-        <li>Furnishes the apartment down to the linen.</li>
-        <li>Works in English or in French.</li>
+        <li>I search and visit apartments for you, with video and a renovation estimate for each. <a href="${c.link("apartment-search-paris/")}">Apartment search</a></li>
+        <li>I draw the plans and get the building's approvals.</li>
+        <li>I hire the contractors and run the site. <a href="${c.link("paris-apartment-renovation/")}">Renovation</a></li>
+        <li>I furnish the apartment down to the linen.</li>
+        <li>I work in English or in French.</li>
       </ul>
       ${c.buttons()}
     </div>

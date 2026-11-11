@@ -55,8 +55,8 @@ const legal = {
     <h2>Your personal data</h2>
     <div>
       <p>This site sets no cookies, runs no analytics and has no contact form. It does not collect anything about you while you read it.</p>
-      <h3>When you write to Margaux</h3>
-      <p>If you send a message by WhatsApp, email or Instagram, she receives what you choose to send: your name, your contact details and what you say about your project. She uses it only to answer you and, if you go ahead, to carry out the work. It is not sold or passed on for marketing.</p>
+      <h3>When you write to me</h3>
+      <p>If you send a message by WhatsApp, email or Instagram, I receive what you choose to send: your name, your contact details and what you say about your project. I use it only to answer you and, if you go ahead, to carry out the work. It is not sold or passed on for marketing.</p>
       <p>Messages are kept for as long as the exchange or the project lasts, then for the period French law requires for business records.</p>
       <h3>Services that receive technical data</h3>
       <ul>
@@ -65,7 +65,7 @@ const legal = {
         <li>WhatsApp and Instagram are run by Meta. Their own terms apply once you follow those links.</li>
       </ul>
       <h3>Your rights</h3>
-      <p>Under the EU General Data Protection Regulation you can ask to see, correct or delete the information Margaux holds about you, or object to its use. Write to <a href="mailto:${c.cfg.email}">${c.cfg.email}</a>. You can also complain to the French data protection authority, the <a href="https://www.cnil.fr/en">CNIL</a>.</p>
+      <p>Under the EU General Data Protection Regulation you can ask to see, correct or delete the information I hold about you, or object to its use. Write to <a href="mailto:${c.cfg.email}">${c.cfg.email}</a>. You can also complain to the French data protection authority, the <a href="https://www.cnil.fr/en">CNIL</a>.</p>
     </div>
   </div>
 </section>
