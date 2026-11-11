@@ -30,8 +30,18 @@ const nav = [
   ["paris-rental-investment/", "Rental investment"],
   ["paris-pied-a-terre/", "Pied-à-terre"],
   ["guide/buying-renovating-paris-apartment/", "Buyer's guide"],
+  ["glossary/", "Glossary"],
   ["about/", "About"],
 ];
+const footExtra = [
+  ["paris-apartment-renovation-cost/", "Renovation cost per m²"],
+  ["canadian-buyers-paris/", "Canadian buyers"],
+  ["glossary/pied-a-terre/", "What is a pied-à-terre?"],
+  ["glossary/haussmann-apartment/", "What is a Haussmann apartment?"],
+  ["glossary/chambre-de-bonne/", "What is a chambre de bonne?"],
+  ["glossary/copropriete-syndic/", "Copropriété and syndic"],
+];
+const today = new Date().toISOString().slice(0, 10);
 
 const ctx = (page) => {
   const depth = page.path ? page.path.split("/").filter(Boolean).length : 0;
@@ -67,11 +77,13 @@ function render(page) {
   const c = ctx(page);
   const url = `${siteUrl}/${page.path}`;
   const body = page.body(c);
-  const graph = [org, { "@type": "WebPage", "@id": url, url, name: page.title, description: page.description, isPartOf: { "@id": `${siteUrl}/#site` }, about: { "@id": `${siteUrl}/#studio` }, inLanguage: "en" }];
+  const graph = [org, { "@type": "WebPage", "@id": url, url, name: page.title, description: page.description, isPartOf: { "@id": `${siteUrl}/#site` }, about: { "@id": `${siteUrl}/#studio` }, inLanguage: "en", dateModified: today }];
   if (!page.path) graph.push({ "@type": "WebSite", "@id": `${siteUrl}/#site`, url: `${siteUrl}/`, name: cfg.studio, inLanguage: "en" });
   if (page.crumb) graph.push({ "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: cfg.studio, item: `${siteUrl}/` }, { "@type": "ListItem", position: 2, name: page.crumb, item: url }] });
   if (page.faq) graph.push({ "@type": "FAQPage", mainEntity: page.faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a.replace(/<[^>]+>/g, "") } })) });
   if (page.service) graph.push({ "@type": "Service", name: page.service, provider: { "@id": `${siteUrl}/#studio` }, areaServed: { "@type": "City", name: "Paris" }, url });
+  const defined = page.terms || (page.term ? [page.term] : null);
+  if (defined) graph.push({ "@type": "DefinedTermSet", "@id": `${siteUrl}/glossary/#terms`, name: "Paris property glossary", hasDefinedTerm: defined.map(([name, description]) => ({ "@type": "DefinedTerm", name, description, inDefinedTermSet: `${siteUrl}/glossary/#terms` })) });
   const og = photo("hero") ? `${siteUrl}/photos/${photo("hero")}` : null;
 
   return `<!doctype html>
@@ -114,7 +126,7 @@ ${body}
       ${c.buttons()}
     </div>
     <ul class="foot-links">
-      ${nav.map(([p, l]) => `<li><a href="${c.link(p)}">${l}</a></li>`).join("\n      ")}
+      ${[...nav, ...footExtra].map(([p, l]) => `<li><a href="${c.link(p)}">${l}</a></li>`).join("\n      ")}
       <li><a href="https://www.instagram.com/${cfg.instagram}/">Instagram @${cfg.instagram}</a></li>
     </ul>
   </div>
@@ -141,7 +153,6 @@ if (photoFiles.length) {
   mkdirSync(join(out, "photos"), { recursive: true });
   for (const f of photoFiles) copyFileSync(join(photoDir, f), join(out, "photos", f));
 }
-const today = new Date().toISOString().slice(0, 10);
 writeFileSync(join(out, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map((p) => `  <url><loc>${siteUrl}/${p.path}</loc><lastmod>${today}</lastmod></url>`).join("\n")}\n</urlset>\n`);
 writeFileSync(join(out, "robots.txt"), !cfg.indexable ? `User-agent: *\nDisallow: /\n` : `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}/sitemap.xml\n`);
 writeFileSync(join(out, "llms.txt"), `# ${cfg.studio}\n\n> Interior architecture studio in Paris run by ${cfg.founder}. For buyers based in the United States and Canada: apartment sourcing, design, renovation management and furnishing, for a rental investment or a pied-à-terre.\n\n${pages.map((p) => `- [${p.title}](${siteUrl}/${p.path}): ${p.description}`).join("\n")}\n`);

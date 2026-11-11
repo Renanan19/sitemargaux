@@ -70,7 +70,7 @@ const home = {
       <li>
         <h3>Running the building site</h3>
         <div><p>She gets comparable quotes, picks the contractors with you, handles the building's approvals, and is on site to check the work against the drawings.</p>
-        <a class="more" href="${c.link("paris-apartment-renovation/")}">How site management works</a></div>
+        <a class="more" href="${c.link("paris-apartment-renovation-cost/")}">What a Paris renovation costs per m²</a></div>
       </li>
       <li>
         <h3>Furnishing</h3>
@@ -297,12 +297,12 @@ const pied = {
 const about = {
   path: "about/",
   crumb: "About",
-  title: "Margaux Stouls, interior architect in Paris | Stouls Studio",
+  title: "Margaux Stouls, English-speaking interior architect in Paris | Stouls Studio",
   description: "Margaux Stouls founded Stouls Studio in Paris in 2019. She designs and manages apartment renovations, and works with owners based in North America.",
   body: (c) => `
 <section class="page-head">
   <p class="crumbs"><a href="${c.link("")}">Stouls Studio</a> / About</p>
-  <h1>Margaux Stouls, interior architect, Paris</h1>
+  <h1>Margaux Stouls, English-speaking interior architect in Paris</h1>
   <p class="lede">Stouls Studio is one person. The one you speak to on the first call is the one who draws your plans and stands on your building site.</p>
   ${c.buttons()}
 </section>

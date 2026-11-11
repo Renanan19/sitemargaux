@@ -133,7 +133,7 @@ const guide = {
   <div class="band-grid prose">
     <h2>Renovating in a shared building</h2>
     <div>
-      <p>Nearly every Paris apartment is in a co-owned building, a <em>copropriété</em>. The building's rules and its manager, the <em>syndic</em>, shape what you can do.</p>
+      <p>Nearly every Paris apartment is in a co-owned building, a <em>copropriété</em>. The building's rules and its manager, the <em>syndic</em>, shape what you can do. <a href="${c.link("glossary/copropriete-syndic/")}">Copropriété and syndic explained</a>.</p>
       <table>
         <thead><tr><th>Work</th><th>Approval</th></tr></thead>
         <tbody>
@@ -144,7 +144,7 @@ const guide = {
       </table>
       <p>General meetings are often held once a year. If your project needs a vote, the date of the next meeting can set your timetable, so it is worth asking before you buy.</p>
       <h3>What a renovation costs</h3>
-      <p>It depends on the state of the wiring, plumbing and structure far more than on the floor area. Figures quoted per square metre online range so widely that they mislead. Margaux gives an estimate for the apartment in front of her, at the visit, and a fixed set of contractor quotes once the plans are drawn.</p>
+      <p>It depends on the state of the wiring, plumbing and structure far more than on the floor area. Figures quoted per square metre online range so widely that they mislead. Margaux gives an estimate for the apartment in front of her, at the visit, and a fixed set of contractor quotes once the plans are drawn. <a href="${c.link("paris-apartment-renovation-cost/")}">Published cost ranges per m²</a>.</p>
     </div>
   </div>
 </section>
