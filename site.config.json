@@ -7,5 +7,20 @@
   "whatsapp": "+33676495925",
   "email": "contact@stoulsstudio.com",
   "foundingYear": 2019,
+  "company": {
+    "legalName": "CD PRODUCTION",
+    "legalForm": "SARL (société à responsabilité limitée)",
+    "siren": "851 063 347",
+    "siret": "851 063 347 00021",
+    "rcs": "Nanterre",
+    "capital": "",
+    "vat": "",
+    "naf": "74.10Z",
+    "founded": "2019-03-20",
+    "street": "84 rue Carves",
+    "postalCode": "92120",
+    "city": "Montrouge",
+    "director": "Margaux Stouls"
+  },
   "indexable": false
 }

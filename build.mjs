@@ -70,8 +70,11 @@ const org = {
   url: `${siteUrl}/`,
   description: "Interior architecture studio in Paris. Apartment sourcing, design, renovation management and furnishing for buyers based in the United States and Canada.",
   founder: { "@id": `${siteUrl}/about/#margaux` },
-  foundingDate: String(cfg.foundingYear),
-  address: { "@type": "PostalAddress", addressLocality: "Paris", addressCountry: "FR" },
+  legalName: cfg.company.legalName,
+  foundingDate: cfg.company.founded,
+  identifier: { "@type": "PropertyValue", propertyID: "SIRET", value: cfg.company.siret.replace(/\s/g, "") },
+  ...(cfg.company.vat ? { vatID: cfg.company.vat } : {}),
+  address: { "@type": "PostalAddress", streetAddress: cfg.company.street, postalCode: cfg.company.postalCode, addressLocality: cfg.company.city, addressRegion: "Île-de-France", addressCountry: "FR" },
   areaServed: { "@type": "City", name: "Paris" },
   knowsLanguage: ["en", "fr"],
   sameAs: [`https://www.instagram.com/${cfg.instagram}/`],
@@ -150,6 +153,7 @@ ${body}
   <div class="legal">
     <span class="logo" role="img" aria-label="${esc(cfg.studio)}"></span>
     <span>Interior architecture, Paris</span>
+    <a href="${c.link("legal/")}">Legal notice and privacy</a>
     <span>General information, not legal or tax advice.</span>
   </div>
 </footer>
