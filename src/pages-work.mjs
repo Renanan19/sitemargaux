@@ -1,4 +1,4 @@
-// Projects page. The selection and its six groups come from Margaux's own portfolio.
+// Portfolio page. The selection and its six groups come from Margaux's own portfolio.
 // Captions describe only what each image shows.
 const groups = [
   {
@@ -55,14 +55,14 @@ const groups = [
 ];
 
 const work = {
-  path: "projects/",
-  crumb: "Projects",
-  title: "Projects by interior architect Margaux Stouls | Stouls Studio",
+  path: "portfolio/",
+  crumb: "Portfolio",
+  title: "Portfolio of interior architect Margaux Stouls | Stouls Studio",
   description: "Main residences, second homes, rental apartments, custom furniture, 3D visualisations and technical drawings by Stouls Studio, interior architecture in Paris.",
   body: (c) => `
 <section class="page-head">
-  <p class="crumbs"><a href="${c.link("")}">Stouls Studio</a> / Projects</p>
-  <h1>Projects by Margaux Stouls</h1>
+  <p class="crumbs"><a href="${c.link("")}">Stouls Studio</a> / Portfolio</p>
+  <h1>Portfolio of Margaux Stouls</h1>
   <p class="lede">Homes, rental apartments and furniture, with the visualisations and drawings behind them.</p>
   <p class="jump">${groups.map((g) => `<a href="#${g.id}">${g.name}</a>`).join("")}</p>
 </section>

@@ -26,7 +26,7 @@ if (cfg.email) channels.push({ label: `Email ${cfg.email}`, href: `mailto:${cfg.
 channels.push({ label: channels.length ? "Instagram" : "Message Margaux on Instagram", href: `https://ig.me/m/${cfg.instagram}` });
 
 const nav = [
-  ["projects/", "Projects"],
+  ["portfolio/", "Portfolio"],
   ["apartment-sourcing-paris/", "Sourcing"],
   ["paris-apartment-renovation/", "Renovation"],
   ["paris-rental-investment/", "Rental investment"],
