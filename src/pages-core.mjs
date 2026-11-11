@@ -35,7 +35,7 @@ const home = {
   <div class="arch">${c.img("hero", "Apartment in Paris redesigned by Stouls Studio") || planSvg}</div>
 </section>
 
-<section class="band dark">
+<section class="band">
   <div class="band-grid">
     <h2>Two reasons people call</h2>
     <div class="pair">

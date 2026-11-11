@@ -102,7 +102,7 @@ function render(page) {
 ${og ? `<meta property="og:image" content="${og}">\n<meta name="twitter:card" content="summary_large_image">` : `<meta name="twitter:card" content="summary">`}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400..700&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${c.rel}styles.css">
 <link rel="icon" href="${c.rel}favicon.svg" type="image/svg+xml">
 <script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": graph })}</script>
@@ -148,7 +148,7 @@ for (const page of pages) {
   writeFileSync(join(dir, "index.html"), render(page));
 }
 copyFileSync(join(root, "src", "styles.css"), join(out, "styles.css"));
-writeFileSync(join(out, "favicon.svg"), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M4 32V16a12 12 0 0 1 24 0v16z" fill="#66692f"/></svg>`);
+writeFileSync(join(out, "favicon.svg"), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M4 32V16a12 12 0 0 1 24 0v16z" fill="#163a2e"/></svg>`);
 if (photoFiles.length) {
   mkdirSync(join(out, "photos"), { recursive: true });
   for (const f of photoFiles) copyFileSync(join(photoDir, f), join(out, "photos", f));
