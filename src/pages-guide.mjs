@@ -66,9 +66,9 @@ const rental = {
     <h2>Rental apartments she has built</h2>
     <div>
       <div class="figs">
-        ${["rental-1", "rental-4", "rental-6"].map((n, i) => c.img(n, ["Black kitchen against an exposed brick wall, rental apartment by Stouls Studio", "Living room with built-in oak bookshelves and a window bench, rental apartment by Stouls Studio", "Living room below a mezzanine, rental apartment by Stouls Studio"][i])).filter(Boolean).map((img) => `<figure>${img}</figure>`).join("\n        ")}
+        ${["x-gra6", "x-stu15", "x-gra9"].map((n, i) => c.img(n, ["Studio Mazarine: living room under old beams with a mezzanine bed, rental studio by Stouls Studio", "Top-floor studio: black kitchen against a brick wall, rental apartment by Stouls Studio", "Studio Mazarine: staircase built as storage, rental studio by Stouls Studio"][i])).filter(Boolean).map((img) => `<figure>${img}</figure>`).join("\n        ")}
       </div>
-      <p><a href="${c.link("portfolio/top-floor-studio/")}">Top-floor studio</a> and <a href="${c.link("portfolio/mezzanine-apartment-montparnasse/")}">apartment with mezzanine, Montparnasse</a>: see both rental projects.</p>
+      <p><a href="${c.link("portfolio/studio-mazarine/")}">Studio Mazarine, 24 m² in the 6th</a> and the <a href="${c.link("portfolio/top-floor-studio/")}">top-floor studio in Saint-Germain-des-Prés</a>: see both rental projects.</p>
     </div>
   </div>
 </section>

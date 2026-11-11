@@ -222,7 +222,7 @@ const renovation = {
     <h2>What you see before work starts</h2>
     <div>
       <div class="figs contain">
-        ${["render-5", "drawing-1", "drawing-3"].map((n, i) => c.img(n, ["3D visualisation of a walnut kitchen with an island, Stouls Studio", "Electrical and lighting plan of an apartment, Stouls Studio", "Dimensioned elevation of a kitchen wall with joinery notes, Stouls Studio"][i])).filter(Boolean).map((img) => `<figure>${img}</figure>`).join("\n        ")}
+        ${["render-5", "drawing-3", "drawing-4"].map((n, i) => c.img(n, ["3D visualisation of a walnut kitchen with an island, Stouls Studio", "Dimensioned elevation of a kitchen wall with joinery notes, Stouls Studio", "Dimensioned elevations of a kitchen island, Stouls Studio"][i])).filter(Boolean).map((img) => `<figure>${img}</figure>`).join("\n        ")}
       </div>
       <p>From abroad you cannot stand in the room and point. So Margaux models the rooms in three dimensions, and you see the apartment on screen while changing your mind still costs nothing.</p>
       <p>Once you approve, she produces the technical drawings: plans for electrics, lighting and plumbing, and dimensioned elevations of every piece of joinery. Contractors price and build from those. <a href="${c.link("portfolio/")}#3d-visualisations">More visualisations and drawings</a>.</p>

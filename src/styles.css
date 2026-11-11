@@ -150,7 +150,9 @@ h3 { font-size: clamp(1.3rem, 1.15rem + 0.55vw, 1.6rem); line-height: 1.2; lette
 .cards a { display: block; text-decoration: none; }
 .cards img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; transition: opacity 0.2s; }
 .cards a:hover img { opacity: 0.88; }
-.cards h2 { font-size: 1.5rem; line-height: 1.15; margin: 0.25rem 0 0; }
+.cards h3 { font-size: 1.5rem; line-height: 1.15; margin: 0.25rem 0 0; }
+.cards-band > h2 { margin-bottom: 2rem; }
+.cards-band + .cards-band { padding-top: 0; }
 .card-tag { display: block; font-size: 0.85rem; color: var(--ink-soft); margin-top: 0.9rem; }
 .facts { margin: 0 0 1.75rem; padding: 0; border-top: 1px solid var(--charcoal); font-size: 0.92rem; }
 .facts dt { font-weight: 600; padding-top: 0.7rem; }
@@ -229,7 +231,7 @@ h3 { font-size: clamp(1.3rem, 1.15rem + 0.55vw, 1.6rem); line-height: 1.2; lette
   .gallery { grid-template-columns: repeat(2, 1fr); }
   .figs { grid-template-columns: minmax(0, 1fr); }
   .cards { grid-template-columns: repeat(2, 1fr); gap: 2rem 1rem; }
-  .cards h2 { font-size: 1.2rem; }
+  .cards h3 { font-size: 1.2rem; }
   .masonry { columns: 1; }
   .site-head { flex-direction: column; align-items: flex-start; gap: 0.9rem; padding-bottom: 0.9rem; }
   .site-nav { flex-wrap: nowrap; overflow-x: auto; width: calc(100% + var(--gutter)); padding-right: var(--gutter); gap: 1.3rem; white-space: nowrap; scrollbar-width: none; mask-image: linear-gradient(to right, #000 88%, transparent); }
