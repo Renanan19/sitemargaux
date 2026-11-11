@@ -2,6 +2,7 @@
 // which mirrors the French business register (checked 11 November 2026).
 const legal = {
   path: "legal/",
+  alt: "fr/mentions-legales/",
   crumb: "Legal notice",
   title: "Legal notice and privacy | Stouls Studio",
   description: "Who publishes stoulsstudio.com: company name, registration, registered office, publication director, host, and how personal data is handled.",

@@ -138,7 +138,7 @@ const bonne = {
         <li>Two or three joined into a studio, with a real shower room and kitchenette.</li>
         <li>Storage that frees a room in the main apartment.</li>
       </ul>
-      <p>The limits are almost always the drainage and the building's rules. Before buying an apartment for its maid's room, have someone check where waste water can go and what the co-owners have allowed before. Margaux looks at both on the visit. <a href="${c.link("apartment-sourcing-paris/")}">How she assesses an apartment before you offer</a>.</p>
+      <p>The limits are almost always the drainage and the building's rules. Before buying an apartment for its maid's room, have someone check where waste water can go and what the co-owners have allowed before. Margaux looks at both on the visit. <a href="${c.link("apartment-search-paris/")}">How she assesses an apartment before you offer</a>.</p>
     </div>
   </div>
 </section>
@@ -397,7 +397,7 @@ const cost = {
         <li>Fees charged by the building manager for handling an approval.</li>
         <li>A contingency. In an old building, something is always found behind a wall.</li>
       </ul>
-      <p>The useful number is the whole project: purchase, notaire fees, works, fees and furniture. Margaux gives a first estimate of the works at the visit, before you make an offer. <a href="${c.link("apartment-sourcing-paris/")}">How the pre-offer assessment works</a>.</p>
+      <p>The useful number is the whole project: purchase, notaire fees, works, fees and furniture. Margaux gives a first estimate of the works at the visit, before you make an offer. <a href="${c.link("apartment-search-paris/")}">How the pre-offer assessment works</a>.</p>
     </div>
   </div>
 </section>
@@ -428,7 +428,7 @@ const canada = {
     <h2>What Margaux does for a buyer in Canada</h2>
     <div>
       <ul>
-        <li>Searches and visits apartments for you, with video and a renovation estimate for each. <a href="${c.link("apartment-sourcing-paris/")}">Sourcing</a></li>
+        <li>Searches and visits apartments for you, with video and a renovation estimate for each. <a href="${c.link("apartment-search-paris/")}">Apartment search</a></li>
         <li>Draws the plans and gets the building's approvals.</li>
         <li>Hires the contractors and runs the site. <a href="${c.link("paris-apartment-renovation/")}">Renovation</a></li>
         <li>Furnishes the apartment down to the linen.</li>

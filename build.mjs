@@ -17,32 +17,66 @@ const sizes = existsSync(join(photoDir, "manifest.json")) ? JSON.parse(readFileS
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
 
+// Everything the layout says, per language. English is the main site; French lives under /fr/.
+const UI = {
+  en: {
+    home: "",
+    nav: [
+      ["portfolio/", "Portfolio"],
+      ["services/", "Services"],
+      ["apartment-search-paris/", "Apartment search"],
+      ["paris-apartment-renovation/", "Renovation"],
+      ["guide/buying-renovating-paris-apartment/", "Buyer's guide"],
+      ["about/", "About"],
+    ],
+    footExtra: [
+      ["paris-rental-investment/", "Rental investment"],
+      ["paris-pied-a-terre/", "Pied-à-terre"],
+      ["glossary/", "Glossary"],
+      ["paris-apartment-renovation-cost/", "Renovation cost per m²"],
+      ["canadian-buyers-paris/", "Canadian buyers"],
+      ["glossary/pied-a-terre/", "What is a pied-à-terre?"],
+      ["glossary/haussmann-apartment/", "What is a Haussmann apartment?"],
+      ["glossary/chambre-de-bonne/", "What is a chambre de bonne?"],
+      ["glossary/copropriete-syndic/", "Copropriété and syndic"],
+    ],
+    switchTo: "fr", switchLabel: "Français", switchHome: "fr/",
+    skip: "Skip to content", navLabel: "Main", logoLabel: "interior architecture, home",
+    waText: "Hello Margaux, I'm looking at an apartment project in Paris.",
+    waLabel: "Message Margaux on WhatsApp", emailLabel: (e) => `Email ${e}`, emailSubject: "Paris apartment project", igOnly: "Message Margaux on Instagram",
+    footTitle: "Tell Margaux what you want in Paris.",
+    footText: "Budget, neighbourhood if you have one, and whether you plan to live in it or rent it. She replies in English or in French.",
+    legal: ["legal/", "Legal notice and privacy"], tagline: "Interior architecture, Paris", disclaimer: "General information, not legal or tax advice.",
+  },
+  fr: {
+    home: "fr/",
+    nav: [
+      ["fr/portfolio/", "Portfolio"],
+      ["fr/prestations/", "Prestations"],
+      ["fr/recherche-appartement-paris/", "Recherche d'appartement"],
+      ["fr/renovation-appartement-paris/", "Rénovation"],
+      ["fr/a-propos/", "À propos"],
+    ],
+    footExtra: [],
+    switchTo: "en", switchLabel: "English", switchHome: "",
+    skip: "Aller au contenu", navLabel: "Navigation principale", logoLabel: "architecture d'intérieur, accueil",
+    waText: "Bonjour Margaux, j'ai un projet d'appartement.",
+    waLabel: "Écrire à Margaux sur WhatsApp", emailLabel: (e) => `Écrire à ${e}`, emailSubject: "Projet d'appartement", igOnly: "Écrire à Margaux sur Instagram",
+    footTitle: "Parlez de votre projet à Margaux.",
+    footText: "Le lieu, le budget et ce que vous voulez en faire : y vivre, le louer ou le revendre. Elle répond en français ou en anglais.",
+    legal: ["fr/mentions-legales/", "Mentions légales et confidentialité"], tagline: "Architecture d'intérieur, Paris", disclaimer: "Informations générales, sans valeur de conseil juridique ou fiscal.",
+  },
+};
 // Contact channels. Until a WhatsApp number or email is set in site.config.json,
 // the only live channel is the studio's Instagram inbox.
-const waText = encodeURIComponent("Hello Margaux, I'm looking at an apartment project in Paris.");
-const channels = [];
-if (cfg.whatsapp) channels.push({ label: "Message Margaux on WhatsApp", href: `https://wa.me/${cfg.whatsapp.replace(/\D/g, "")}?text=${waText}` });
-if (cfg.email) channels.push({ label: `Email ${cfg.email}`, href: `mailto:${cfg.email}?subject=${encodeURIComponent("Paris apartment project")}` });
-channels.push({ label: channels.length ? "Instagram" : "Message Margaux on Instagram", href: `https://ig.me/m/${cfg.instagram}` });
-
-const nav = [
-  ["portfolio/", "Portfolio"],
-  ["apartment-sourcing-paris/", "Sourcing"],
-  ["paris-apartment-renovation/", "Renovation"],
-  ["paris-rental-investment/", "Rental investment"],
-  ["paris-pied-a-terre/", "Pied-à-terre"],
-  ["guide/buying-renovating-paris-apartment/", "Buyer's guide"],
-  ["about/", "About"],
-];
-const footExtra = [
-  ["glossary/", "Glossary"],
-  ["paris-apartment-renovation-cost/", "Renovation cost per m²"],
-  ["canadian-buyers-paris/", "Canadian buyers"],
-  ["glossary/pied-a-terre/", "What is a pied-à-terre?"],
-  ["glossary/haussmann-apartment/", "What is a Haussmann apartment?"],
-  ["glossary/chambre-de-bonne/", "What is a chambre de bonne?"],
-  ["glossary/copropriete-syndic/", "Copropriété and syndic"],
-];
+const channelsFor = (ui) => {
+  const channels = [];
+  if (cfg.whatsapp) channels.push({ label: ui.waLabel, href: `https://wa.me/${cfg.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(ui.waText)}` });
+  if (cfg.email) channels.push({ label: ui.emailLabel(cfg.email), href: `mailto:${cfg.email}?subject=${encodeURIComponent(ui.emailSubject)}` });
+  channels.push({ label: channels.length ? "Instagram" : ui.igOnly, href: `https://ig.me/m/${cfg.instagram}` });
+  return channels;
+};
+const langOf = (page) => page.lang || "en";
 // Each page carries the date its content last changed (page.updated). The build date is
 // never used: a lastmod that moves on every deploy teaches crawlers to ignore it.
 const DEFAULT_UPDATED = "2026-11-11";
@@ -51,8 +85,10 @@ const updatedOf = (page) => page.updated || DEFAULT_UPDATED;
 const ctx = (page) => {
   const depth = page.path ? page.path.split("/").filter(Boolean).length : 0;
   const rel = page.absolute ? `${siteUrl}/` : "../".repeat(depth);
+  const ui = UI[langOf(page)];
+  const channels = channelsFor(ui);
   return {
-    cfg, rel, photo,
+    cfg, rel, photo, ui, lang: langOf(page),
     link: (p) => rel + p || "./",
     img: (name, alt, cls = "", eager = false) => {
       const f = photo(name);
@@ -95,12 +131,19 @@ const person = {
 
 function render(page) {
   const c = ctx(page);
+  const ui = c.ui;
+  const lang = c.lang;
   const url = `${siteUrl}/${page.path}`;
+  // A page with a counterpart in the other language declares it, both ways, for hreflang.
+  const hasAlt = typeof page.alt === "string";
+  const altUrl = hasAlt ? `${siteUrl}/${page.alt}` : null;
+  const enUrl = lang === "en" ? url : altUrl;
+  const frUrl = lang === "fr" ? url : altUrl;
   const body = page.body(c);
-  const graph = [org, person, { "@type": "WebPage", "@id": url, url, name: page.title, description: page.description, isPartOf: { "@id": `${siteUrl}/#site` }, about: { "@id": `${siteUrl}/#studio` }, inLanguage: "en", dateModified: updatedOf(page), author: { "@id": `${siteUrl}/about/#margaux` } }];
+  const graph = [org, person, { "@type": "WebPage", "@id": url, url, name: page.title, description: page.description, isPartOf: { "@id": `${siteUrl}/#site` }, about: { "@id": `${siteUrl}/#studio` }, inLanguage: lang, dateModified: updatedOf(page), author: { "@id": `${siteUrl}/about/#margaux` } }];
   if (!page.path) graph.push({ "@type": "WebSite", "@id": `${siteUrl}/#site`, url: `${siteUrl}/`, name: cfg.studio, inLanguage: "en" });
   if (page.crumb) {
-    const trail = [[cfg.studio, `${siteUrl}/`], ...(page.parent ? [[page.parent[1], `${siteUrl}/${page.parent[0]}`]] : []), [page.crumb, url]];
+    const trail = [[cfg.studio, `${siteUrl}/${ui.home}`], ...(page.parent ? [[page.parent[1], `${siteUrl}/${page.parent[0]}`]] : []), [page.crumb, url]];
     graph.push({ "@type": "BreadcrumbList", itemListElement: trail.map(([name, item], i) => ({ "@type": "ListItem", position: i + 1, name, item })) });
   }
   if (page.faq) graph.push({ "@type": "FAQPage", mainEntity: page.faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a.replace(/<[^>]+>/g, "") } })) });
@@ -110,13 +153,13 @@ function render(page) {
   const og = photo("hero") ? `${siteUrl}/photos/${photo("hero")}` : null;
 
   return `<!doctype html>
-<html lang="en">
+<html lang="${lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(page.title)}</title>
 <meta name="description" content="${esc(page.description)}">
-<link rel="canonical" href="${url}">${cfg.indexable ? "" : '\n<meta name="robots" content="noindex, nofollow">'}
+<link rel="canonical" href="${url}">${hasAlt ? `\n<link rel="alternate" hreflang="en" href="${enUrl}">\n<link rel="alternate" hreflang="fr" href="${frUrl}">\n<link rel="alternate" hreflang="x-default" href="${enUrl}">` : ""}${cfg.indexable ? "" : '\n<meta name="robots" content="noindex, nofollow">'}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${esc(cfg.studio)}">
 <meta property="og:title" content="${esc(page.title)}">
@@ -131,12 +174,13 @@ ${og ? `<meta property="og:image" content="${og}">\n<meta name="twitter:card" co
 <script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": graph })}</script>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#main">${ui.skip}</a>
 <header class="site-head">
-  <a class="logo" href="${c.link("")}" aria-label="${esc(cfg.studio)}, interior architecture, home"></a>
-  <nav class="site-nav" aria-label="Main">
-    ${nav.map(([p, l]) => `<a href="${c.link(p)}"${p === page.path ? ' aria-current="page"' : ""}>${l}</a>`).join("\n    ")}
+  <a class="logo" href="${c.link(ui.home)}" aria-label="${esc(cfg.studio)}, ${esc(ui.logoLabel)}"></a>
+  <nav class="site-nav" aria-label="${ui.navLabel}">
+    ${ui.nav.map(([p, l]) => `<a href="${c.link(p)}"${p === page.path ? ' aria-current="page"' : ""}>${l}</a>`).join("\n    ")}
   </nav>
+  <a class="lang" href="${c.link(hasAlt ? page.alt : ui.switchHome)}" lang="${ui.switchTo}" hreflang="${ui.switchTo}">${ui.switchLabel}</a>
 </header>
 <main id="main">
 ${body}
@@ -144,20 +188,20 @@ ${body}
 <footer class="site-foot" id="contact">
   <div class="foot-grid">
     <div>
-      <h2>Tell Margaux what you want in Paris.</h2>
-      <p>Budget, neighbourhood if you have one, and whether you plan to live in it or rent it. She replies in English.</p>
+      <h2>${ui.footTitle}</h2>
+      <p>${ui.footText}</p>
       ${c.buttons()}
     </div>
     <ul class="foot-links">
-      ${[...nav, ...footExtra].map(([p, l]) => `<li><a href="${c.link(p)}">${l}</a></li>`).join("\n      ")}
+      ${[...ui.nav, ...ui.footExtra].map(([p, l]) => `<li><a href="${c.link(p)}">${l}</a></li>`).join("\n      ")}
       <li><a href="https://www.instagram.com/${cfg.instagram}/">Instagram @${cfg.instagram}</a></li>
     </ul>
   </div>
   <div class="legal">
     <span class="logo" role="img" aria-label="${esc(cfg.studio)}"></span>
-    <span>Interior architecture, Paris</span>
-    <a href="${c.link("legal/")}">Legal notice and privacy</a>
-    <span>General information, not legal or tax advice.</span>
+    <span>${ui.tagline}</span>
+    <a href="${c.link(ui.legal[0])}">${ui.legal[1]}</a>
+    <span>${ui.disclaimer}</span>
   </div>
 </footer>
 </body>
@@ -181,7 +225,7 @@ if (photoFiles.length) {
 }
 writeFileSync(join(out, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map((p) => `  <url><loc>${siteUrl}/${p.path}</loc><lastmod>${updatedOf(p)}</lastmod></url>`).join("\n")}\n</urlset>\n`);
 writeFileSync(join(out, "robots.txt"), !cfg.indexable ? `User-agent: *\nDisallow: /\n` : `User-agent: *\nAllow: /\n\n# AI search and assistant crawlers are welcome.\n${["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "PerplexityBot", "Google-Extended", "Applebot-Extended", "Bingbot"].map((b) => `User-agent: ${b}\nAllow: /\n`).join("\n")}\nSitemap: ${siteUrl}/sitemap.xml\n`);
-writeFileSync(join(out, "llms.txt"), `# ${cfg.studio}\n\n> Interior architecture studio in Paris run by ${cfg.founder}. For buyers based in the United States and Canada: apartment sourcing, design, renovation management and furnishing, for a rental investment or a pied-à-terre.\n\n${pages.map((p) => `- [${p.title}](${siteUrl}/${p.path}): ${p.description}`).join("\n")}\n`);
+writeFileSync(join(out, "llms.txt"), `# ${cfg.studio}\n\n> Interior architecture studio in Paris run by ${cfg.founder}. For buyers based in the United States and Canada: apartment sourcing, design, renovation management and furnishing, for a rental investment or a pied-à-terre.\n\n${pages.filter((p) => langOf(p) === "en").map((p) => `- [${p.title}](${siteUrl}/${p.path}): ${p.description}`).join("\n")}\n\n## French version\n\n- [Stouls Studio en français](${siteUrl}/fr/): the studio's services and portfolio in French.\n`);
 writeFileSync(join(out, ".nojekyll"), "");
 const host = new URL(siteUrl).hostname;
 if (!host.endsWith("github.io")) writeFileSync(join(out, "CNAME"), host + "\n");

@@ -14,13 +14,42 @@ const planSvg = `<svg class="plan" viewBox="0 0 300 430" role="img" aria-label="
   <text x="196" y="300">Kitchen</text>
 </svg>`;
 
+// The two ways of working with the studio, shared by the home page and the Services page.
+export const formulas = [
+  {
+    id: "search-to-keys", name: "From the search to the keys",
+    who: "For buyers who have not found their apartment yet.",
+    steps: [
+      ["Apartment search", "Margaux takes your brief, follows the market and visits in person."],
+      ["Reading the apartment's potential", "For each serious candidate: her opinion, what could be done with it and a first idea of the cost."],
+      ["Design and technical file", "The new layout, then the drawings the contractors build from."],
+      ["Materials, furniture and decoration", "Everything the apartment will be made of and filled with, chosen with you."],
+      ["Final quote", "Drawn up once the technical file is finished, so the price matches the project."],
+      ["Site follow-up", "Regular visits, written reports and photographs through the works."],
+      ["Furnishing and handover", "The apartment is fitted out, checked, and the keys come back to you."],
+    ],
+  },
+  {
+    id: "turnkey-renovation", name: "Turnkey renovation of an apartment you own",
+    who: "For owners who already have the keys.",
+    steps: [
+      ["Study of the apartment and brief", "A visit, a survey, and a clear statement of what the project is."],
+      ["Design and technical file", "The new layout, then the drawings the contractors build from."],
+      ["Materials, furniture and decoration", "Everything the apartment will be made of and filled with, chosen with you."],
+      ["Final quote", "Drawn up once the technical file is finished, so the price matches the project."],
+      ["Site follow-up, furnishing and handover", "Reports and photographs through the works, then a finished apartment."],
+    ],
+  },
+];
+
 const home = {
   path: "",
+  alt: "fr/",
   title: "Buy and renovate an apartment in Paris | Stouls Studio",
   description: "Margaux Stouls, interior architect in Paris, finds your apartment, draws the plans, runs the renovation and furnishes it while you stay in the US or Canada. Rental investment or pied-à-terre.",
   faq: [
-    ["Do I have to come to Paris?", "Not for the search or the works. Margaux visits apartments for you and sends video, measurements and her read on what the renovation involves. During the works she sends photo and video reports from site. Most buyers come once to see the apartment before they commit, and once for the handover."],
-    ["Can you work on an apartment I already own?", "Yes. Sourcing is a separate service. If you already have the keys, the work starts at the survey and the plans."],
+    ["Do I have to come to Paris?", "Not for the search or the works. Margaux visits apartments for you and sends video, her opinion of each one and her read on what the renovation involves. During the works she sends photo and video reports from site. Most buyers come once to see the apartment before they commit, and once for the handover."],
+    ["Can you work on an apartment I already own?", "Yes. It is one of the studio's two ways of working. If you already have the keys, the project starts with a study of the apartment, then the design and the technical file."],
     ["Do you work in English?", "Yes. Calls, plans, quotes and site reports are in English. The contractors work in French, and Margaux stands between you and them."],
     ["What does it cost?", "Each stage is quoted in writing before it starts: search, design, site management, furnishing. Contractor quotes are shown to you in full."],
     ["Do you only work in Paris?", "Paris and the towns that touch it. Staying close is what lets her be on site through the works."],
@@ -53,17 +82,14 @@ ${c.photo("project-1") ? `<section class="band">
 
 <section class="band">
   <div class="band-grid">
-    <h2>Two reasons people call</h2>
-    <div class="pair">
-      <div>
-        <h3>A place to rent out</h3>
-        <p class="muted">You want a Paris apartment that earns. Margaux looks for the ones where a new layout adds a bedroom or a real kitchen, then builds and furnishes it to the standard tenants on corporate and furnished leases expect.</p>
-        <p><a href="${c.link("paris-rental-investment/")}">How a rental project works</a></p>
-      </div>
-      <div>
-        <h3>A place of your own</h3>
-        <p class="muted">You want your own front door in Paris for a few months a year. She finds it, fixes what a hundred and fifty years have done to it, and has the bed made when you land.</p>
-        <p><a href="${c.link("paris-pied-a-terre/")}">How a pied-à-terre project works</a></p>
+    <h2>Two ways to work with Margaux</h2>
+    <div>
+      <div class="pair">
+        ${formulas.map((f) => `<div>
+          <h3>${f.name}</h3>
+          <p class="muted">${f.who} ${f.steps.map(([s]) => s.toLowerCase()).join(", ").replace(/^./, (x) => x.toUpperCase())}.</p>
+          <p><a href="${c.link("services/")}#${f.id}">The steps in detail</a></p>
+        </div>`).join("\n        ")}
       </div>
     </div>
   </div>
@@ -74,24 +100,42 @@ ${c.photo("project-1") ? `<section class="band">
     <h2>What Margaux does</h2>
     <ul class="rows">
       <li>
-        <h3>Apartment sourcing</h3>
-        <div><p>She takes your brief, shortlists, visits in person and tells you what each apartment would cost to put right before you make an offer.</p>
-        <a class="more" href="${c.link("apartment-sourcing-paris/")}">Apartment sourcing in Paris</a></div>
+        <h3>Apartment search</h3>
+        <div><p>She takes your brief, shortlists, visits in person and tells you what each apartment could become, and roughly what that would cost, before you make an offer.</p>
+        <a class="more" href="${c.link("apartment-search-paris/")}">Apartment search in Paris</a></div>
       </li>
       <li>
-        <h3>Plans and design</h3>
-        <div><p>Survey, new layout, kitchen and bathroom drawings, materials, lighting, joinery. Drawn for the building you bought, with its beams, chimneys and load-bearing walls.</p>
+        <h3>Design and technical file</h3>
+        <div><p>New layout, renovation plans, elevations of the kitchen, the bathrooms and every piece of joinery. Drawn for the building you bought, with its beams, chimneys and load-bearing walls.</p>
         <a class="more" href="${c.link("paris-apartment-renovation/")}">Design and renovation</a></div>
       </li>
       <li>
-        <h3>Running the building site</h3>
-        <div><p>She gets comparable quotes, picks the contractors with you, handles the building's approvals, and is on site to check the work against the drawings.</p>
-        <a class="more" href="${c.link("paris-apartment-renovation-cost/")}">What a Paris renovation costs per m²</a></div>
+        <h3>Materials, furniture and decoration</h3>
+        <div><p>Floors, tiles, taps, lights, fabrics, furniture and objects are chosen with you during the design and listed in the technical file, so the quote covers what you actually picked.</p></div>
       </li>
       <li>
-        <h3>Furnishing</h3>
+        <h3>Following the building site</h3>
+        <div><p>Regular site visits, a written report every week or two, photographs, and a video visit of the apartment when you cannot be there.</p>
+        <a class="more" href="${c.link("services/")}#how-we-work">How the work is followed</a></div>
+      </li>
+      <li>
+        <h3>Furnishing and handover</h3>
         <div><p>Furniture, lights, curtains, linen, plates. Ordered, delivered, assembled and placed, so the apartment can be lived in or listed the day you get the keys back.</p></div>
       </li>
+    </ul>
+  </div>
+</section>
+
+<section class="band">
+  <div class="band-grid">
+    <h2>Whatever the apartment is for</h2>
+    <ul class="rows">
+      <li><h3>A main home</h3><p>You live in Paris, or are moving here, and want the apartment redrawn around your daily life.</p></li>
+      <li><h3>A pied-à-terre</h3><div><p>Your own front door in Paris for a few months a year, with the bed made when you land.</p>
+        <a class="more" href="${c.link("paris-pied-a-terre/")}">How a pied-à-terre project works</a></div></li>
+      <li><h3>A rental investment</h3><div><p>An apartment where a new layout adds a bedroom or a real kitchen, built and furnished for the leases Paris allows.</p>
+        <a class="more" href="${c.link("paris-rental-investment/")}">How a rental project works</a></div></li>
+      <li><h3>A resale</h3><p>An apartment bought to be renovated and sold, where the design is judged on the value it adds.</p></li>
     </ul>
   </div>
 </section>
@@ -101,9 +145,9 @@ ${c.photo("project-1") ? `<section class="band">
     <h2>From first call to keys back</h2>
     <ol class="steps">
       <li><div><h3>A call about what you want</h3><p>Budget, use, neighbourhoods, how much work you are willing to take on. You leave with a realistic picture of what that budget buys.</p></div><span class="when">Week 1</span></li>
-      <li><div><h3>Search and visits</h3><p>Margaux visits the shortlist and sends video, measurements, the building's condition and a first renovation estimate for each.</p></div><span class="when">Until the right one turns up</span></li>
+      <li><div><h3>Search and visits</h3><p>Margaux visits the shortlist and sends video, her opinion of each apartment, the building's condition and a first renovation estimate.</p></div><span class="when">Until the right one turns up</span></li>
       <li><div><h3>Offer and purchase</h3><p>You buy in your own name through a notaire. She draws the plans and collects quotes during the wait between the preliminary contract and the final deed.</p></div><span class="when">About 3 months</span></li>
-      <li><div><h3>Approvals and contractors</h3><p>Final drawings, the building's sign-off where it is needed, contractors chosen on like-for-like quotes.</p></div><span class="when">In parallel with the purchase</span></li>
+      <li><div><h3>Technical file and final quote</h3><p>You approve and sign the technical file. The final quote is drawn up from it, and the building's sign-off is obtained where it is needed.</p></div><span class="when">In parallel with the purchase</span></li>
       <li><div><h3>The works</h3><p>Site visits, decisions put to you with pictures and prices, payments released against work she has checked.</p></div><span class="when">Depends on scope</span></li>
       <li><div><h3>Furnishing and handover</h3><p>Everything installed and photographed. Keys go back to you, or to the rental manager you chose.</p></div><span class="when">Last 2 to 3 weeks</span></li>
     </ol>
@@ -142,23 +186,119 @@ ${c.photo("project-1") ? `<section class="band">
 </section>`,
 };
 
+const stepList = (steps) => `<ol class="steps plain">${steps.map(([h, p]) => `<li><div><h3>${h}</h3><p>${p}</p></div></li>`).join("")}</ol>`;
+
+const services = {
+  path: "services/",
+  alt: "fr/prestations/",
+  crumb: "Services",
+  service: "Apartment search, interior design and turnkey renovation in Paris",
+  title: "Services: from apartment search to handover | Stouls Studio",
+  description: "Two ways to work with interior architect Margaux Stouls in Paris: from the apartment search to the keys, or the turnkey renovation of an apartment you already own.",
+  faq: [
+    ["Which of the two should I choose?", "It depends only on whether you have an apartment. If you are still looking, the first one starts with the search. If you own it or have signed for it, the second one starts with a study of the apartment. From the design onwards the two are the same."],
+    ["Can I take only part of it?", "Yes. Some clients ask for the design and the technical file alone, or for a partial renovation of a few rooms. Say what you need and Margaux will tell you what she can take on."],
+    ["Do I have to be in Paris?", "No. Meetings can be held by video, decisions are confirmed by WhatsApp, and during the works you receive reports, photographs and video visits of the apartment. When you are in Paris, meetings happen on site."],
+    ["When do I know the final price?", "When the technical file is finished and signed. The final quote is drawn up from it, so it prices the project you approved and nothing else. Before that, you work with estimates."],
+  ],
+  body: (c) => `
+<section class="page-head">
+  <p class="crumbs"><a href="${c.link("")}">Stouls Studio</a> / Services</p>
+  <h1>Two ways to work with Margaux, one finished apartment</h1>
+  <p class="lede">Either she starts by finding the apartment, or she starts with the one you already own. In both cases she carries the project to the day you get the keys back, so that you have as little to carry as possible.</p>
+  ${c.buttons()}
+</section>
+
+${formulas.map((f, i) => `<section class="band${i ? " paper" : ""}" id="${f.id}">
+  <div class="band-grid">
+    <div class="formula-head"><p class="formula-no">Option ${i + 1}</p><h2>${f.name}</h2><p class="muted">${f.who}</p></div>
+    ${stepList(f.steps)}
+  </div>
+</section>`).join("\n\n")}
+
+<section class="band" id="how-we-work">
+  <div class="band-grid">
+    <h2>How we work together</h2>
+    <div class="pair">
+      <div>
+        <h3>During the design</h3>
+        <ul>
+          <li>Regular meetings, closer together or further apart depending on the stage of the project.</li>
+          <li>WhatsApp between meetings, in a group set up for the project if you like, to confirm choices and keep moving.</li>
+          <li>A technical file: the plans the works need, in particular the renovation plans and the elevations, with the list of materials, furniture and fittings chosen.</li>
+          <li>You approve and sign the file before the works start. The final quote is drawn up once it is finished.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>During the works</h3>
+        <ul>
+          <li>A written report, usually every week or every two weeks, depending on the stage of the site and what there is to tell you.</li>
+          <li>Photographs of the site, sent regularly.</li>
+          <li>Meetings on site when you are in Paris, and a video visit of the apartment when you are not.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band paper">
+  <div class="band-grid prose">
+    <h2>What this takes off your shoulders</h2>
+    <div>
+      <p>A renovation is hundreds of small decisions, a dozen trades and a building with its own rules. Margaux holds all of it: she prepares the choices, puts them to you with a picture and a price, and follows the work until the apartment is delivered.</p>
+      <p>You decide, you are kept informed, and you do not have to chase anyone. The apartment you get back is the one you approved on paper, fitted out for what you want to do with it.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="band-grid">
+    <h2>Types of project</h2>
+    <ul class="rows">
+      <li><h3>Main home</h3><p>An apartment to live in all year, redrawn around your daily life.</p></li>
+      <li><h3>Pied-à-terre</h3><div><p>A second home in Paris for regular stays.</p><a class="more" href="${c.link("paris-pied-a-terre/")}">A pied-à-terre in Paris</a></div></li>
+      <li><h3>Rental investment</h3><div><p>An apartment designed and furnished to be let.</p><a class="more" href="${c.link("paris-rental-investment/")}">Rental investment in Paris</a></div></li>
+      <li><h3>Resale</h3><p>An apartment bought to be renovated and sold.</p></li>
+    </ul>
+    </div>
+</section>
+
+<section class="band paper">
+  <div class="band-grid prose">
+    <h2>Clients in Paris and abroad</h2>
+    <div>
+      <p>Many of the studio's clients live in the United States or Canada and follow their project from a distance, in English. Others live in Paris and come to every site meeting. The method is the same, and so is the work: <a href="${c.link("portfolio/")}">see the portfolio</a>.</p>
+      <p>More detail on each stage: <a href="${c.link("apartment-search-paris/")}">the apartment search</a> and <a href="${c.link("paris-apartment-renovation/")}">the renovation</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="band-grid">
+    <h2>Questions about working together</h2>
+    ${faqBlock(services.faq)}
+  </div>
+</section>`,
+};
+
 const sourcing = {
-  path: "apartment-sourcing-paris/",
-  crumb: "Apartment sourcing",
-  service: "Apartment sourcing in Paris",
+  path: "apartment-search-paris/",
+  alt: "fr/recherche-appartement-paris/",
+  crumb: "Apartment search",
+  service: "Apartment search in Paris",
   title: "Buying an apartment in Paris from abroad | Stouls Studio",
-  description: "Looking at apartments for sale in Paris from the US or Canada? An interior architect visits them for you and prices the renovation before you make an offer.",
+  description: "Looking at apartments for sale in Paris from the US or Canada? An interior architect searches, visits them for you and tells you what each one could become before you make an offer.",
   faq: [
     ["How is this different from a property finder?", "A property finder judges location and price. Margaux also judges the works: structure, plumbing runs, electrical state, what the building will allow. You get a purchase price and a renovation estimate side by side."],
     ["Do you find off-market apartments?", "Sometimes, through agents and contractors she works with. Most good apartments in Paris are listed, and go quickly. What matters is seeing them in the first days and knowing at once whether the layout can be fixed."],
     ["Who signs the purchase?", "You do, with a notaire, in your own name or through your own company. The sale itself goes through licensed Paris estate agents and the notaire. Margaux's part is the brief, the visits and the assessment of each apartment. She does not hold your money and is not a party to the sale."],
+    ["Is this the same as sourcing materials?", "No. The apartment search comes first. Later, during the design, Margaux also selects the materials, the furniture and the decoration. That selection is part of the design work."],
   ],
   body: (c) => `
 <section class="page-head">
-  <p class="crumbs"><a href="${c.link("")}">Stouls Studio</a> / Apartment sourcing</p>
-  <h1>Buying an apartment in Paris, with someone who will have to renovate it</h1>
-  <p class="lede">The listings of apartments for sale in Paris look alike from across the Atlantic. Margaux searches, visits and reports. You see every apartment on video with her notes on what it needs, and you make an offer knowing what the works will cost.</p>
-  ${c.buttons()}
+  <p class="crumbs"><a href="${c.link("")}">Stouls Studio</a> / Apartment search</p>
+  <h1>Apartment search in Paris, by the person who will renovate it</h1>
+  <p class="lede">The listings of apartments for sale in Paris look alike from across the Atlantic. Margaux searches, visits and reports. You see every apartment on video with her opinion of what it could become, and you make an offer knowing what the works will cost.</p>
 </section>
 
 <section class="band">
@@ -166,14 +306,16 @@ const sourcing = {
     <h2>What you get for each apartment</h2>
     <div>
       <ul>
-        <li>A walk-through video, room by room, with the street and the stairwell.</li>
-        <li>Measurements and a sketch of the layout as it is and as it could be.</li>
+        <li>A walk-through video, room by room, with the views onto the street and the stairwell.</li>
         <li>Her notes on structure, damp, wiring, plumbing, windows and heating.</li>
+        <li>Her opinion of the apartment and a short written report on its potential: what could be done with it, and what could not.</li>
         <li>The energy rating and what it means for renting the place.</li>
-        <li>The building: recent works, works voted but not yet paid for, monthly charges.</li>
+        <li>The building and its co-ownership: the minutes of the owners' general meetings, recent works, works voted but not yet paid for, monthly charges.</li>
         <li>A first renovation estimate, so the comparison between two apartments is the full price of each.</li>
       </ul>
+      <p>When an apartment suits you and has real potential, she can go one step further and draw a first sketch of what the new layout could be.</p>
       <p>Photos in a Paris listing are taken with a wide lens on a sunny day. The visit is where you learn that the bedroom faces a wall two metres away, or that the only place for a washing machine is the entry hall.</p>
+      ${c.buttons()}
     </div>
   </div>
 </section>
@@ -190,8 +332,17 @@ const sourcing = {
 </section>
 
 <section class="band">
+  <div class="band-grid prose">
+    <h2>After the search</h2>
+    <div>
+      <p>The search is the first step of a complete service that runs to the handover of a finished, furnished apartment: design, technical file, final quote, site follow-up, furnishing. <a href="${c.link("services/")}#search-to-keys">See every step, from the search to the keys</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band paper">
   <div class="band-grid">
-    <h2>Questions about sourcing</h2>
+    <h2>Questions about the search</h2>
     ${faqBlock(sourcing.faq)}
   </div>
 </section>`,
@@ -199,33 +350,39 @@ const sourcing = {
 
 const renovation = {
   path: "paris-apartment-renovation/",
+  alt: "fr/renovation-appartement-paris/",
   crumb: "Renovation",
   service: "Turnkey apartment renovation in Paris",
   title: "Paris apartment renovation, managed for you | Stouls Studio",
-  description: "Plans, building approvals, contractors, site visits and furnishing for your Paris apartment, run by interior architect Margaux Stouls and reported to you in English.",
+  description: "Design, technical file, materials, site follow-up and furnishing for your Paris apartment, run by interior architect Margaux Stouls from the first plan to the keys.",
   faq: [
     ["Do I need the building's permission to renovate?", "For work inside your apartment that touches nothing shared, usually not. For anything affecting structure, shared pipes, the façade or windows, the co-owners' association has to agree, and some work also needs a filing at the town hall. Margaux checks the building's rules before the design is fixed."],
     ["How do I pay contractors from abroad?", "By bank transfer, directly to each contractor, against invoices Margaux has checked against work done. She does not collect or hold contractor payments."],
-    ["How do I follow the works?", "Photo and video reports from site, and a call whenever a decision is yours to make. Every choice comes with pictures and a price."],
-    ["Can you renovate only the kitchen or bathroom?", "Yes, though most apartments bought from abroad need the wiring, plumbing and layout looked at together. It costs less to open the walls once."],
+    ["How do I follow the works?", "A written report every week or two, photographs from site, and a video visit of the apartment when you cannot come. Every choice that is yours to make comes with pictures and a price."],
+    ["Can you renovate only the kitchen or bathroom?", "Yes, the studio also does partial renovations. Most apartments bought from abroad need the wiring, plumbing and layout looked at together, though. It costs less to open the walls once."],
   ],
   body: (c) => `
 <section class="page-head">
   <p class="crumbs"><a href="${c.link("")}">Stouls Studio</a> / Renovation</p>
-  <h1>Paris apartment renovation, run for you from start to keys</h1>
-  <p class="lede">One person draws the plans, hires the trades, stands on site and answers to you. In English, with photos, and with the quotes in front of you.</p>
+  <h1>Paris apartment renovation, from A to Z</h1>
+  <p class="lede">Margaux can take the project from the apartment search to the day you get the keys back. If you already own the apartment, she starts there. Either way, one person designs it, follows the works and answers to you.</p>
   ${c.buttons()}
 </section>
 
 <section class="band">
   <div class="band-grid prose">
-    <h2>What you see before work starts</h2>
+    <h2>What you approve before the works start</h2>
     <div>
       <div class="figs contain">
         ${["render-5", "drawing-3", "drawing-4"].map((n, i) => c.img(n, ["3D visualisation of a walnut kitchen with an island, Stouls Studio", "Dimensioned elevation of a kitchen wall with joinery notes, Stouls Studio", "Dimensioned elevations of a kitchen island, Stouls Studio"][i])).filter(Boolean).map((img) => `<figure>${img}</figure>`).join("\n        ")}
       </div>
-      <p>From abroad you cannot stand in the room and point. So Margaux models the rooms in three dimensions, and you see the apartment on screen while changing your mind still costs nothing.</p>
-      <p>Once you approve, she produces the technical drawings: plans for electrics, lighting and plumbing, and dimensioned elevations of every piece of joinery. Contractors price and build from those. <a href="${c.link("portfolio/")}#3d-visualisations">More visualisations and drawings</a>.</p>
+      <p>Nothing is built that you have not seen and approved. Before the works start, Margaux puts three things in front of you.</p>
+      <ul>
+        <li>The project in images: the new layout and, where it helps, the rooms modelled in three dimensions, so you can change your mind while it still costs nothing.</li>
+        <li>The technical file: the renovation plans and the dimensioned elevations of the kitchen, the bathrooms and each piece of joinery. Contractors price and build from these.</li>
+        <li>The selection: the materials, the furniture, the lights and the decoration chosen with you, listed item by item.</li>
+      </ul>
+      <p>You approve and sign the file. The final quote is drawn up from the finished file, so it prices exactly what you approved. <a href="${c.link("portfolio/")}#3d-visualisations">More visualisations and drawings</a>.</p>
     </div>
   </div>
 </section>
@@ -234,13 +391,23 @@ const renovation = {
   <div class="band-grid">
     <h2>What is included</h2>
     <ul class="rows">
-      <li><h3>Survey and layout</h3><p>A measured survey of what is there, then two or three ways to rearrange it. You choose one before any detail is drawn.</p></li>
-      <li><h3>Detailed design</h3><p>Kitchen, bathrooms, built-in joinery, lighting plan, materials and colours. Each item drawn and specified so contractors price the same thing.</p></li>
+      <li><h3>Design</h3><p>A study of what is there, then the new layout. Kitchen, bathrooms, built-in joinery, lighting and colours are drawn for the apartment as it really is.</p></li>
+      <li><h3>Technical file</h3><p>Renovation plans and elevations, detailed enough for every contractor to price the same thing and build it without guessing.</p></li>
+      <li><h3>Materials and furniture</h3><p>Floors, tiles, taps, lights, fabrics, furniture and objects, selected with you and listed in the file.</p></li>
       <li><h3>Building approvals</h3><p>Reading the co-ownership rules, preparing the file for the building manager and the co-owners' vote where one is needed, and any town hall filing.</p></li>
-      <li><h3>Contractors</h3><p>Like-for-like quotes from trades she has worked with, laid out line by line. You sign with the contractors directly.</p></li>
-      <li><h3>Site management</h3><p>Site visits through the works, a written report after each with photos, and snags listed and closed before the last payment.</p></li>
-      <li><h3>Furnishing</h3><p>From the sofa to the corkscrew, if you want it. Useful when the apartment will be let furnished or when you arrive with two suitcases.</p></li>
+      <li><h3>Site follow-up</h3><p>Visits through the works, a written report every week or two with photographs, and snags listed and closed before the last payment.</p></li>
+      <li><h3>Furnishing and handover</h3><p>From the sofa to the corkscrew, if you want it. The apartment is delivered ready to live in or to let.</p></li>
     </ul>
+  </div>
+</section>
+
+<section class="band">
+  <div class="band-grid prose">
+    <h2>Where the renovation fits</h2>
+    <div>
+      <p>The renovation is the heart of both ways of working with the studio. If you have not bought yet, it follows the <a href="${c.link("apartment-search-paris/")}">apartment search</a>. If you already own the apartment, it starts with a study of the place and your brief.</p>
+      <p><a href="${c.link("services/")}">The two options, step by step, and how the work is followed</a>.</p>
+    </div>
   </div>
 </section>
 
@@ -323,6 +490,7 @@ const pied = {
 
 const about = {
   path: "about/",
+  alt: "fr/a-propos/",
   crumb: "About",
   title: "English-speaking interior architect in Paris | Stouls Studio",
   description: "Margaux Stouls founded Stouls Studio in Paris in 2019. She designs and manages apartment renovations, and works with owners based in North America.",
@@ -341,7 +509,7 @@ const about = {
       ${c.img("margaux", "Margaux Stouls, interior architect", "portrait")}
       <p>Margaux founded Stouls Studio in Paris in 2019. She designs apartments and runs their renovation: survey, plans, contractors, site, furniture.</p>
       <p>Working with owners abroad started with Canadian clients who bought in Paris and could not be there for the works. They handed over the keys and came back to a finished apartment. Others followed by word of mouth.</p>
-      <p>She now offers the same thing from one step earlier: finding the apartment.</p>
+      <p>She now offers the same thing from one step earlier: finding the apartment. <a href="${c.link("services/")}">The two ways of working with her</a>.</p>
       <p><a href="https://www.instagram.com/${c.cfg.instagram}/">Instagram @${c.cfg.instagram}</a></p>
     </div>
   </div>
@@ -395,5 +563,5 @@ const about = {
 </section>`,
 };
 
-export const corePages = [home, sourcing, renovation, pied, about];
+export const corePages = [home, services, sourcing, renovation, pied, about];
 export { faqBlock };

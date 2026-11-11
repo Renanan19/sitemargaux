@@ -2,8 +2,9 @@ import { corePages } from "./pages-core.mjs";
 import { guidePages } from "./pages-guide.mjs";
 import { glossaryPages } from "./pages-glossary.mjs";
 
-import { workPages } from "./pages-work.mjs";
+import { workPages, workPagesFr } from "./pages-work.mjs";
+import { frPages } from "./pages-fr.mjs";
 
 import { legalPages } from "./pages-legal.mjs";
 
-export const pages = [...corePages, ...workPages, ...guidePages, ...glossaryPages, ...legalPages];
+export const pages = [...corePages, ...workPages, ...guidePages, ...glossaryPages, ...legalPages, ...frPages, ...workPagesFr];
