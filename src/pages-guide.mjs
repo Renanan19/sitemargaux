@@ -68,7 +68,7 @@ const rental = {
       <div class="figs">
         ${["x-maz6", "x-stu15", "x-gra10"].map((n, i) => c.img(n, ["Studio Mazarine: living area and kitchen under old beams, rental studio by Stouls Studio", "Studio in Saint-Germain-des-Prés: black kitchen against a brick wall, rental apartment by Stouls Studio", "Studio Grands-Augustins: staircase built as storage, rental studio by Stouls Studio"][i])).filter(Boolean).map((img) => `<figure>${img}</figure>`).join("\n        ")}
       </div>
-      <p><a href="${c.link("portfolio/studio-mazarine/")}">Studio Mazarine, 24 m² in the 6th</a>, the <a href="${c.link("portfolio/studio-saint-germain-des-pres/")}">studio in Saint-Germain-des-Prés</a> and the <a href="${c.link("portfolio/studio-grands-augustins/")}">Studio Grands-Augustins</a>: see the three rental projects.</p>
+      <p><a href="${c.link("portfolio/studio-mazarine/")}">Studio Mazarine, 26 m² in the 6th</a>, the <a href="${c.link("portfolio/studio-saint-germain-des-pres/")}">studio in Saint-Germain-des-Prés</a> and the <a href="${c.link("portfolio/studio-grands-augustins/")}">Studio Grands-Augustins</a>: see the three rental projects.</p>
     </div>
   </div>
 </section>
