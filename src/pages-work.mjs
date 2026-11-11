@@ -1,65 +1,88 @@
-// Projects page. Captions describe only what the photographs show.
-const projects = [
+// Projects page. The selection and its six groups come from Margaux's own portfolio.
+// Captions describe only what each image shows.
+const groups = [
   {
-    id: "paris-9", name: "Apartment, Paris 9th", photos: 8, key: "saulnier",
-    text: "An apartment in the 9th arrondissement, redesigned around its original timber posts. Openings were redrawn as arches, the bedroom and bathroom wear the same deep green to half height, and the storage is built in behind cane-fronted doors. Herringbone oak runs through every room.",
-    alts: ["Living room with herringbone oak floor and tall windows", "Arched doorway opening onto a bathroom vanity", "Bedroom corner with a curved mirror against a green half-height wall", "Arched niche with bookshelves beside an exposed timber post", "Shower room with green tiling and a stone basin", "Powder room in terracotta zellige tile with a terrazzo basin", "Detail of cane-fronted cupboard doors with oak handles", "View through a doorway to the bedroom, cane wardrobe at the end"],
+    id: "main-residences", name: "Main residences", key: "main",
+    text: "Apartments people live in all year, in Paris and the towns around it. Kitchens opened to the living room, bathrooms rebuilt, storage built in, and the old timber posts, fireplaces and floors kept.",
+    alts: [
+      "Kitchen niche in oak and walnut with glazed tile", "Open kitchen and dining room with a round table and lit shelving", "Shower room in honey-coloured tile with a stone basin",
+      "Built-in dining banquette with a fluted panel and wall lights", "Living room with a velvet sofa and amber curtains", "Bedroom with wallpaper panels above a green half-height wall",
+      "Marble fireplace with a gilt mirror and built-in shelves", "Entrance with rounded oak shelving and an arched niche", "Oak kitchen on a terracotta hexagon floor",
+      "Kitchen built around original timber posts", "Bedroom with a green headboard wall", "Arched doorway opening onto a bathroom vanity", "Shower room with green tiling and a stone basin",
+      "Living room with a herringbone oak floor and tall windows", "Arched bookshelf niche beside a timber post",
+    ],
   },
   {
-    id: "paris-6", name: "Studio with mezzanine, Paris 6th", photos: 4, key: "augustins",
-    text: "A small apartment under old exposed beams in the 6th arrondissement. The bed went up onto a glazed mezzanine, the stair to reach it holds the television and the storage, and the living room got its floor back.",
-    alts: ["Living room under exposed beams with a glazed mezzanine above", "Staircase built as storage, with a dining table by the window", "Mezzanine bed under painted beams", "Glass dining table and oak chairs in front of tall windows"],
+    id: "second-homes", name: "Second homes", key: "second",
+    text: "Houses used for part of the year, designed for owners who are not there to supervise: a country house in France and a house on the Greek island of Sifnos.",
+    alts: [
+      "View through a dark-framed doorway from a green room to a dining room", "Country living room with a beamed ceiling, wood stove and terracotta floor", "Green entrance hall with oak panelling and a row of folding seats",
+      "Vaulted living room with patterned cement tiles, house on Sifnos", "Whitewashed courtyard and outdoor staircase, house on Sifnos", "Oak kitchen on patterned cement tiles, house on Sifnos",
+    ],
   },
   {
-    id: "top-floor-studio", name: "Top-floor studio", photos: 5, key: "studio",
-    text: "A studio under the roof, laid out as a real one-room home: a black kitchen set against the old brick, a desk under the skylight, a sleeping corner with its own storage, and a compact tiled shower room.",
-    alts: ["Kitchen island and living area with a view over the rooftops", "Sleeping corner with oak cupboards and botanical wallpaper", "Black kitchen against an exposed brick wall", "Shower room in olive tile with a dark vanity", "Desk built under a skylight"],
+    id: "rental-properties", name: "Rental properties", key: "rental",
+    text: "Small apartments built to be let furnished. Every square metre is given a job: a kitchen along one wall, a desk under a skylight, a bed on a mezzanine, a bench that is also storage.",
+    alts: [
+      "Black kitchen against an exposed brick wall", "Corridor leading to a desk under a skylight", "Sleeping corner with oak cupboards and botanical wallpaper",
+      "Living room with built-in oak bookshelves and a window bench", "White built-in cupboards with an oak desk", "Living room below a mezzanine with white railings", "Oak bench with integrated storage along a wall",
+    ],
   },
   {
-    id: "boulogne", name: "Apartment, Boulogne-Billancourt", photos: 4, key: "boulogne",
-    text: "A black kitchen opened onto the living room, with a window seat built into its run. The marble fireplace and gilt mirror stayed. A desk was fitted into an arched niche.",
-    alts: ["Living room with marble fireplace, gilt mirror and built-in media unit", "Black kitchen with a walnut counter and window seat", "Desk fitted into an arched niche", "Bathroom with a round mirror and oak vanity"],
+    id: "custom-furniture", name: "Custom-made furniture", key: "furniture",
+    text: "Joinery and furniture drawn for one room and made by cabinetmakers: wardrobes, libraries, headboards, sideboards and tables.",
+    alts: [
+      "Desk niche lined with botanical wallpaper", "Blush cupboard with a curved oak surround", "Chest of drawers with cane fronts", "Cane-fronted cupboard doors with oak handles",
+      "Sage headboard wall with niches under a landscape mural", "Sage wardrobe with open corner shelves", "Wardrobe doors with sculpted wooden handles",
+      "Oak sideboard with shelves on turned posts", "Detail of a rounded oak top and turned post", "Round dining table in stained oak", "Detail of a table edge and upholstered chair",
+      "Detail of a fluted oak upright against woven wall covering", "Library wall with a rounded oak frame above green cabinets", "Blue wardrobe portal framing the view to a library",
+      "Shelving and cabinets on either side of a marble fireplace", "Grey shelving unit with brass uprights above low cabinets",
+    ],
   },
   {
-    id: "colombes", name: "Apartment, Colombes", photos: 5, key: "colombes",
-    text: "A full wall of library and cupboards in the living room, a blush kitchen on a cabochon floor, deep teal panelling down the corridor, and a marble vanity in the bathroom.",
-    alts: ["Living room looking through glazed doors to the dining room", "Marble fireplace with an ornate gilt mirror", "Corridor with teal panelling to half height", "Blush pink kitchen on a black and white cabochon floor", "Bathroom with a dark marble vanity and brass wall lights"],
+    id: "3d-visualisations", name: "3D visualisations", key: "render",
+    text: "Before work starts, rooms and furniture are modelled in three dimensions. A client abroad sees the result on screen and can change it while changing still costs nothing.",
+    alts: [
+      "3D visualisation of a living room", "3D visualisation of a kitchen and dining corner", "3D visualisation of a bedroom", "3D visualisation of a dining banquette",
+      "3D visualisation of a walnut kitchen with an island", "3D visualisation of a marble bathroom", "3D visualisation of a dressing room", "3D visualisation of a sideboard with handle details", "3D visualisation of a desk with metal legs",
+    ],
+  },
+  {
+    id: "technical-drawings", name: "Technical drawings", key: "drawing",
+    text: "The drawings contractors build from: plans for electrics, lighting and plumbing, and dimensioned elevations of every piece of joinery.",
+    alts: ["Electrical and lighting plan of an apartment", "Plumbing plan of an apartment", "Dimensioned elevation of a kitchen wall with joinery notes", "Dimensioned elevations of a kitchen island"],
   },
 ];
 
 const work = {
   path: "projects/",
   crumb: "Projects",
-  title: "Paris apartment projects by Stouls Studio | Stouls Studio",
-  description: "Apartments designed by interior architect Margaux Stouls in Paris and its western suburbs: arched openings, built-in joinery, cane, oak and colour.",
+  title: "Projects by interior architect Margaux Stouls | Stouls Studio",
+  description: "Main residences, second homes, rental apartments, custom furniture, 3D visualisations and technical drawings by Stouls Studio, interior architecture in Paris.",
   body: (c) => `
 <section class="page-head">
   <p class="crumbs"><a href="${c.link("")}">Stouls Studio</a> / Projects</p>
-  <h1>Apartments designed by Margaux Stouls</h1>
-  <p class="lede">Five homes in Paris and just outside it, photographed once the works were finished.</p>
-  ${c.buttons()}
+  <h1>Projects by Margaux Stouls</h1>
+  <p class="lede">Homes, rental apartments and furniture, with the visualisations and drawings behind them.</p>
+  <p class="jump">${groups.map((g) => `<a href="#${g.id}">${g.name}</a>`).join("")}</p>
 </section>
-${projects.map((p) => `
-<section class="band project" id="${p.id}">
+${groups.map((g) => `
+<section class="band project" id="${g.id}">
   <div class="band-grid">
-    <div class="project-intro"><h2>${p.name}</h2><p>${p.text}</p></div>
-    <div class="masonry">
-      ${Array.from({ length: p.photos }, (_, i) => c.img(`${p.key}-${i + 1}`, `${p.alts[i]}. ${p.name}, Stouls Studio`)).filter(Boolean).map((img) => `<figure>${img}</figure>`).join("\n      ")}
+    <div class="project-intro"><h2>${g.name}</h2><p>${g.text}</p></div>
+    <div class="masonry${g.key === "drawing" ? " wide" : ""}">
+      ${g.alts.map((alt, i) => c.img(`${g.key}-${i + 1}`, `${alt}. Stouls Studio`)).filter(Boolean).map((img) => `<figure>${img}</figure>`).join("\n      ")}
     </div>
   </div>
 </section>`).join("")}
 
 <section class="band paper">
   <div class="band-grid prose">
-    <h2>What these have in common</h2>
+    <h2>Your project</h2>
     <div>
-      <ul>
-        <li>Storage is built in, drawn to the centimetre for rooms that are never square.</li>
-        <li>What the building already had is kept: beams, fireplaces, mouldings, old oak floors.</li>
-        <li>Colour goes on joinery and in small rooms, where it costs little and changes most.</li>
-        <li>Kitchens and bathrooms are redrawn first, because they decide where everything else can go.</li>
-      </ul>
-      <p><a href="${c.link("paris-apartment-renovation/")}">How a renovation is run</a>. More work is on <a href="https://www.instagram.com/${c.cfg.instagram}/">Instagram @${c.cfg.instagram}</a>.</p>
+      <p>Tell Margaux what you are looking for in Paris, or send the listing of an apartment you are considering.</p>
+      ${c.buttons()}
+      <p style="margin-top:1.5rem">More work is on <a href="https://www.instagram.com/${c.cfg.instagram}/">Instagram @${c.cfg.instagram}</a>.</p>
     </div>
   </div>
 </section>`,

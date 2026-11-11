@@ -39,8 +39,8 @@ ${c.photo("project-1") ? `<section class="band">
   <div class="band-grid">
     <h2>Recent apartments</h2>
     <div class="gallery">
-      ${["Bedroom corner with a curved mirror against a green half-height wall", "Arched niche with bookshelves beside an exposed timber post", "Cane-fronted cupboard doors with oak handles", "Marble fireplace with an ornate gilt mirror", "Sleeping corner with oak cupboards and botanical wallpaper", "Corridor with teal panelling to half height"].map((alt, n) => c.img(`project-${n + 1}`, `${alt}, apartment by Stouls Studio`)).filter(Boolean).map((i) => `<figure>${i}</figure>`).join("\n      ")}
-      <p class="gallery-more"><a href="${c.link("projects/")}">See the five projects</a></p>
+      ${["Bedroom corner with a curved mirror against a green half-height wall", "Arched niche with bookshelves beside an exposed timber post", "Cane-fronted cupboard doors with oak handles", "Marble fireplace with a gilt mirror and built-in shelves", "Living room with built-in oak bookshelves and a window bench", "Built-in dining banquette with a fluted panel and wall lights"].map((alt, n) => c.img(`project-${n + 1}`, `${alt}, apartment by Stouls Studio`)).filter(Boolean).map((i) => `<figure>${i}</figure>`).join("\n      ")}
+      <p class="gallery-more"><a href="${c.link("projects/")}">See all the projects</a></p>
     </div>
   </div>
 </section>` : `<section class="band">
@@ -218,6 +218,19 @@ const renovation = {
 </section>
 
 <section class="band">
+  <div class="band-grid prose">
+    <h2>What you see before work starts</h2>
+    <div>
+      <div class="figs contain">
+        ${["render-5", "drawing-1", "drawing-3"].map((n, i) => c.img(n, ["3D visualisation of a walnut kitchen with an island, Stouls Studio", "Electrical and lighting plan of an apartment, Stouls Studio", "Dimensioned elevation of a kitchen wall with joinery notes, Stouls Studio"][i])).filter(Boolean).map((img) => `<figure>${img}</figure>`).join("\n        ")}
+      </div>
+      <p>From abroad you cannot stand in the room and point. So Margaux models the rooms in three dimensions, and you see the apartment on screen while changing your mind still costs nothing.</p>
+      <p>Once you approve, she produces the technical drawings: plans for electrics, lighting and plumbing, and dimensioned elevations of every piece of joinery. Contractors price and build from those. <a href="${c.link("projects/")}#3d-visualisations">More visualisations and drawings</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band paper">
   <div class="band-grid">
     <h2>What is included</h2>
     <ul class="rows">

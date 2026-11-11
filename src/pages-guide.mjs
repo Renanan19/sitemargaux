@@ -63,6 +63,18 @@ const rental = {
 
 <section class="band">
   <div class="band-grid">
+    <h2>Rental apartments she has built</h2>
+    <div>
+      <div class="figs">
+        ${["rental-1", "rental-4", "rental-6"].map((n, i) => c.img(n, ["Black kitchen against an exposed brick wall, rental apartment by Stouls Studio", "Living room with built-in oak bookshelves and a window bench, rental apartment by Stouls Studio", "Living room below a mezzanine, rental apartment by Stouls Studio"][i])).filter(Boolean).map((img) => `<figure>${img}</figure>`).join("\n        ")}
+      </div>
+      <p><a href="${c.link("projects/")}#rental-properties">See the rental projects</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="band-grid">
     <h2>What she builds into a rental</h2>
     <ul class="rows">
       <li><h3>A layout that rents</h3><p>A real bedroom door, a desk that is not the dining table, storage for a tenant who arrives with a year of belongings.</p></li>
