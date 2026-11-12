@@ -121,7 +121,7 @@ const person = {
   "@type": "Person",
   "@id": `${siteUrl}/about/#margaux`,
   name: cfg.founder,
-  jobTitle: "Interior architect",
+  jobTitle: "Interior architect and designer",
   url: `${siteUrl}/about/`,
   worksFor: { "@id": `${siteUrl}/#studio` },
   workLocation: { "@type": "City", name: "Paris" },

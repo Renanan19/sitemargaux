@@ -27,7 +27,9 @@ for (const file of walk("docs")) {
   if (!canonical) { bad++; console.log("NO CANONICAL", file); }
   if (cfg.indexable && /name="robots" content="noindex/.test(html)) { bad++; console.log("NOINDEX ON A LIVE PAGE", file); }
   const words = html.replace(/<script[\s\S]*?<\/script>/g, "").replace(/<header[\s\S]*?<\/header>|<footer[\s\S]*?<\/footer>/g, "").replace(/<[^>]+>/g, " ").split(/\s+/).length;
-  if (words < 250) { bad++; console.log("THIN PAGE", words, "words", file); }
+  // Portfolio pages are galleries: Margaux wants facts and photographs only, no story text.
+  const gallery = /[\\/]portfolio[\\/]/.test(file);
+  if (!gallery && words < 250) { bad++; console.log("THIN PAGE", words, "words", file); }
   if ((html.match(/<h1/g) || []).length !== 1) { bad++; console.log("H1 COUNT", file); }
   console.log(String(title.length).padStart(4), file.replace(/\\/g, "/"));
 }

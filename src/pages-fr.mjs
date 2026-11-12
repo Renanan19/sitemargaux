@@ -38,8 +38,8 @@ const home = {
   lang: "fr",
   path: HOME,
   alt: "",
-  title: "Architecte d'intérieur à Paris, de la recherche aux clés",
-  description: "Margaux Stouls, architecte d'intérieur à Paris, cherche votre appartement, conçoit le projet, suit le chantier et l'aménage. Résidence principale, pied-à-terre, locatif ou revente.",
+  title: "Architecte d'intérieur et designer à Paris | Stouls Studio",
+  description: "Margaux Stouls, architecte d'intérieur et designer à Paris, cherche votre appartement, conçoit le projet, suit le chantier et l'aménage. Résidence principale, pied-à-terre ou locatif.",
   faq: [
     ["Faut-il que je sois à Paris ?", "Non. Les rendez-vous peuvent se tenir en visioconférence, les choix se confirment par WhatsApp, et pendant le chantier vous recevez des comptes rendus, des photos et des visites de l'appartement en vidéo. Quand vous êtes sur place, les rendez-vous ont lieu sur le chantier."],
     ["Pouvez-vous intervenir sur un appartement que je possède déjà ?", "Oui. C'est l'une des deux formules du studio. Le projet commence alors par l'analyse du bien, puis la conception et le dossier technique."],
@@ -50,11 +50,11 @@ const home = {
   body: (c) => `
 <section class="hero">
   <div class="hero-copy">
-    <h1>Votre appartement à Paris, trouvé, repensé et aménagé pour vous.</h1>
-    <p class="lede">Je suis Margaux Stouls, architecte d'intérieur à Paris. Je cherche le bien si vous ne l'avez pas encore, je conçois le projet, je suis le chantier et j'aménage l'appartement, jusqu'à la remise des clés.</p>
+    <h1>La bonne adresse, à votre image.</h1>
+    <p class="lede">Je suis Margaux Stouls, architecte d'intérieur et designer à Paris. Trouver le bon appartement, révéler son potentiel, lui donner du caractère : je vous accompagne à chaque étape, jusqu'au jour où vous posez vos valises.</p>
     ${c.buttons()}
   </div>
-  <div class="arch-wrap"><div class="arch">${c.img("hero", "Passage en arche ouvrant sur une salle de bain, appartement parisien conçu par Stouls Studio", "", true)}</div></div>
+  <div class="hero-photo">${c.img("hero", "Arche entre la cuisine et le coin nuit d'un studio parisien conçu par Stouls Studio", "", true)}</div>
 </section>
 
 <section class="band">
@@ -120,7 +120,7 @@ const prestations = {
   crumb: "Prestations",
   service: "Recherche d'appartement, architecture d'intérieur et rénovation clé en main à Paris",
   title: "Prestations : de la recherche aux clés | Stouls Studio",
-  description: "Les deux formules de Margaux Stouls, architecte d'intérieur à Paris : de la recherche d'appartement à la remise des clés, ou la rénovation clé en main d'un bien déjà acquis.",
+  description: "Les deux formules de Margaux Stouls, architecte d'intérieur et designer à Paris : de la recherche d'appartement à la remise des clés, ou la rénovation clé en main d'un bien déjà acquis.",
   faq: [
     ["Quelle formule choisir ?", "Tout dépend d'une seule chose : avez-vous déjà l'appartement ? Si vous cherchez encore, la première formule commence par la recherche. Si vous êtes propriétaire ou avez signé, la seconde commence par l'analyse du bien. À partir de la conception, les deux sont identiques."],
     ["Peut-on ne prendre qu'une partie de la prestation ?", "Oui. Certains clients demandent uniquement la conception et le dossier technique, ou la rénovation partielle de quelques pièces. Dites-moi ce dont vous avez besoin et je vous dirai ce que je peux prendre en charge."],
@@ -224,8 +224,8 @@ const recherche = {
   body: (c) => `
 <section class="page-head">
   <p class="crumbs"><a href="${c.link(HOME)}">Stouls Studio</a> / Recherche d'appartement</p>
-  <h1>La recherche d'appartement, par l'architecte qui le rénovera</h1>
-  <p class="lede">Je cherche, je visite et je vous rends compte. Vous voyez chaque appartement en vidéo, avec mon avis sur ce qu'il peut devenir, et vous faites une offre en sachant ce que coûteront les travaux.</p>
+  <h1>Le bon appartement, avec un regard d'architecte d'intérieur.</h1>
+  <p class="lede">Je cherche les biens, je les visite et je vous partage chaque découverte en vidéo. Mon regard d'architecte d'intérieur fait le reste : repérer le potentiel, imaginer la transformation, chiffrer les travaux. Vous pouvez faire une offre en sachant où vous allez.</p>
 </section>
 
 <section class="band">
@@ -282,7 +282,7 @@ const renovation = {
   crumb: "Rénovation",
   service: "Rénovation d'appartement clé en main à Paris",
   title: "Rénovation d'appartement à Paris, de A à Z | Stouls Studio",
-  description: "Conception, dossier technique, matériaux, suivi de chantier et aménagement de votre appartement à Paris, par l'architecte d'intérieur Margaux Stouls, du premier plan aux clés.",
+  description: "Conception, dossier technique, matériaux, suivi de chantier et aménagement de votre appartement à Paris, par Margaux Stouls, architecte d'intérieur et designer, du premier plan aux clés.",
   faq: [
     ["Faut-il l'accord de la copropriété pour rénover ?", "Pour des travaux à l'intérieur de votre appartement qui ne touchent à rien de commun, en général non. Pour tout ce qui concerne la structure, les canalisations communes, la façade ou les fenêtres, l'accord de la copropriété est nécessaire, et certains travaux demandent aussi une déclaration en mairie. Je vérifie le règlement de l'immeuble avant d'arrêter le projet."],
     ["Comment suit-on le chantier ?", "Un compte rendu chaque semaine ou toutes les deux semaines, des photos du chantier, et une visite de l'appartement en vidéo quand vous ne pouvez pas venir. Chaque choix qui vous revient est présenté avec des images et un prix."],
@@ -292,9 +292,21 @@ const renovation = {
   body: (c) => `
 <section class="page-head">
   <p class="crumbs"><a href="${c.link(HOME)}">Stouls Studio</a> / Rénovation</p>
-  <h1>La rénovation de votre appartement, de A à Z</h1>
-  <p class="lede">Je peux mener le projet depuis la recherche de l'appartement jusqu'à la remise des clés. Si vous êtes déjà propriétaire, je pars de là. Dans les deux cas, une seule personne conçoit le projet, suit les travaux et vous répond.</p>
+  <h1>Un projet pensé dans les moindres détails, suivi jusqu'au chantier.</h1>
+  <p class="lede">Repenser les volumes, dessiner les plans, choisir les matériaux et imaginer les détails qui feront la différence : je conçois votre intérieur dans son ensemble, en tenant compte de votre façon de vivre et du caractère du lieu.</p>
+  <p class="lede">Pour donner vie au projet, je m'entoure d'équipes d'artisans tous corps d'état avec lesquelles j'entretiens une relation de confiance de longue date. Je suis le chantier et veille, à leurs côtés, à la bonne réalisation des travaux, jusqu'aux dernières finitions.</p>
   ${c.buttons()}
+</section>
+
+<section class="band paper">
+  <div class="band-grid">
+    <h2>Sur le chantier</h2>
+    <div>
+      <div class="figs four">
+        ${["x-site1", "x-site3", "x-site4", "x-site5"].map((n, i) => c.img(n, ["Démolition en cours dans un appartement parisien, gravats au sol, chantier Stouls Studio","Deux ouvriers évacuent les gravats d'une pièce mise à nu, chantier Stouls Studio","Pose d'une nouvelle fenêtre donnant sur une cour parisienne, chantier Stouls Studio","Ponçage d'un mur depuis un escabeau, chantier Stouls Studio"][i])).filter(Boolean).map((img) => `<figure>${img}</figure>`).join("\n        ")}
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="band">
@@ -302,7 +314,7 @@ const renovation = {
     <h2>Ce que vous validez avant les travaux</h2>
     <div>
       <div class="figs contain">
-        ${["render-5", "drawing-3", "drawing-4"].map((n, i) => c.img(n, ["Visualisation 3D d'une cuisine en noyer avec îlot, Stouls Studio", "Élévation cotée d'un mur de cuisine avec notes de menuiserie, Stouls Studio", "Élévations cotées d'un îlot de cuisine, Stouls Studio"][i])).filter(Boolean).map((img) => `<figure>${img}</figure>`).join("\n        ")}
+        ${["x-plan4", "x-plan5", "render-5"].map((n, i) => c.img(n, ["Plan d'un studio avec cuisine, pièce de vie, salle d'eau et coin nuit, Stouls Studio", "Élévations cotées d'un WC et d'une salle de bain enfants, Stouls Studio", "Visualisation 3D d'une cuisine en noyer avec îlot, Stouls Studio"][i])).filter(Boolean).map((img) => `<figure>${img}</figure>`).join("\n        ")}
       </div>
       <p>Rien n'est construit que vous n'ayez vu et validé. Avant le démarrage des travaux, je vous présente trois choses.</p>
       <ul>
@@ -310,7 +322,7 @@ const renovation = {
         <li>Le dossier technique : les plans de rénovation et les élévations cotées de la cuisine, des salles de bain et de chaque menuiserie. Les entreprises chiffrent et construisent à partir de ces documents.</li>
         <li>La sélection : les matériaux, le mobilier, les luminaires et la décoration choisis avec vous, listés un par un.</li>
       </ul>
-      <p>Vous validez et signez le dossier. Le devis définitif est établi à partir du dossier finalisé : il chiffre exactement ce que vous avez validé. <a href="${c.link("fr/portfolio/")}#visualisations-3d">Plus de visualisations et de plans</a>.</p>
+      <p>Vous validez et signez le dossier. Le devis définitif est établi à partir du dossier finalisé : il chiffre exactement ce que vous avez validé. <a href="${c.link("fr/portfolio/plans-and-elevations/")}">Plus de plans, d'élévations et de visualisations</a>.</p>
     </div>
   </div>
 </section>
@@ -363,26 +375,21 @@ const apropos = {
   path: "fr/a-propos/",
   alt: "about/",
   crumb: "À propos",
-  title: "Margaux Stouls, architecte d'intérieur à Paris | Stouls Studio",
-  description: "Margaux Stouls a fondé Stouls Studio à Paris en 2019. Elle conçoit et suit des rénovations d'appartements, pour des clients à Paris comme à l'étranger.",
+  title: "Margaux Stouls, architecte d'intérieur et designer à Paris",
+  description: "Margaux Stouls, architecte d'intérieur et designer, a créé Stouls Studio à Paris en 2019. Plus de 60 projets accompagnés, de la conception au suivi des travaux.",
   body: (c) => `
-<section class="page-head">
-  <p class="crumbs"><a href="${c.link(HOME)}">Stouls Studio</a> / À propos</p>
-  <h1>Margaux Stouls, architecte d'intérieur à Paris</h1>
-  <p class="lede">Stouls Studio, c'est moi. La personne à qui vous parlez au premier rendez-vous est celle qui dessine vos plans et qui se tient sur votre chantier.</p>
-  ${c.buttons()}
-</section>
-
-<section class="band">
-  <div class="band-grid prose">
-    <h2>Le studio</h2>
-    <div>
-      ${c.img("margaux", "Margaux Stouls, architecte d'intérieur", "portrait")}
-      <p>J'ai fondé Stouls Studio à Paris en 2019. Je conçois des appartements et je suis leur rénovation : relevé, plans, entreprises, chantier, mobilier.</p>
-      <p>Le travail avec des propriétaires à l'étranger a commencé avec des clients canadiens qui avaient acheté à Paris et ne pouvaient pas être présents pendant les travaux. Ils ont confié les clés et sont revenus dans un appartement terminé. D'autres ont suivi par le bouche-à-oreille.</p>
-      <p>Je propose aujourd'hui la même chose une étape plus tôt : la recherche de l'appartement. <a href="${c.link("fr/prestations/")}">Les deux formules du studio</a>.</p>
-      <p><a href="https://www.instagram.com/${c.cfg.instagram}/">Instagram @${c.cfg.instagram}</a></p>
-    </div>
+<section class="about-split">
+  <div class="about-photo">${c.img("margaux", "Margaux Stouls, architecte d'intérieur et designer", "", true)}</div>
+  <div class="about-text">
+    <p class="crumbs"><a href="${c.link(HOME)}">Stouls Studio</a> / À propos</p>
+    <h1>Margaux Stouls <span>Architecte d'intérieur et designer</span></h1>
+    <p>Derrière Stouls Studio, il y a moi. La personne que vous rencontrez au premier rendez-vous est aussi celle qui dessine vos plans, suit votre chantier et vous accompagne jusqu'aux derniers détails.</p>
+    <p>Diplômée en architecture d'intérieur et en design produit, j'aime penser un projet dans son ensemble : la circulation dans un appartement, la lumière, les volumes, mais aussi le dessin d'un meuble, le choix d'une matière ou la justesse d'une finition. Cette double approche me permet de passer naturellement de la vision globale aux détails qui donnent son caractère à un lieu.</p>
+    <p>J'ai créé Stouls Studio en 2019 avec l'envie de concevoir des intérieurs personnels, beaux à vivre et adaptés à ceux qui les habitent. Depuis, j'ai accompagné plus de 60 projets, de la conception au suivi des travaux.</p>
+    <p>Aujourd'hui, j'accompagne aussi bien les personnes qui souhaitent trouver leur appartement à Paris depuis l'étranger que celles qui veulent repenser un lieu qu'elles habitent déjà. Pour les premières, je suis un regard sur place : je recherche, je visite, je partage mes découvertes et j'imagine les possibilités de chaque bien. Pour les secondes, je transforme leurs envies en un projet concret, conçu sur mesure et suivi sur le terrain.</p>
+    <p>Dans les deux cas, mon approche reste la même : écouter, comprendre votre manière de vivre et révéler le potentiel d'un lieu pour en faire un intérieur qui vous ressemble.</p>
+    ${c.buttons()}
+    <p class="about-links"><a href="${c.link("fr/prestations/")}">Les deux formules du studio</a><a href="https://www.instagram.com/${c.cfg.instagram}/">Instagram @${c.cfg.instagram}</a></p>
   </div>
 </section>
 
