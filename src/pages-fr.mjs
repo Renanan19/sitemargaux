@@ -146,6 +146,8 @@ ${formules.map((f, i) => `<section class="band${i ? " paper" : ""}" id="${f.id}"
   </div>
 </section>`).join("\n\n")}
 
+<figure class="bleed">${c.img("x-sau25", "Le séjour vu depuis la cuisine, avec les poteaux en bois d'origine, appartement parisien de Stouls Studio")}</figure>
+
 <section class="band" id="deroulement">
   <div class="band-grid">
     <h2>Le déroulement de l'accompagnement</h2>
@@ -250,6 +252,8 @@ const recherche = {
     </div>
   </div>
 </section>
+
+<figure class="bleed">${c.img("x-bag8", "Cuisine en noyer aux étagères éclairées et table ovale, appartement de Stouls Studio")}</figure>
 
 <section class="band paper">
   <div class="band-grid prose">

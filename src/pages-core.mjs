@@ -208,6 +208,8 @@ ${formulas.map((f, i) => `<section class="band${i ? " paper" : ""}" id="${f.id}"
   </div>
 </section>`).join("\n\n")}
 
+<figure class="bleed">${c.img("x-sau25", "Living room seen from the kitchen, with the original wood posts, Paris apartment by Stouls Studio")}</figure>
+
 <section class="band" id="how-we-work">
   <div class="band-grid">
     <h2>How we work together</h2>
@@ -311,6 +313,8 @@ const sourcing = {
     </div>
   </div>
 </section>
+
+<figure class="bleed">${c.img("x-bag8", "Walnut kitchen with lit shelves and an oval dining table, apartment by Stouls Studio")}</figure>
 
 <section class="band paper">
   <div class="band-grid prose">
