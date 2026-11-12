@@ -114,6 +114,8 @@ ${c.photo("project-1") ? `<section class="band">
   </div>
 </section>
 
+<figure class="bleed">${c.img("main-14", "Living room with a herringbone oak floor and tall windows, Paris apartment by Stouls Studio")}</figure>
+
 <section class="band">
   <div class="band-grid">
     <h2>Whatever the apartment is for</h2>
@@ -165,6 +167,8 @@ ${c.photo("project-1") ? `<section class="band">
     </ul>
   </div>
 </section>
+
+<figure class="bleed">${c.img("x-b25-2", "Living room with a red marble fireplace and brass-hung shelves, apartment by Stouls Studio")}</figure>
 
 <section class="band paper">
   <div class="band-grid">

@@ -13,7 +13,7 @@ for (const file of walk("docs")) {
   if (file.endsWith("404.html")) continue;
   for (const [, href] of html.matchAll(/href="([^"#]+)"/g)) {
     if (/^(https?:|mailto:|tel:)/.test(href)) continue;
-    let target = normalize(join(dirname(file), href));
+    let target = normalize(join(dirname(file), href.split("?")[0]));
     if (existsSync(target) && statSync(target).isDirectory()) target = join(target, "index.html");
     if (!existsSync(target)) { bad++; console.log("BROKEN LINK", file, href); }
   }

@@ -1,10 +1,13 @@
 // Static build: node build.mjs  ->  docs/ (served by GitHub Pages)
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync, copyFileSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
+import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { pages } from "./src/pages.mjs";
 
 const root = dirname(fileURLToPath(import.meta.url));
+// The stylesheet URL carries a hash of its content, so phones never keep an old copy against new pages.
+const cssVersion = createHash("sha1").update(readFileSync(join(root, "src", "styles.css"))).digest("hex").slice(0, 8);
 const out = join(root, "docs");
 const cfg = JSON.parse(readFileSync(join(root, "site.config.json"), "utf8"));
 const siteUrl = cfg.siteUrl.replace(/\/$/, "");
@@ -169,7 +172,7 @@ ${og ? `<meta property="og:image" content="${og}">\n<meta name="twitter:card" co
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="${c.rel}styles.css">
+<link rel="stylesheet" href="${c.rel}styles.css?v=${cssVersion}">
 <link rel="icon" href="${c.rel}favicon.svg" type="image/svg+xml">
 <script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": graph })}</script>
 </head>

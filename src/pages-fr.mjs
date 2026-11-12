@@ -82,6 +82,8 @@ const home = {
   </div>
 </section>
 
+<figure class="bleed">${c.img("main-14", "Séjour au parquet en point de Hongrie et hautes fenêtres, appartement parisien de Stouls Studio")}</figure>
+
 <section class="band paper">
   <div class="band-grid">
     <h2>Quel que soit le projet</h2>
@@ -104,6 +106,8 @@ const home = {
     </div>
   </div>
 </section>
+
+<figure class="bleed">${c.img("x-b25-2", "Séjour avec cheminée en marbre rouge et étagères sur montants en laiton, appartement de Stouls Studio")}</figure>
 
 <section class="band paper">
   <div class="band-grid">
