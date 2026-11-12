@@ -833,7 +833,7 @@ export const projects = [
     "slug": "apartment-montparnasse",
     "name": "Montparnasse Apartment",
     "type": "Apartment",
-    "use": null,
+    "use": "Pied-à-terre",
     "place": "Paris, Montparnasse",
     "size": [
       45,
@@ -843,7 +843,7 @@ export const projects = [
     "fr": {
       "name": "Appartement Montparnasse",
       "type": "Appartement",
-      "use": null,
+      "use": "Pied-à-terre",
       "place": "Paris, Montparnasse",
       "scope": "Rénovation partielle du séjour et création de la bibliothèque, avec suivi de chantier"
     },
@@ -884,7 +884,7 @@ export const projects = [
     "slug": "apartment-neuilly-sur-seine",
     "name": "Neuilly-sur-Seine Apartment",
     "type": "Apartment",
-    "use": null,
+    "use": "Main residence",
     "place": "Neuilly-sur-Seine, west of Paris",
     "size": [
       90,
@@ -894,7 +894,7 @@ export const projects = [
     "fr": {
       "name": "Appartement Neuilly-sur-Seine",
       "type": "Appartement",
-      "use": null,
+      "use": "Résidence principale",
       "place": "Neuilly-sur-Seine, à l'ouest de Paris",
       "scope": "Menuiseries sur mesure dans plusieurs pièces : conception, sourcing et suivi partiel de chantier"
     },

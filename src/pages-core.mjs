@@ -362,8 +362,8 @@ const renovation = {
   <div class="band-grid">
     <h2>On site</h2>
     <div>
-      <div class="figs four">
-        ${["x-site1", "x-site3", "x-site4", "x-site5"].map((n, i) => c.img(n, ["Demolition under way in a Paris apartment, rubble on the floor, Stouls Studio site","Two workers bagging rubble in a room stripped back to the structure, Stouls Studio site","A fitter setting a new window frame facing a Paris courtyard, Stouls Studio site","A plasterer sanding a wall from a stepladder, Stouls Studio site"][i])).filter(Boolean).map((img) => `<figure>${img}</figure>`).join("\n        ")}
+      <div class="figs five">
+        ${["x-site1", "x-site2", "x-site3", "x-site4", "x-site5"].map((n, i) => c.img(n, ["Demolition under way in a Paris apartment, rubble on the floor, Stouls Studio site","An old chimney flue opened up during demolition, Stouls Studio site","Two workers bagging rubble in a room stripped back to the structure, Stouls Studio site","A fitter setting a new window frame facing a Paris courtyard, Stouls Studio site","A plasterer sanding a wall from a stepladder, Stouls Studio site"][i])).filter(Boolean).map((img) => `<figure>${img}</figure>`).join("\n        ")}
       </div>
     </div>
   </div>

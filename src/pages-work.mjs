@@ -80,6 +80,7 @@ const extras = [
       ["x-plan5", "Dimensioned elevations of a WC and a children's bathroom in striped tiles", "Élévations cotées d'un WC et d'une salle de bain enfants en carrelage rayé"],
       ["x-plan2", "Floor plan of an apartment with two bedrooms and two terraces", "Plan d'un appartement avec deux chambres et deux terrasses"],
       ["x-plan3", "Electrical plan of a large apartment", "Plan électrique d'un grand appartement"],
+      ["x-plan1", "Dimensioned elevations of a kitchen in oak and terracotta tiles", "Élévations cotées d'une cuisine en chêne et carreaux de terre cuite"],
       ["drawing-3", "Dimensioned elevation of a kitchen wall with joinery notes", "Élévation cotée d'un mur de cuisine avec notes de menuiserie"],
       ["drawing-4", "Dimensioned elevations of a kitchen island", "Élévations cotées d'un îlot de cuisine"],
       ["render-5", "3D visualisation of a walnut kitchen with an island", "Visualisation 3D d'une cuisine en noyer avec îlot"],
