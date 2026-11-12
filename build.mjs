@@ -139,7 +139,7 @@ function render(page) {
   const altUrl = hasAlt ? `${siteUrl}/${page.alt}` : null;
   const enUrl = lang === "en" ? url : altUrl;
   const frUrl = lang === "fr" ? url : altUrl;
-  const body = page.body(c);
+  const body = lang === "fr" ? page.body(c).replace(/>([^<]+)</g, (m) => m.replace(/ ([:;?!»])/g, "\u00a0$1").replace(/« /g, "«\u00a0")) : page.body(c);
   const graph = [org, person, { "@type": "WebPage", "@id": url, url, name: page.title, description: page.description, isPartOf: { "@id": `${siteUrl}/#site` }, about: { "@id": `${siteUrl}/#studio` }, inLanguage: lang, dateModified: updatedOf(page), author: { "@id": `${siteUrl}/about/#margaux` } }];
   if (!page.path) graph.push({ "@type": "WebSite", "@id": `${siteUrl}/#site`, url: `${siteUrl}/`, name: cfg.studio, inLanguage: "en" });
   if (page.crumb) {

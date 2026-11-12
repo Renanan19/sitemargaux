@@ -89,7 +89,7 @@ const home = {
       <li><h3>Résidence principale</h3><p>Vous vivez à Paris, ou vous vous y installez, et vous voulez un appartement redessiné autour de votre quotidien.</p></li>
       <li><h3>Pied-à-terre</h3><p>Un appartement à vous à Paris pour des séjours réguliers, prêt à vivre dès votre arrivée.</p></li>
       <li><h3>Investissement locatif</h3><p>Un bien où une nouvelle distribution crée une chambre ou une vraie cuisine, conçu et meublé pour être loué.</p></li>
-      <li><h3>Achat-revente</h3><p>Un appartement acheté pour être rénové puis revendu, où la conception se juge à la valeur qu'elle ajoute.</p></li>
+      <li><h3>Projet destiné à la revente</h3><p>Un appartement acheté pour être rénové puis revendu, où la conception se juge à la valeur qu'elle ajoute.</p></li>
     </ul>
   </div>
 </section>
@@ -253,7 +253,7 @@ const recherche = {
     <div>
       <p>Les appartements qui valent la peine sont souvent ceux qui se présentent mal. Un couloir sombre que l'on peut ouvrir. Une cuisine au fond qui peut passer dans le séjour. Un deux-pièces de 50 m² qui devient un trois-pièces une fois le plan redessiné.</p>
       <p>Ce sont ceux que les autres acheteurs écartent, et ceux où la conception ajoute le plus de valeur pour l'argent dépensé.</p>
-      <p>Je vous dis aussi lesquels laisser. Un bel appartement sous une toiture que la copropriété n'a pas voté de refaire n'est pas une affaire.</p>
+      <p>Je vous dis aussi lesquels laisser. Un bel appartement sous une toiture dont la copropriété n'a pas voté la réfection n'est pas une affaire.</p>
     </div>
   </div>
 </section>
@@ -469,7 +469,7 @@ const mentions = {
           ${row("Nom commercial", c.cfg.studio)}
           ${row("Dénomination sociale", co.legalName)}
           ${row("Forme juridique", co.legalForm)}
-          ${row("Capital social", co.capital)}
+          ${row("Capital social", co.capital.replace(/^€\s*(.+)$/, "$1 €"))}
           ${row("Siège social", `${co.street}, ${co.postalCode} ${co.city}, France`)}
           ${row("Immatriculation", `RCS ${co.rcs} ${co.siren}`)}
           ${row("SIRET (siège)", co.siret)}
