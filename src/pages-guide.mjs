@@ -1,5 +1,5 @@
 // Rental investment page and buyer's guide. Every rule stated here carries its source.
-// Checked 11 November 2026. Re-check before changing any figure.
+// Checked November 11, 2026. Re-check before changing any figure.
 import { faqBlock } from "./pages-core.mjs";
 
 const SRC = {
@@ -17,18 +17,18 @@ const rental = {
   crumb: "Rental investment",
   service: "Rental investment apartment search and renovation in Paris",
   title: "Paris rental investment: what is allowed | Stouls Studio",
-  description: "Short tourist lets of a second home are all but closed in Paris. What still works, the energy-rating rules, and how an interior architect finds and builds a rental apartment for you.",
+  description: "Short tourist rentals of a second home are all but closed in Paris. What still works, the energy-rating rules, and how an interior architect finds and builds a rental apartment for you.",
   faq: [
-    ["Can I put my Paris apartment on Airbnb?", "If it is not your main home, only with a change-of-use authorisation from the City of Paris, which requires compensation: converting commercial space into housing elsewhere. For most individual buyers that closes the door. A main home can be let to tourists for up to 90 days a year, with a registration number."],
+    ["Can I put my Paris apartment on Airbnb?", "If it is not your main home, only with a change-of-use authorisation from the City of Paris, which requires compensation: converting commercial space into housing elsewhere. For most individual buyers that closes the door. A main home can be rented to tourists for up to 90 days a year, with a registration number."],
     ["What is a bail mobilité?", "A furnished lease of one to ten months, not renewable, with no deposit, for tenants who qualify: students, people on a work assignment, in training or on a temporary posting."],
-    ["Does the energy rating matter?", "Yes. Apartments rated G can no longer be let on a new or renewed lease since 1 January 2025. F follows in 2028 and E in 2034. Many small Paris apartments are rated F or G, so the rating belongs in the purchase decision."],
-    ["Will you manage the tenants?", "No. I hand the finished apartment to the rental manager you choose and can introduce you to ones my clients use."],
+    ["Does the energy rating matter?", "Yes. Apartments rated G can no longer be rented on a new or renewed lease since January 1, 2025. F follows in 2028 and E in 2034. Many small Paris apartments are rated F or G, so the rating belongs in the purchase decision."],
+    ["Will you manage the tenants?", "No. I hand the finished apartment to the property manager you choose and can introduce you to ones my clients use."],
   ],
   body: (c) => `
 <section class="page-head">
   <p class="crumbs"><a href="${c.link("")}">Stouls Studio</a> / Rental investment</p>
   <h1>A Paris rental apartment, bought and built for the leases that are allowed</h1>
-  <p class="lede">Paris has all but closed short tourist lets for second homes. A rental project here is designed for furnished leases of months and years. Better to know that before you buy.</p>
+  <p class="lede">Paris has all but closed short tourist rentals for second homes. A rental project here is designed for furnished leases of months and years. Better to know that before you buy.</p>
   ${c.buttons()}
 </section>
 
@@ -37,15 +37,15 @@ const rental = {
     <h2>What the rules allow</h2>
     <div>
       <table>
-        <thead><tr><th>Type of let</th><th>For an apartment that is not your main home</th></tr></thead>
+        <thead><tr><th>Type of rental</th><th>For an apartment that is not your main home</th></tr></thead>
         <tbody>
-          <tr><td>Tourist let by the night</td><td>Needs a change-of-use authorisation with compensation. Letting without it is fined up to €100,000. <a href="${SRC.parisTourist}">City of Paris</a></td></tr>
+          <tr><td>Tourist rental by the night</td><td>Needs a change-of-use authorisation with compensation. Letting without it is fined up to €100,000. <a href="${SRC.parisTourist}">City of Paris</a></td></tr>
           <tr><td>Bail mobilité</td><td>Furnished, 1 to 10 months, not renewable, no deposit, tenant must qualify. <a href="${SRC.mobilite}">Service-Public</a></td></tr>
           <tr><td>Furnished or unfurnished long lease</td><td>Allowed. The apartment must meet the energy-rating threshold. <a href="${SRC.dpeLet}">Ministry of Ecology</a></td></tr>
         </tbody>
       </table>
-      <p>If the apartment is your main home, you may let it to tourists for up to 90 days a year, and the listing must show a registration number (<a href="${SRC.parisTourist}">City of Paris</a>). A second home owned from abroad does not qualify.</p>
-      <p class="note">Rules as published on 11 November 2026. They have tightened several times since 2024. Check the current text, and take advice from a French lawyer or notaire before you buy on the strength of a rental plan.</p>
+      <p>If the apartment is your main home, you may rent it to tourists for up to 90 days a year, and the listing must show a registration number (<a href="${SRC.parisTourist}">City of Paris</a>). A second home owned from abroad does not qualify.</p>
+      <p class="note">Rules as published on November 11, 2026. They have tightened several times since 2024. Check the current text, and take advice from a French lawyer or notaire before you buy on the strength of a rental plan.</p>
     </div>
   </div>
 </section>
@@ -54,9 +54,9 @@ const rental = {
   <div class="band-grid prose">
     <h2>The energy rating decides more than the view</h2>
     <div>
-      <p>Every apartment for sale in France carries an energy rating from A to G. Since 1 January 2025 an apartment rated G cannot be let on a new or renewed lease. The same applies to F from 2028 and to E from 2034 (<a href="${SRC.dpeLet}">Ministry of Ecology</a>).</p>
+      <p>Every apartment for sale in France carries an energy rating from A to G. Since January 1, 2025 an apartment rated G cannot be rented on a new or renewed lease. The same applies to F from 2028 and to E from 2034 (<a href="${SRC.dpeLet}">Ministry of Ecology</a>).</p>
       <p>Poorly rated apartments sell at a discount for that reason. Whether the rating can be raised depends on the building: windows the city will accept, insulation from the inside, the heating system, ventilation.</p>
-      <p>I look at this on the visit. A G-rated apartment that can reach D with the works you were going to do anyway is an opportunity. One that cannot is a trap.</p>
+      <p>I look at this on the visit. A G-rated apartment that can reach D with the work you were going to do anyway is an opportunity. One that cannot is a trap.</p>
     </div>
   </div>
 </section>
@@ -78,8 +78,8 @@ const rental = {
     <h2>What I build into a rental</h2>
     <ul class="rows">
       <li><h3>A layout that rents</h3><p>A real bedroom door, a desk that is not the dining table, storage for a tenant who arrives with a year of belongings.</p></li>
-      <li><h3>Materials that last</h3><p>Floors, worktops and bathroom fittings chosen for the fifth tenant, and paint colours that can be touched up between leases.</p></li>
-      <li><h3>Complete furnishing</h3><p>French law lists what a furnished let must contain. I supply that list and the things tenants look for beyond it.</p></li>
+      <li><h3>Materials that last</h3><p>Floors, countertops and bathroom fittings chosen for the fifth tenant, and paint colors that can be touched up between leases.</p></li>
+      <li><h3>Complete furnishing</h3><p>French law lists what a furnished rental must contain. I supply that list and the things tenants look for beyond it.</p></li>
       <li><h3>A file for your manager</h3><p>Plans, appliance manuals, paint references, contractor contacts and photos of every room on handover day.</p></li>
     </ul>
   </div>
@@ -108,7 +108,7 @@ const guide = {
 <section class="page-head">
   <p class="crumbs"><a href="${c.link("")}">Stouls Studio</a> / Buyer's guide</p>
   <h1>Buying and renovating a Paris apartment from abroad</h1>
-  <p class="lede">What happens, in what order, and what it costs beyond the price. Written for buyers in the United States and Canada. Last checked 11 November 2026.</p>
+  <p class="lede">What happens, in what order, and what it costs beyond the price. Written for buyers in the United States and Canada. Last checked November 11, 2026.</p>
 </section>
 
 <section class="band">
@@ -116,7 +116,7 @@ const guide = {
     <h2>Who is buying</h2>
     <div>
       <p>Americans and Canadians can buy property in France. There is no nationality restriction on residential purchases, and you do not need to live in France. Owning an apartment does not give you a right to stay beyond the usual 90 days in any 180.</p>
-      <p>Americans were the first nationality among foreign non-resident buyers in Paris in 2025: 220 purchases, 26% of that group. The median purchase by a foreign non-resident in Paris was €864,000 for 65 m². Foreign non-residents made 3.7% of all Paris purchases (<a href="${SRC.notaires}">Notaires du Grand Paris, 25 June 2026</a>).</p>
+      <p>Americans were the first nationality among foreign non-resident buyers in Paris in 2025: 220 purchases, 26% of that group. The median purchase by a foreign non-resident in Paris was €864,000 for 65 m². Foreign non-residents made 3.7% of all Paris purchases (<a href="${SRC.notaires}">Notaires du Grand Paris, June 25, 2026</a>).</p>
       <p>The notaires publish no separate figure for Canadian buyers.</p>
     </div>
   </div>
@@ -151,12 +151,12 @@ const guide = {
         <tbody>
           <tr><td>Inside your apartment, nothing shared touched</td><td>None from the building</td></tr>
           <tr><td>Load-bearing walls, floors, shared pipes and stacks, façade, windows</td><td>Vote of the co-owners at a general meeting. <a href="${SRC.copro}">Service-Public</a></td></tr>
-          <tr><td>Changes visible from the street</td><td>Usually a filing at the town hall as well</td></tr>
+          <tr><td>Changes visible from the street</td><td>Usually a filing at the city hall as well</td></tr>
         </tbody>
       </table>
       <p>General meetings are often held once a year. If your project needs a vote, the date of the next meeting can set your timetable, so it is worth asking before you buy.</p>
       <h3>What a renovation costs</h3>
-      <p>It depends on the state of the wiring, plumbing and structure far more than on the floor area. Figures quoted per square metre online range so widely that they mislead. I give an estimate for the apartment in front of me, at the visit, and a fixed set of contractor quotes once the plans are drawn. <a href="${c.link("paris-apartment-renovation-cost/")}">Published cost ranges per m²</a>.</p>
+      <p>It depends on the state of the wiring, plumbing and structure far more than on the floor area. Figures quoted per square meter online range so widely that they mislead. I give an estimate for the apartment in front of me, at the visit, and a fixed set of contractor quotes once the plans are drawn. <a href="${c.link("paris-apartment-renovation-cost/")}">Published cost ranges per m²</a>.</p>
     </div>
   </div>
 </section>
@@ -166,10 +166,10 @@ const guide = {
     <h2>Renting it out</h2>
     <div>
       <ul>
-        <li>Tourist lets of a second home need a change-of-use authorisation with compensation; without it the fine is up to €100,000 (<a href="${SRC.parisTourist}">City of Paris</a>).</li>
-        <li>A main home may be let to tourists up to 90 days a year, with a registration number (<a href="${SRC.parisTourist}">City of Paris</a>).</li>
+        <li>Tourist rentals of a second home need a change-of-use authorisation with compensation; without it the fine is up to €100,000 (<a href="${SRC.parisTourist}">City of Paris</a>).</li>
+        <li>A main home may be rented to tourists up to 90 days a year, with a registration number (<a href="${SRC.parisTourist}">City of Paris</a>).</li>
         <li>A bail mobilité is a furnished lease of 1 to 10 months for qualifying tenants (<a href="${SRC.mobilite}">Service-Public</a>).</li>
-        <li>Apartments rated G cannot be newly let since 1 January 2025; F from 2028; E from 2034 (<a href="${SRC.dpeLet}">Ministry of Ecology</a>).</li>
+        <li>Apartments rated G cannot be newly rented since January 1, 2025; F from 2028; E from 2034 (<a href="${SRC.dpeLet}">Ministry of Ecology</a>).</li>
       </ul>
       <p><a href="${c.link("paris-rental-investment/")}">More on rental projects</a></p>
     </div>
@@ -203,10 +203,10 @@ const guide = {
   <div class="band-grid prose">
     <h2>Sources</h2>
     <ul class="sources">
-      <li>Notaires du Grand Paris, communiqué of 25 June 2026: <a href="${SRC.notaires}">non-resident buyers, 2025 data</a></li>
-      <li>City of Paris: <a href="${SRC.parisTourist}">furnished tourist lets</a></li>
-      <li>Service-Public: <a href="${SRC.mobilite}">bail mobilité</a>, <a href="${SRC.copro}">works in a co-owned building</a>, <a href="${SRC.ifi}">IFI</a>, <a href="${SRC.dpeTourist}">energy rating and tourist lets</a></li>
-      <li>Ministry of Ecology: <a href="${SRC.dpeLet}">energy rating and letting</a></li>
+      <li>Notaires du Grand Paris, communiqué of June 25, 2026: <a href="${SRC.notaires}">non-resident buyers, 2025 data</a></li>
+      <li>City of Paris: <a href="${SRC.parisTourist}">furnished tourist rentals</a></li>
+      <li>Service-Public: <a href="${SRC.mobilite}">bail mobilité</a>, <a href="${SRC.copro}">renovation work in a co-owned building</a>, <a href="${SRC.ifi}">IFI</a>, <a href="${SRC.dpeTourist}">energy rating and tourist rentals</a></li>
+      <li>Ministry of Ecology: <a href="${SRC.dpeLet}">energy rating and renting</a></li>
     </ul>
   </div>
 </section>`,

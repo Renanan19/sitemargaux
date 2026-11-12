@@ -45,7 +45,7 @@ const UI = {
     waText: "Hello Margaux, I'm looking at an apartment project in Paris.",
     waLabel: "Message me on WhatsApp", emailLabel: (e) => `Email ${e}`, emailSubject: "Paris apartment project", igOnly: "Message me on Instagram",
     footTitle: "Tell me what you want in Paris.",
-    footText: "Budget, neighbourhood if you have one, and whether you plan to live in it or rent it. I reply in English or in French.",
+    footText: "Budget, neighborhood if you have one, and whether you plan to live in it or rent it. I reply in English or in French.",
     legal: ["legal/", "Legal notice and privacy"], tagline: "Interior architecture, Paris", disclaimer: "General information, not legal or tax advice.",
   },
   fr: {

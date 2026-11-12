@@ -46,7 +46,7 @@ const T = {
 // Two galleries shown after the projects: furniture made to measure, then drawings.
 const extras = [
   {
-    slug: "custom-furniture", name: "Custom Furniture", what: "furniture and joinery drawn for one room and made to measure",
+    slug: "custom-furniture", name: "Custom Furniture", what: "furniture and millwork drawn for one room and made to measure",
     fr: { name: "Mobilier sur mesure", what: "des meubles et des menuiseries dessinés pour une pièce et fabriqués sur mesure" },
     photos: [
       ["x-fur9", "Oak sideboard with shelves on turned posts", "Buffet en chêne avec étagères sur poteaux tournés"],
@@ -66,26 +66,26 @@ const extras = [
       ["x-fur18", "Pendant light in front of the oak panel", "Suspension devant le panneau en chêne"],
       ["x-fur20", "The table top meeting the oak wall panel", "Le plateau de la table contre le panneau mural en chêne"],
       ["x-fur21", "The table and its wall panel, by the window", "La table et son panneau mural, près de la fenêtre"],
-      ["x-fur1", "Child's bedroom with sage wardrobes around an alcove and a fluted oak headboard", "Chambre d'enfant, penderies vert sauge autour d'une alcôve et tête de lit en chêne cannelé"],
+      ["x-fur1", "Child's bedroom with sage closets around an alcove and a fluted oak headboard", "Chambre d'enfant, penderies vert sauge autour d'une alcôve et tête de lit en chêne cannelé"],
       ["x-fur4", "Arched alcove lined with floral wallpaper above a fluted oak shelf", "Alcôve en arche tapissée de papier peint fleuri, au-dessus d'une tablette en chêne cannelé"],
       ["x-fur2", "Cane-fronted drawers with round oak pulls", "Tiroirs à façade cannée et poignées rondes en chêne"],
-      ["x-fur3", "Scalloped oak rail above cream cupboards", "Frise festonnée en chêne au-dessus de placards crème"],
+      ["x-fur3", "Scalloped oak rail above cream cabinets", "Frise festonnée en chêne au-dessus de placards crème"],
     ],
   },
   {
-    slug: "plans-and-elevations", name: "Plans and Elevations", wide: true, what: "floor plans, dimensioned elevations and 3D visualisations drawn before the works",
+    slug: "plans-and-elevations", name: "Plans and Elevations", wide: true, what: "floor plans, dimensioned elevations and 3D visualizations drawn before construction",
     fr: { name: "Plans et élévations", what: "plans, élévations cotées et visualisations 3D dessinés avant les travaux" },
     photos: [
-      ["x-plan4", "Floor plan of a studio with kitchen, living room, shower room and sleeping area", "Plan d'un studio avec cuisine, pièce de vie, salle d'eau et coin nuit"],
-      ["x-plan5", "Dimensioned elevations of a WC and a children's bathroom in striped tiles", "Élévations cotées d'un WC et d'une salle de bain enfants en carrelage rayé"],
+      ["x-plan4", "Floor plan of a studio with kitchen, living room, bathroom and sleeping area", "Plan d'un studio avec cuisine, pièce de vie, salle d'eau et coin nuit"],
+      ["x-plan5", "Dimensioned elevations of a toilet room and a children's bathroom in striped tiles", "Élévations cotées d'un WC et d'une salle de bain enfants en carrelage rayé"],
       ["x-plan2", "Floor plan of an apartment with two bedrooms and two terraces", "Plan d'un appartement avec deux chambres et deux terrasses"],
       ["x-plan3", "Electrical plan of a large apartment", "Plan électrique d'un grand appartement"],
       ["x-plan1", "Dimensioned elevations of a kitchen in oak and terracotta tiles", "Élévations cotées d'une cuisine en chêne et carreaux de terre cuite"],
-      ["drawing-3", "Dimensioned elevation of a kitchen wall with joinery notes", "Élévation cotée d'un mur de cuisine avec notes de menuiserie"],
+      ["drawing-3", "Dimensioned elevation of a kitchen wall with millwork notes", "Élévation cotée d'un mur de cuisine avec notes de menuiserie"],
       ["drawing-4", "Dimensioned elevations of a kitchen island", "Élévations cotées d'un îlot de cuisine"],
-      ["render-5", "3D visualisation of a walnut kitchen with an island", "Visualisation 3D d'une cuisine en noyer avec îlot"],
-      ["render-6", "3D visualisation of a marble bathroom", "Visualisation 3D d'une salle de bain en marbre"],
-      ["render-7", "3D visualisation of a dressing room", "Visualisation 3D d'un dressing"],
+      ["render-5", "3D visualization of a walnut kitchen with an island", "Visualisation 3D d'une cuisine en noyer avec îlot"],
+      ["render-6", "3D visualization of a marble bathroom", "Visualisation 3D d'une salle de bain en marbre"],
+      ["render-7", "3D visualization of a dressing room", "Visualisation 3D d'un dressing"],
     ],
   },
 ];

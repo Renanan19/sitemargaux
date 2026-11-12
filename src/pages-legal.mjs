@@ -1,5 +1,5 @@
 // Legal notice (mentions légales) and privacy. Company facts come from site.config.json,
-// which mirrors the French business register (checked 11 November 2026).
+// which mirrors the French business register (checked November 11, 2026).
 const legal = {
   path: "legal/",
   alt: "fr/mentions-legales/",
@@ -31,7 +31,7 @@ const legal = {
           ${row("Registration", `RCS ${co.rcs} ${co.siren}`)}
           ${row("SIRET (head office)", co.siret)}
           ${row("VAT number", co.vat)}
-          ${row("Activity code", `${co.naf}, specialised design activities`)}
+          ${row("Activity code", `${co.naf}, specialized design activities`)}
           ${row("Publication director", `${co.director}, manager`)}
           ${row("Email", `<a href="mailto:${c.cfg.email}">${c.cfg.email}</a>`)}
           ${row("Telephone", `<a href="tel:${c.cfg.whatsapp}">${c.cfg.whatsapp.replace(/^\+33(\d)(\d\d)(\d\d)(\d\d)(\d\d)$/, "+33 $1 $2 $3 $4 $5")}</a>`)}

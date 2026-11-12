@@ -1,9 +1,9 @@
 // Definition pages, cost page and the page for Canadian buyers.
 // Each page opens with the direct answer, because that is the sentence search
-// engines and AI assistants quote. Facts checked 11 November 2026.
+// engines and AI assistants quote. Facts checked November 11, 2026.
 import { faqBlock } from "./pages-core.mjs";
 
-const UPDATED = "Stouls Studio, Paris. Updated 11 November 2026.";
+const UPDATED = "Stouls Studio, Paris. Updated November 11, 2026.";
 const SRC = {
   copro: "https://www.service-public.gouv.fr/particuliers/vosdroits/F31513?lang=en",
   dpeLet: "https://www.ecologie.gouv.fr/presse/logements-classes-dpe-g-regles-evoluent-1er-janvier-gouvernement-continue-proteger",
@@ -57,7 +57,7 @@ const pied = {
         <li>It is not where the owner lives most of the year.</li>
         <li>The owner uses it regularly, a few days or weeks at a time.</li>
       </ul>
-      <p>A house in the country where you spend August is a holiday home. An apartment near the office that you sleep in three nights a week is a pied-à-terre. So is a one-bedroom in the 6th arrondissement owned by a couple from Boston who come four times a year.</p>
+      <p>A house in the country where you spend August is a vacation home. An apartment near the office that you sleep in three nights a week is a pied-à-terre. So is a one-bedroom in the 6th arrondissement owned by a couple from Boston who come four times a year.</p>
     </div>
   </div>
 </section>
@@ -98,8 +98,8 @@ const bonne = {
   faq: [
     ["What is a chambre de bonne?", "A chambre de bonne is a former servant's room on the top floor of a Paris apartment building, usually 6 to 12 m², reached by a separate service staircase."],
     ["Can you live in a chambre de bonne?", "You can own and use one of any size. To rent it out as a home it must have at least 9 m² of floor area with a ceiling height of 2.20 m, or a volume of 20 m³."],
-    ["Can several chambres de bonne be joined together?", "Often, yes. Joining two or three neighbouring rooms into a studio is a common Paris project. It needs the building's agreement when shared walls, corridors or pipes are involved."],
-    ["Does a chambre de bonne have a bathroom?", "Originally no. There was a shared toilet and a tap on the landing. Many have since been fitted with a shower and a toilet, when the building's drainage allows it."],
+    ["Can several chambres de bonne be joined together?", "Often, yes. Joining two or three neighboring rooms into a studio is a common Paris project. It needs the building's agreement when shared walls, corridors or pipes are involved."],
+    ["Does a chambre de bonne have a bathroom?", "Originally no. There was a shared toilet and a faucet on the landing. Many have since been equipped with a shower and a toilet, when the building's drainage allows it."],
   ],
   body: (c) => `${head(c, true, "Chambre de bonne", "What is a chambre de bonne?", "A chambre de bonne is a former servant's room under the roof of a Paris apartment building. Most measure 6 to 12 m² and are reached by a separate service staircase.")}
 
@@ -118,13 +118,13 @@ const bonne = {
     <h2>What is one like today?</h2>
     <div>
       <ul>
-        <li>Top floor, often the sixth or seventh, frequently without a lift to that level.</li>
+        <li>Top floor, often the sixth or seventh, frequently without an elevator to that level.</li>
         <li>A sloping ceiling and a small window or skylight, sometimes with a view over the rooftops.</li>
-        <li>Originally no bathroom: a shared toilet and tap on the landing.</li>
+        <li>Originally no bathroom: a shared toilet and faucet on the landing.</li>
         <li>Sold with the apartment it belonged to, or separately as its own lot.</li>
       </ul>
       <h3>What is the minimum size to rent one out?</h3>
-      <p>French rules on decent housing require a main room of at least 9 m² with 2.20 m of ceiling height, or a volume of at least 20 m³. A room below that can be owned and used, but not let as someone's home.</p>
+      <p>French rules on decent housing require a main room of at least 9 m² with 2.20 m of ceiling height, or a volume of at least 20 m³. A room below that can be owned and used, but not rented as someone's home.</p>
     </div>
   </div>
 </section>
@@ -135,7 +135,7 @@ const bonne = {
     <div>
       <ul>
         <li>A guest room or office for the apartment downstairs.</li>
-        <li>Two or three joined into a studio, with a real shower room and kitchenette.</li>
+        <li>Two or three joined into a studio, with a real bathroom and kitchenette.</li>
         <li>Storage that frees a room in the main apartment.</li>
       </ul>
       <p>The limits are almost always the drainage and the building's rules. Before buying an apartment for its maid's room, have someone check where waste water can go and what the co-owners have allowed before. I look at both on the visit. <a href="${c.link("apartment-search-paris/")}">How I assess an apartment before you offer</a>.</p>
@@ -156,23 +156,23 @@ const haussmann = {
   crumb: "Haussmann apartment",
   term: ["Haussmann apartment", "An apartment in one of the stone buildings put up during and after the rebuilding of Paris led by Georges-Eugène Haussmann from 1853 to 1870."],
   title: "What is a Haussmann apartment? | Stouls Studio",
-  description: "A Haussmann (Haussmannian) apartment is in one of the cut-stone buildings from the rebuilding of Paris, 1853 to 1870. How to recognise one, its layout, and what a renovation changes.",
+  description: "A Haussmann (Haussmannian) apartment is in one of the cut-stone buildings from the rebuilding of Paris, 1853 to 1870. How to recognize one, its layout, and what a renovation changes.",
   faq: [
-    ["What is a Haussmann apartment?", "A Haussmann apartment is a flat in one of the cut-stone buildings put up during the rebuilding of Paris led by Georges-Eugène Haussmann between 1853 and 1870, and in the same style until about 1914."],
+    ["What is a Haussmann apartment?", "A Haussmann apartment is an apartment in one of the cut-stone buildings put up during the rebuilding of Paris led by Georges-Eugène Haussmann between 1853 and 1870, and in the same style until about 1914."],
     ["Is it Haussmann or Haussmannian?", "Both are used in English. Haussmannian is the adjective, from the French haussmannien. They describe the same buildings."],
-    ["Which floor is best in a Haussmann building?", "The second floor was the grandest, with the highest ceilings and a continuous balcony. Today the fifth floor, which also has a balcony and more light, is often the most sought after when there is a lift."],
+    ["Which floor is best in a Haussmann building?", "The second floor was the grandest, with the highest ceilings and a continuous balcony. Today the fifth floor, which also has a balcony and more light, is often the most sought after when there is an elevator."],
     ["Can you remove walls in a Haussmann apartment?", "Some. Many internal walls carry load or brace the building. Any change to a load-bearing wall needs a structural engineer and a vote of the co-owners."],
     ["Can you add air conditioning?", "It is decided building by building. Outdoor units on a façade or roof need the building's approval and usually a filing with the city, and are refused on many protected streets."],
   ],
-  body: (c) => `${head(c, true, "Haussmann apartment", "What is a Haussmann apartment?", "A Haussmann apartment is a flat in one of the cut-stone buildings put up during the rebuilding of Paris led by Georges-Eugène Haussmann between 1853 and 1870, and in the same style until about 1914.")}
+  body: (c) => `${head(c, true, "Haussmann apartment", "What is a Haussmann apartment?", "A Haussmann apartment is an apartment in one of the cut-stone buildings put up during the rebuilding of Paris led by Georges-Eugène Haussmann between 1853 and 1870, and in the same style until about 1914.")}
 
 <section class="band">
   <div class="band-grid prose">
-    <h2>How do you recognise a Haussmann building?</h2>
+    <h2>How do you recognize a Haussmann building?</h2>
     <div>
       <ul>
-        <li>A façade in pale cut stone, lined up with its neighbours.</li>
-        <li>Five or six storeys under a grey zinc or slate roof.</li>
+        <li>A façade in pale cut stone, lined up with its neighbors.</li>
+        <li>Five or six stories under a gray zinc or slate roof.</li>
         <li>A continuous balcony on the second floor and another on the fifth.</li>
         <li>Shops at street level and a low floor just above them.</li>
         <li>Maids' rooms under the roof. <a href="${c.link("glossary/chambre-de-bonne/")}">What a chambre de bonne is</a>.</li>
@@ -190,7 +190,7 @@ const haussmann = {
         <tbody>
           <tr><td>Reception rooms in a row</td><td>Living and dining rooms on the street side, opening into each other through double doors.</td></tr>
           <tr><td>Ceiling height</td><td>Highest on the second floor, lower as you go up.</td></tr>
-          <tr><td>Mouldings</td><td>Plaster cornices and ceiling roses.</td></tr>
+          <tr><td>Moldings</td><td>Plaster cornices and ceiling roses.</td></tr>
           <tr><td>Parquet</td><td>Oak laid in herringbone or chevron.</td></tr>
           <tr><td>Fireplaces</td><td>Marble, with a mirror above.</td></tr>
           <tr><td>Kitchen</td><td>At the back, on the courtyard, by the service staircase.</td></tr>
@@ -211,7 +211,7 @@ const haussmann = {
         <li>The old kitchen becomes a bedroom or a bathroom, since the pipes are already there.</li>
         <li>Part of the corridor is absorbed into rooms or closets.</li>
         <li>Wiring and plumbing are replaced throughout.</li>
-        <li>Mouldings, parquet and fireplaces are kept and repaired.</li>
+        <li>Moldings, parquet and fireplaces are kept and repaired.</li>
       </ul>
       <p>What decides the plan is where the building's waste pipes run and which walls carry load. <a href="${c.link("paris-apartment-renovation/")}">How Stouls Studio designs and runs a renovation in Paris</a>.</p>
     </div>
@@ -234,9 +234,9 @@ const copro = {
   description: "A copropriété is a building owned in shares by its apartment owners. The syndic is the manager they appoint. What each does, what you pay, and what they decide about your renovation.",
   faq: [
     ["What is a copropriété?", "A copropriété is a building divided into privately owned units, where each owner also holds a share of the common parts such as the roof, stairs and façade. It is the French equivalent of a condominium."],
-    ["What is a syndic?", "The syndic is the manager appointed by the co-owners to run the building: it collects charges, pays the bills, keeps the accounts, organises repairs and calls the annual general meeting."],
-    ["What are charges de copropriété?", "The building's running costs, shared among owners according to their share: cleaning, insurance, lift, the syndic's fee, sometimes heating and water. They are billed quarterly."],
-    ["How often do co-owners meet?", "At least once a year, at the general meeting, where the accounts, the budget and any works are voted."],
+    ["What is a syndic?", "The syndic is the manager appointed by the co-owners to run the building: it collects charges, pays the bills, keeps the accounts, organizes repairs and calls the annual general meeting."],
+    ["What are charges de copropriété?", "The building's running costs, shared among owners according to their share: cleaning, insurance, elevator, the syndic's fee, sometimes heating and water. They are billed quarterly."],
+    ["How often do co-owners meet?", "At least once a year, at the general meeting, where the accounts, the budget and any work is voted."],
     ["Do I need the copropriété's permission to renovate?", "Not for work inside your unit that touches nothing shared. Work affecting load-bearing walls, floors, shared pipes or the façade needs a vote at the general meeting."],
   ],
   body: (c) => `${head(c, true, "Copropriété and syndic", "What are a copropriété and a syndic?", "A copropriété is a building owned in shares by its apartment owners, the French equivalent of a condominium. The syndic is the manager they appoint to run it.")}
@@ -266,10 +266,10 @@ const copro = {
     <h2>What should a buyer read before making an offer?</h2>
     <div>
       <ul>
-        <li>The minutes of the last three general meetings. They show disputes, unpaid charges and works under discussion.</li>
-        <li>The works voted but not yet billed, and who pays them: seller or buyer.</li>
+        <li>The minutes of the last three general meetings. They show disputes, unpaid charges and work under discussion.</li>
+        <li>Work voted but not yet billed, and who pays them: seller or buyer.</li>
         <li>The annual charges for the unit.</li>
-        <li>The rule book, for limits on use, such as short lets or a professional practice.</li>
+        <li>The rule book, for limits on use, such as short-term rentals or a professional practice.</li>
       </ul>
       <p>The seller's agent or notaire supplies these. They are in French, and they are where a cheap apartment turns out to be an expensive one.</p>
     </div>
@@ -281,7 +281,7 @@ const copro = {
     <h2>What does the copropriété decide about a renovation?</h2>
     <div>
       <p>Inside your own walls, with nothing shared touched, you need no vote. As soon as the work affects load-bearing walls, floors, shared pipes, the façade or the windows, the owners must approve it at a general meeting (<a href="${SRC.copro}">Service-Public</a>).</p>
-      <p>Since meetings are often held once a year, the date of the next one can set the start of your works. I check the rule book and the calendar before the design is fixed. <a href="${c.link("paris-apartment-renovation/")}">How I handle building approvals</a>.</p>
+      <p>Since meetings are often held once a year, the date of the next one can set the start of your renovation. I check the rule book and the calendar before the design is fixed. <a href="${c.link("paris-apartment-renovation/")}">How I handle building approvals</a>.</p>
     </div>
   </div>
 </section>
@@ -299,12 +299,12 @@ const terms = [
   ["Compromis de vente", "The preliminary sale contract. It fixes the price and conditions, and the buyer pays a deposit, commonly about 10%. The buyer then has ten days to withdraw."],
   ["Acte de vente", "The final deed, signed at the notaire's office two to three months after the compromis. Ownership and keys change hands that day."],
   ["Frais de notaire", "The costs paid on top of the price at signing, about 7% to 8% for an existing apartment. Most of it is transfer tax, not the notaire's own fee."],
-  ["DPE", "Diagnostic de performance énergétique, the energy rating from A to G that every property for sale must show. G-rated homes cannot be newly let since 1 January 2025."],
+  ["DPE", "Diagnostic de performance énergétique, the energy rating from A to G that every property for sale must show. G-rated homes cannot be newly rented since January 1, 2025."],
   ["Loi Carrez", "The law requiring the seller of a unit in a shared building to state its private floor area. Only floor with at least 1.80 m of ceiling height counts."],
   ["Bail mobilité", "A furnished lease of 1 to 10 months, not renewable, with no deposit, for tenants such as students or people on a work assignment."],
   ["Chasseur immobilier", "A buyer's agent who searches on the buyer's behalf and is paid by the buyer, typically a percentage of the price."],
   ["Dépôt de garantie", "The security deposit a tenant pays at the start of a lease."],
-  ["Meublé", "Furnished. A furnished let must include a set list of furniture and equipment defined by decree."],
+  ["Meublé", "Furnished. A furnished rental must include a set list of furniture and equipment defined by decree."],
 ];
 
 const hub = {
@@ -344,7 +344,7 @@ const cost = {
   description: "What Paris firms publish for renovation cost per m², from a refresh to a full premium renovation, why two apartments of the same size differ, and the costs on top of the contractor's quote.",
   faq: [
     ["How much does it cost to renovate an apartment in Paris?", "Paris firms publish ranges from about €500 to €900 per m² for a refresh, €1,200 to €2,000 per m² for a complete renovation and €2,000 to €3,500 per m² or more for a premium one. The state of the wiring, plumbing and structure matters more than the floor area."],
-    ["What is that in square feet?", "One square metre is 10.76 square feet. €1,500 per m² is about €139 per square foot."],
+    ["What is that in square feet?", "One square meter is 10.76 square feet. €1,500 per m² is about €139 per square foot."],
     ["What is not in a contractor's quote?", "Design fees, furniture, kitchen appliances in some quotes, building-approval costs, and a contingency for what is found when walls are opened."],
     ["How long does a renovation take?", "It depends on scope and on building approvals. Works that need a vote of the co-owners cannot start before the general meeting that approves them."],
   ],
@@ -379,8 +379,8 @@ const cost = {
         <li><strong>Structure.</strong> Opening a load-bearing wall needs an engineer, steel, and the co-owners' vote.</li>
         <li><strong>Floors.</strong> Old parquet can be restored, or may hide joists that need work.</li>
         <li><strong>Windows.</strong> Replacing them changes the energy rating and needs the building's and the city's agreement.</li>
-        <li><strong>Access.</strong> A sixth floor without a lift costs more in labour for everything carried up and down.</li>
-        <li><strong>Finish.</strong> Custom joinery, stone and fittings can double a budget on their own.</li>
+        <li><strong>Access.</strong> A sixth floor without an elevator costs more in labor for everything carried up and down.</li>
+        <li><strong>Finish.</strong> Custom millwork, stone and fittings can double a budget on their own.</li>
       </ul>
     </div>
   </div>
@@ -397,7 +397,7 @@ const cost = {
         <li>Fees charged by the building manager for handling an approval.</li>
         <li>A contingency. In an old building, something is always found behind a wall.</li>
       </ul>
-      <p>The useful number is the whole project: purchase, notaire fees, works, fees and furniture. I give a first estimate of the works at the visit, before you make an offer. <a href="${c.link("apartment-search-paris/")}">How the pre-offer assessment works</a>.</p>
+      <p>The useful number is the whole project: purchase, notaire fees, renovation, fees and furniture. I give a first estimate of the renovation at the visit, before you make an offer. <a href="${c.link("apartment-search-paris/")}">How the pre-offer assessment works</a>.</p>
     </div>
   </div>
 </section>

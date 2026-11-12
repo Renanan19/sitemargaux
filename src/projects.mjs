@@ -31,12 +31,12 @@ export const projects = [
       ],
       [
         "x-sau25",
-        "The living room seen from the kitchen, with the original timber posts",
+        "The living room seen from the kitchen, with the original wood posts",
         "Le séjour vu depuis la cuisine, avec les poteaux en bois d'origine"
       ],
       [
         "main-10",
-        "Kitchen built around the timber posts",
+        "Kitchen built around the wood posts",
         "Cuisine dessinée autour des poteaux en bois"
       ],
       [
@@ -46,7 +46,7 @@ export const projects = [
       ],
       [
         "main-13",
-        "Shower room with green tiling and a stone basin",
+        "Bathroom with green tiling and a stone basin",
         "Salle d'eau au carrelage vert et vasque en pierre"
       ],
       [
@@ -56,7 +56,7 @@ export const projects = [
       ],
       [
         "main-15",
-        "Arched bookshelf niche beside a timber post",
+        "Arched bookshelf niche beside a wood post",
         "Niche bibliothèque en arche à côté d'un poteau en bois"
       ],
       [
@@ -66,12 +66,12 @@ export const projects = [
       ],
       [
         "furniture-4",
-        "Cane-fronted wardrobe doors with oak handles",
+        "Cane-fronted closet doors with oak handles",
         "Portes de penderie cannées à poignées de chêne"
       ],
       [
         "x-sau3",
-        "View through to the bedroom, cane wardrobe at the end",
+        "View through to the bedroom, cane closet at the end",
         "Perspective vers la chambre, penderie cannée au fond"
       ]
     ]
@@ -132,12 +132,12 @@ export const projects = [
       ],
       [
         "x-maz9",
-        "Shower room in terracotta red, with a backlit mirror and oak vanity",
+        "Bathroom in terracotta red, with a backlit mirror and oak vanity",
         "Salle d'eau rouge terracotta, miroir rétroéclairé et meuble vasque en chêne"
       ],
       [
         "x-maz8",
-        "WC with a terracotta red cupboard above",
+        "Toilet with a terracotta red cabinet above",
         "WC surmonté d'un placard rouge terracotta"
       ]
     ]
@@ -193,7 +193,7 @@ export const projects = [
       ],
       [
         "x-gra31",
-        "Shower room with patterned tiles and a walnut vanity",
+        "Bathroom with patterned tiles and a walnut vanity",
         "Salle d'eau aux carreaux à motifs et meuble vasque en noyer"
       ]
     ]
@@ -219,7 +219,7 @@ export const projects = [
     "photos": [
       [
         "x-stu15",
-        "Black kitchen against the brick wall uncovered during the works",
+        "Black kitchen against the brick wall uncovered during the renovation",
         "Cuisine noire contre le mur de briques découvert pendant le chantier"
       ],
       [
@@ -244,7 +244,7 @@ export const projects = [
       ],
       [
         "x-stu3",
-        "Shower room in olive tile with a dark vanity",
+        "Bathroom in olive tile with a dark vanity",
         "Salle d'eau en carrelage vert olive avec meuble vasque sombre"
       ],
       [
@@ -290,7 +290,7 @@ export const projects = [
       ],
       [
         "x-exp10",
-        "Kitchen with a dark green glazed splashback",
+        "Kitchen with a dark green glazed backsplash",
         "Cuisine à la crédence en carreaux émaillés vert foncé"
       ],
       [
@@ -315,7 +315,7 @@ export const projects = [
       ],
       [
         "x-exp11",
-        "Shower room in wood-effect tiles",
+        "Bathroom in wood-effect tiles",
         "Salle d'eau en carreaux effet bois"
       ]
     ]
@@ -366,7 +366,7 @@ export const projects = [
       ],
       [
         "x-mtr7",
-        "Wooden worktop under the kitchen window",
+        "Wooden countertop under the kitchen window",
         "Plan de travail en bois sous la fenêtre de la cuisine"
       ],
       [
@@ -381,7 +381,7 @@ export const projects = [
       ],
       [
         "x-mtr6",
-        "Built-in chest of drawers and wardrobe in the bedroom",
+        "Built-in chest of drawers and closet in the bedroom",
         "Commode et penderie intégrées dans la chambre"
       ],
       [
@@ -391,7 +391,7 @@ export const projects = [
       ],
       [
         "x-mtr3",
-        "Shower room tiled in sage green",
+        "Bathroom tiled in sage green",
         "Salle d'eau carrelée en vert sauge"
       ]
     ]
@@ -422,7 +422,7 @@ export const projects = [
       ],
       [
         "render-4",
-        "The dining banquette as drawn in 3D before the works",
+        "The dining banquette as drawn in 3D before construction",
         "La banquette dessinée en 3D avant les travaux"
       ],
       [
@@ -483,7 +483,7 @@ export const projects = [
       ],
       [
         "x-lam2",
-        "Library with grey cupboards, an oak top and shelves on a rounded upright",
+        "Library with gray cabinets, an oak top and shelves on a rounded upright",
         "Bibliothèque aux placards gris, plateau de chêne et étagères sur montant arrondi"
       ]
     ]
@@ -580,7 +580,7 @@ export const projects = [
       ],
       [
         "x-lev27",
-        "Polished-concrete worktop with its integrated sink",
+        "Polished-concrete countertop with its integrated sink",
         "Plan de travail en béton ciré et son évier intégré"
       ],
       [
@@ -595,7 +595,7 @@ export const projects = [
       ],
       [
         "x-lev12",
-        "Bedroom with wall lights and built-in wardrobes",
+        "Bedroom with wall lights and built-in closets",
         "Chambre avec appliques et penderies intégrées"
       ],
       [
@@ -656,7 +656,7 @@ export const projects = [
       ],
       [
         "x-b25-5",
-        "Wall of cream wardrobes with arched mouldings",
+        "Wall of cream closets with arched moldings",
         "Mur de penderies crème aux moulures en arche"
       ]
     ]
@@ -748,7 +748,7 @@ export const projects = [
       ],
       [
         "second-3",
-        "Green entrance hall with oak panelling and a row of folding seats",
+        "Green entrance hall with oak paneling and a row of folding seats",
         "Entrée verte avec soubassement en chêne et rangée de sièges rabattables"
       ],
       [
@@ -758,7 +758,7 @@ export const projects = [
       ],
       [
         "x-bg3",
-        "Kitchen in walnut-toned wood with a dark worktop",
+        "Kitchen in walnut-toned wood with a dark countertop",
         "Cuisine en bois ton noyer avec plan de travail sombre"
       ],
       [
@@ -768,7 +768,7 @@ export const projects = [
       ],
       [
         "x-bg4",
-        "Bath under the roof, lined in honey-coloured glazed tiles",
+        "Bath under the roof, lined in honey-colored glazed tiles",
         "Baignoire sous le toit, habillée de carreaux émaillés couleur miel"
       ],
       [
@@ -824,7 +824,7 @@ export const projects = [
       ],
       [
         "x-so4",
-        "Bathroom in sand-coloured plaster",
+        "Bathroom in sand-colored plaster",
         "Salle de bain en enduit couleur sable"
       ]
     ]
@@ -865,12 +865,12 @@ export const projects = [
       ],
       [
         "x-ali8",
-        "Oak desk set into a wall of white cupboards",
+        "Oak desk set into a wall of white cabinets",
         "Bureau en chêne intégré à un mur de placards blancs"
       ],
       [
         "x-ali6",
-        "Tall cupboards with a niche for the coffee corner and a wine fridge",
+        "Tall cabinets with a niche for the coffee corner and a wine fridge",
         "Placards toute hauteur avec niche pour le coin café et cave à vin"
       ],
       [
@@ -890,7 +890,7 @@ export const projects = [
       90,
       969
     ],
-    "scope": "Custom joinery in several rooms: design, sourcing and partial site supervision",
+    "scope": "Custom millwork in several rooms: design, sourcing and partial site supervision",
     "fr": {
       "name": "Appartement Neuilly-sur-Seine",
       "type": "Appartement",
@@ -901,7 +901,7 @@ export const projects = [
     "photos": [
       [
         "furniture-14",
-        "Wooden arch through blue wardrobes, framing the view to the library",
+        "Wooden arch through blue closets, framing the view to the library",
         "Arche en bois traversant des penderies bleues, ouvrant la vue sur la bibliothèque"
       ],
       [
@@ -921,22 +921,22 @@ export const projects = [
       ],
       [
         "furniture-6",
-        "Sage wardrobe with open corner shelves",
+        "Sage closet with open corner shelves",
         "Penderie vert sauge avec étagères d'angle ouvertes"
       ],
       [
         "furniture-7",
-        "Wardrobe doors with sculpted wooden handles",
+        "Closet doors with sculpted wooden handles",
         "Portes de penderie aux poignées en bois sculpté"
       ],
       [
         "x-cha4",
-        "The headboard wall, panelled in sage under the landscape mural",
+        "The headboard wall, paneled in sage under the landscape mural",
         "Le mur de tête de lit, lambrissé vert sauge sous le panoramique"
       ],
       [
         "x-cha8",
-        "Wardrobes meeting the mural wall",
+        "Closets meeting the mural wall",
         "Les penderies à la rencontre du mur panoramique"
       ]
     ]
