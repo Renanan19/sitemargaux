@@ -258,7 +258,7 @@ a.lang:hover { background: var(--klein); color: #fff; }
   .hero-photo { height: 80vh; height: 80svh; min-height: 26rem; }
   .hero-photo::after { content: ""; position: absolute; inset: 45% 0 0 0; background: linear-gradient(to bottom, rgba(24, 24, 20, 0), rgba(24, 24, 20, 0.72)); }
   .hero-copy { padding: 1.75rem var(--gutter) 3rem; }
-  .hero-copy h1 { position: absolute; left: 0; right: 0; top: 0; height: 80vh; height: 80svh; min-height: 26rem; margin: 0; padding: 0 var(--gutter) 1.75rem; display: flex; align-items: flex-end; max-width: none; color: #fff; font-size: clamp(2.5rem, 11vw, 3.4rem); pointer-events: none; }
+  .hero-copy h1 { position: absolute; left: 0; right: 0; top: 0; height: 80vh; height: 80svh; min-height: 26rem; margin: 0; padding: 0 var(--gutter) 1.75rem; display: flex; align-items: flex-end; max-width: none; color: #fff; font-size: clamp(2.5rem, 11vw, 3.4rem); pointer-events: none; z-index: 1; }
   .hero-copy .lede { font-size: 1.1em; }
   .band { padding-top: 3.25rem; padding-bottom: 3.25rem; }
   .band.cards-band { padding-top: 0; }
