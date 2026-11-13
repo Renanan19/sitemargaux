@@ -170,6 +170,12 @@ ${formules.map((f, i) => `<section class="band${i ? " paper" : ""}" id="${f.id}"
         </ul>
       </div>
     </div>
+    <div class="views">
+      <div class="figs">
+        ${["render-5", "render-6", "render-7"].map((n, i) => c.img(n, ["Visualisation 3D d'un dressing, Stouls Studio","Visualisation 3D d'une salle de bain en marbre, Stouls Studio","Visualisation 3D d'une cuisine en noyer avec îlot, Stouls Studio"][i])).filter(Boolean).map((img) => `<figure>${img}</figure>`).join("\n        ")}
+      </div>
+      <p class="muted">Quand c'est utile, je modélise les pièces en 3D pendant la conception.</p>
+    </div>
   </div>
 </section>
 
@@ -321,8 +327,8 @@ const renovation = {
   <div class="band-grid prose">
     <h2>Ce que vous validez avant les travaux</h2>
     <div>
-      <div class="figs contain">
-        ${["x-plan4", "x-plan5", "render-5"].map((n, i) => c.img(n, ["Plan d'un studio avec cuisine, pièce de vie, salle d'eau et coin nuit, Stouls Studio", "Élévations cotées d'un WC et d'une salle de bain enfants, Stouls Studio", "Visualisation 3D d'une cuisine en noyer avec îlot, Stouls Studio"][i])).filter(Boolean).map((img) => `<figure>${img}</figure>`).join("\n        ")}
+      <div class="figs plans">
+        ${["x-plan4","x-plan2","x-plan3","x-plan5","x-plan1"].map((n, i) => c.img(n, ["Plan d'un studio avec cuisine, pièce de vie, salle d'eau et coin nuit, Stouls Studio","Plan d'un appartement avec deux chambres et deux terrasses, Stouls Studio","Plan électrique d'un grand appartement, Stouls Studio","Élévations cotées d'un WC et d'une salle de bain enfants, Stouls Studio","Élévations cotées d'une cuisine en chêne et carreaux de terre cuite, Stouls Studio"][i])).filter(Boolean).map((img) => `<figure>${img}</figure>`).join("\n        ")}
       </div>
       <p>Rien n'est construit que vous n'ayez vu et validé. Avant le démarrage des travaux, je vous présente trois choses.</p>
       <ul>
@@ -330,7 +336,7 @@ const renovation = {
         <li>Le dossier technique : les plans de rénovation et les élévations cotées de la cuisine, des salles de bain et de chaque menuiserie. Les entreprises chiffrent et construisent à partir de ces documents.</li>
         <li>La sélection : les matériaux, le mobilier, les luminaires et la décoration choisis avec vous, listés un par un.</li>
       </ul>
-      <p>Vous validez et signez le dossier. Le devis définitif est établi à partir du dossier finalisé : il chiffre exactement ce que vous avez validé. <a href="${c.link("fr/portfolio/plans-and-elevations/")}">Plus de plans, d'élévations et de visualisations</a>.</p>
+      <p>Vous validez et signez le dossier. Le devis définitif est établi à partir du dossier finalisé : il chiffre exactement ce que vous avez validé.</p>
     </div>
   </div>
 </section>

@@ -8,7 +8,7 @@ const T = {
   en: {
     prefix: "", home: "Stouls Studio", portfolio: "Portfolio",
     indexTitle: "Stouls Studio portfolio, interior architecture in Paris",
-    indexDesc: "Apartments, studios and houses designed by Stouls Studio in Paris and beyond, with custom furniture, plans and elevations. Interior architecture by Margaux Stouls.",
+    indexDesc: "Apartments, studios and houses designed by Stouls Studio in Paris and beyond, with custom furniture made to measure. Interior architecture by Margaux Stouls.",
     h1: "Stouls Studio Portfolio",
     lede: "Places designed for the people who live in them.",
     yours: "Your project",
@@ -26,7 +26,7 @@ const T = {
   fr: {
     prefix: "fr/", home: "Stouls Studio", portfolio: "Portfolio",
     indexTitle: "Portfolio de Stouls Studio, architecture d'intérieur à Paris",
-    indexDesc: "Appartements, studios et maisons conçus par Stouls Studio à Paris et ailleurs, mobilier sur mesure, plans et élévations. Architecture d'intérieur par Margaux Stouls.",
+    indexDesc: "Appartements, studios et maisons conçus par Stouls Studio à Paris et ailleurs, avec du mobilier dessiné sur mesure. Architecture d'intérieur par Margaux Stouls.",
     h1: "Portfolio de Stouls Studio",
     lede: "Des lieux imaginés pour ceux qui les vivent.",
     yours: "Votre projet",
@@ -43,49 +43,22 @@ const T = {
   },
 };
 
-// Two galleries shown after the projects: furniture made to measure, then drawings.
+// One gallery shown after the projects: furniture made to measure.
 const extras = [
   {
     slug: "custom-furniture", name: "Custom Furniture", what: "furniture and millwork drawn for one room and made to measure",
     fr: { name: "Mobilier sur mesure", what: "des meubles et des menuiseries dessinés pour une pièce et fabriqués sur mesure" },
     photos: [
-      ["x-fur9", "Oak sideboard with shelves on turned posts", "Buffet en chêne avec étagères sur poteaux tournés"],
       ["x-fur10", "Full-height shelving on two oak posts above a rounded cabinet", "Étagères toute hauteur sur deux poteaux en chêne, au-dessus d'un meuble arrondi"],
       ["x-fur11", "Cream shelves carried by an oak post", "Étagères crème portées par un poteau en chêne"],
       ["x-fur12", "Detail of the rounded oak top and the turned post", "Détail du plateau arrondi en chêne et du poteau tourné"],
-      ["x-fur13", "The shelves seen from the side", "Les étagères vues de côté"],
-      ["x-fur5", "Rounded oak cabinet under the television, beside the fireplace", "Meuble arrondi en chêne sous la télévision, à côté de la cheminée"],
       ["x-fur8", "Front of the rounded oak cabinet", "Façade du meuble arrondi en chêne"],
-      ["x-fur6", "Brass knobs on the oak cabinet doors", "Boutons en laiton sur les portes du meuble en chêne"],
-      ["x-fur7", "Two round knobs on the oak doors", "Deux boutons ronds sur les portes en chêne"],
       ["x-fur19", "Half-round dining table in stained oak, with its chairs", "Table demi-lune en chêne teinté et ses chaises"],
-      ["x-fur17", "Stained oak wall panel behind the table, with a pendant light", "Panneau mural en chêne teinté derrière la table, avec une suspension"],
-      ["x-fur15", "The oak table and wall panel seen from the hall", "La table et le panneau mural en chêne vus depuis l'entrée"],
       ["x-fur14", "Detail of the table edge and an upholstered chair", "Détail du chant de la table et d'une chaise tapissée"],
-      ["x-fur16", "Cylindrical leg of the oak table", "Pied cylindrique de la table en chêne"],
-      ["x-fur18", "Pendant light in front of the oak panel", "Suspension devant le panneau en chêne"],
-      ["x-fur20", "The table top meeting the oak wall panel", "Le plateau de la table contre le panneau mural en chêne"],
-      ["x-fur21", "The table and its wall panel, by the window", "La table et son panneau mural, près de la fenêtre"],
       ["x-fur1", "Child's bedroom with sage closets around an alcove and a fluted oak headboard", "Chambre d'enfant, penderies vert sauge autour d'une alcôve et tête de lit en chêne cannelé"],
       ["x-fur4", "Arched alcove lined with floral wallpaper above a fluted oak shelf", "Alcôve en arche tapissée de papier peint fleuri, au-dessus d'une tablette en chêne cannelé"],
       ["x-fur2", "Cane-fronted drawers with round oak pulls", "Tiroirs à façade cannée et poignées rondes en chêne"],
       ["x-fur3", "Scalloped oak rail above cream cabinets", "Frise festonnée en chêne au-dessus de placards crème"],
-    ],
-  },
-  {
-    slug: "plans-and-elevations", name: "Plans and Elevations", wide: true, what: "floor plans, dimensioned elevations and 3D visualizations drawn before construction",
-    fr: { name: "Plans et élévations", what: "plans, élévations cotées et visualisations 3D dessinés avant les travaux" },
-    photos: [
-      ["x-plan4", "Floor plan of a studio with kitchen, living room, bathroom and sleeping area", "Plan d'un studio avec cuisine, pièce de vie, salle d'eau et coin nuit"],
-      ["x-plan5", "Dimensioned elevations of a toilet room and a children's bathroom in striped tiles", "Élévations cotées d'un WC et d'une salle de bain enfants en carrelage rayé"],
-      ["x-plan2", "Floor plan of an apartment with two bedrooms and two terraces", "Plan d'un appartement avec deux chambres et deux terrasses"],
-      ["x-plan3", "Electrical plan of a large apartment", "Plan électrique d'un grand appartement"],
-      ["x-plan1", "Dimensioned elevations of a kitchen in oak and terracotta tiles", "Élévations cotées d'une cuisine en chêne et carreaux de terre cuite"],
-      ["drawing-3", "Dimensioned elevation of a kitchen wall with millwork notes", "Élévation cotée d'un mur de cuisine avec notes de menuiserie"],
-      ["drawing-4", "Dimensioned elevations of a kitchen island", "Élévations cotées d'un îlot de cuisine"],
-      ["render-5", "3D visualization of a walnut kitchen with an island", "Visualisation 3D d'une cuisine en noyer avec îlot"],
-      ["render-6", "3D visualization of a marble bathroom", "Visualisation 3D d'une salle de bain en marbre"],
-      ["render-7", "3D visualization of a dressing room", "Visualisation 3D d'un dressing"],
     ],
   },
 ];

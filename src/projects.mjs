@@ -77,6 +77,85 @@ export const projects = [
     ]
   },
   {
+    "slug": "apartment-bon-marche",
+    "name": "Bon Marché Apartment",
+    "type": "Apartment",
+    "place": "Paris, 6th arrondissement",
+    "size": [
+      50,
+      538
+    ],
+    "scope": "Full renovation: design and partial site supervision",
+    "fr": {
+      "name": "Appartement Bon Marché",
+      "type": "Appartement",
+      "place": "Paris, 6e arrondissement",
+      "scope": "Rénovation complète : conception et suivi partiel de chantier"
+    },
+    "photos": [
+      [
+        "x-bm7",
+        "Living room with a curved sofa, a red coffee table and a pendant light",
+        "Salon avec canapé arrondi, table basse rouge et suspension"
+      ],
+      [
+        "x-bm11",
+        "Dining corner with an oval table under a mirror, on a beige wall",
+        "Coin repas avec table ovale sous un miroir, sur un mur beige"
+      ],
+      [
+        "x-bm10",
+        "Dining table, upholstered bench and walnut cabinet, with checked floor tiles",
+        "Table de repas, banquette tapissée et meuble en noyer, sol en carreaux à damier"
+      ],
+      [
+        "x-bm6",
+        "Walnut kitchen with a checked tile floor leading to the window",
+        "Cuisine en noyer au sol en carreaux à damier, jusqu'à la fenêtre"
+      ],
+      [
+        "x-bm2",
+        "Bedroom with geometric wallpaper, walnut cabinets above the bed and orange wall lights",
+        "Chambre au papier peint géométrique, placards en noyer au-dessus du lit et appliques orange"
+      ],
+      [
+        "x-bm1",
+        "The bedroom seen through the door, with a dark red curtain",
+        "La chambre vue depuis la porte, avec un rideau rouge sombre"
+      ],
+      [
+        "x-bm4",
+        "Terracotta-tiled bathroom opening onto the bedroom",
+        "Salle d'eau en carreaux terracotta ouverte sur la chambre"
+      ],
+      [
+        "x-bm12",
+        "Shower in glazed terracotta tiles with a backlit round mirror",
+        "Douche en carreaux terracotta émaillés et miroir rond rétroéclairé"
+      ],
+      [
+        "x-bm5",
+        "Second bedroom with zebra wallpaper and walnut shelves above the bed",
+        "Seconde chambre au papier peint zèbres et étagères en noyer au-dessus du lit"
+      ],
+      [
+        "x-bm3",
+        "Detail of the walnut shelf against the zebra wallpaper",
+        "Détail de l'étagère en noyer sur le papier peint zèbres"
+      ],
+      [
+        "x-bm9",
+        "Cream-tiled bathroom with a walnut vanity and a backlit round mirror",
+        "Salle d'eau en carreaux crème, meuble vasque en noyer et miroir rond rétroéclairé"
+      ],
+      [
+        "x-bm8",
+        "Tiled niche in the shower, in glazed cream tiles",
+        "Niche carrelée dans la douche, en carreaux crème émaillés"
+      ]
+    ]
+  },
+  {
     "slug": "studio-odeon",
     "name": "Odéon Studio",
     "type": "Studio",
@@ -421,34 +500,14 @@ export const projects = [
         "Banquette de repas intégrée, panneau cannelé et appliques"
       ],
       [
-        "render-4",
-        "The dining banquette as drawn in 3D before construction",
-        "La banquette dessinée en 3D avant les travaux"
-      ],
-      [
         "main-5",
         "Living room with a velvet sofa and amber curtains",
         "Salon avec canapé en velours et rideaux ambrés"
       ],
       [
-        "render-1",
-        "The living room as drawn in 3D",
-        "Le salon dessiné en 3D"
-      ],
-      [
         "main-6",
         "Bedroom with wallpaper panels above a green half-height wall",
         "Chambre aux panneaux de papier peint au-dessus d'un soubassement vert"
-      ],
-      [
-        "render-3",
-        "The bedroom as drawn in 3D",
-        "La chambre dessinée en 3D"
-      ],
-      [
-        "render-2",
-        "The kitchen and dining corner as drawn in 3D",
-        "La cuisine et le coin repas dessinés en 3D"
       ]
     ]
   },

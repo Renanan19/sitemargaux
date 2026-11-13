@@ -232,6 +232,12 @@ ${formulas.map((f, i) => `<section class="band${i ? " paper" : ""}" id="${f.id}"
         </ul>
       </div>
     </div>
+    <div class="views">
+      <div class="figs">
+        ${["render-5", "render-6", "render-7"].map((n, i) => c.img(n, ["3D visualization of a dressing room, Stouls Studio","3D visualization of a marble bathroom, Stouls Studio","3D visualization of a walnut kitchen with an island, Stouls Studio"][i])).filter(Boolean).map((img) => `<figure>${img}</figure>`).join("\n        ")}
+      </div>
+      <p class="muted">Where it helps, I model the rooms in 3D during the design.</p>
+    </div>
   </div>
 </section>
 
@@ -381,8 +387,8 @@ const renovation = {
   <div class="band-grid prose">
     <h2>What you approve before work starts</h2>
     <div>
-      <div class="figs contain">
-        ${["x-plan4", "x-plan5", "render-5"].map((n, i) => c.img(n, ["Floor plan of a studio with kitchen, living room, bathroom and sleeping area, Stouls Studio", "Dimensioned elevations of a toilet room and a children's bathroom, Stouls Studio", "3D visualization of a walnut kitchen with an island, Stouls Studio"][i])).filter(Boolean).map((img) => `<figure>${img}</figure>`).join("\n        ")}
+      <div class="figs plans">
+        ${["x-plan4","x-plan2","x-plan3","x-plan5","x-plan1"].map((n, i) => c.img(n, ["Floor plan of a studio with kitchen, living room, bathroom and sleeping area, Stouls Studio","Floor plan of an apartment with two bedrooms and two terraces, Stouls Studio","Electrical plan of a large apartment, Stouls Studio","Dimensioned elevations of a toilet room and a children's bathroom, Stouls Studio","Dimensioned elevations of a kitchen in oak and terracotta tiles, Stouls Studio"][i])).filter(Boolean).map((img) => `<figure>${img}</figure>`).join("\n        ")}
       </div>
       <p>Nothing is built that you have not seen and approved. Before work starts, I put three things in front of you.</p>
       <ul>
@@ -390,7 +396,7 @@ const renovation = {
         <li>The technical drawings: the renovation plans and the dimensioned elevations of the kitchen, the bathrooms and each piece of millwork. Contractors price and build from these.</li>
         <li>The selection: the materials, the furniture, the lights and the decoration chosen with you, listed item by item.</li>
       </ul>
-      <p>You approve and sign the drawings. The final quote is drawn up from the finished set, so it prices exactly what you approved. <a href="${c.link("portfolio/plans-and-elevations/")}">More plans, elevations and visualizations</a>.</p>
+      <p>You approve and sign the drawings. The final quote is drawn up from the finished set, so it prices exactly what you approved.</p>
     </div>
   </div>
 </section>
