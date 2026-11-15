@@ -8,7 +8,7 @@ import { pages } from "./src/pages.mjs";
 const root = dirname(fileURLToPath(import.meta.url));
 // The stylesheet URL carries a hash of its content, so phones never keep an old copy against new pages.
 // The typefaces are served from this site (no request to Google), declared at the top of the stylesheet.
-const css = readFileSync(join(root, "src", "fonts", "fonts.css"), "utf8") + readFileSync(join(root, "src", "styles.css"), "utf8");
+const css = (readFileSync(join(root, "src", "fonts", "fonts.css"), "utf8") + readFileSync(join(root, "src", "styles.css"), "utf8")).replaceAll("url(logo.svg)", "url(logo.svg?v=2)");
 const cssVersion = createHash("sha1").update(css).digest("hex").slice(0, 8);
 const jsVersion = createHash("sha1").update(readFileSync(join(root, "src", "zoom.js"))).digest("hex").slice(0, 8);
 const out = join(root, "docs");
@@ -201,7 +201,7 @@ ${og ? `<meta property="og:image" content="${og}">\n<meta property="og:image:wid
 <body>
 <a class="skip" href="#main">${ui.skip}</a>
 <header class="site-head">
-  <a class="logo" href="${c.link(ui.home)}" aria-label="${esc(cfg.studio)}, ${esc(ui.logoLabel)}"></a>
+  <a class="brand" href="${c.link(ui.home)}" aria-label="${esc(cfg.studio)}, ${esc(ui.logoLabel)}"><span class="logo"></span><span class="logo-line" aria-hidden="true">Architecture d’intérieur</span></a>
   <nav class="site-nav" aria-label="${ui.navLabel}">
     ${ui.nav.map(([p, l]) => `<a href="${c.link(p)}"${p === page.path ? ' aria-current="page"' : ""}>${typo(l)}</a>`).join("\n    ")}
   </nav>
@@ -245,7 +245,12 @@ writeFileSync(join(out, "styles.css"), css);
 copyFileSync(join(root, "src", "zoom.js"), join(out, "zoom.js"));
 mkdirSync(join(out, "fonts"), { recursive: true });
 for (const f of readdirSync(join(root, "src", "fonts")).filter((f) => f.endsWith(".woff2"))) copyFileSync(join(root, "src", "fonts", f), join(out, "fonts", f));
-copyFileSync(join(root, "src", "logo.svg"), join(out, "logo.svg"));
+// The studio's logo carries "architecture d'intérieur" in letters too small to read at header size.
+// The site uses the wordmark alone and sets that line as real text beside it (.logo-line).
+const logoSvg = readFileSync(join(root, "src", "logo.svg"), "utf8");
+const wordmark = logoSvg.replace(/<use [^>]*xlink:href="#font_2_[^>]*\/>\s*/g, "");
+if (wordmark === logoSvg) throw new Error("logo.svg: tagline glyphs not found");
+writeFileSync(join(out, "logo.svg"), wordmark);
 writeFileSync(join(out, "favicon.svg"), readFileSync(join(root, "src", "monogram.svg"), "utf8").replaceAll("currentColor", "#92916B"));
 if (photoFiles.length) {
   mkdirSync(join(out, "photos"), { recursive: true });

@@ -53,6 +53,7 @@
   --sand: #e8e1d3;
   --olive: #92916b;
   --olive-deep: #6f6e4d;
+  --logo-ink: #454310;
   --klein: #002fa7;
   --charcoal: #30312c;
   --ink-soft: #5d5e56;
@@ -105,10 +106,15 @@ h3 { font-size: clamp(1.3rem, 1.15rem + 0.55vw, 1.6rem); line-height: 1.2; lette
 /* The logo is drawn from the studio's vector file and takes the colour of its context. */
 .logo {
   display: block; width: 15.5rem; aspect-ratio: 465 / 90; flex: none;
-  background: var(--olive-deep);
-  -webkit-mask: url(logo.svg) no-repeat left center / contain;
-  mask: url(logo.svg) no-repeat left center / contain;
+  background: var(--logo-ink);
+  -webkit-mask: url(logo.svg?v=2) no-repeat left center / contain;
+  mask: url(logo.svg?v=2) no-repeat left center / contain;
 }
+
+/* The logo's own line, set as text under the wordmark so it can be read */
+.brand { display: flex; flex-direction: column; align-items: flex-start; flex: none; text-decoration: none; }
+.logo-line { margin: -0.1rem 0 0; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.16em; line-height: 1.3; text-transform: uppercase; color: var(--logo-ink); white-space: nowrap; }
+.brand:hover .logo-line { color: var(--logo-ink); }
 
 /* Header: the identity's blue runs as a line across the top of every page */
 .site-head {
@@ -348,6 +354,7 @@ dialog.zoom button:hover { background: var(--klein); }
 /* Laptops and tablets held sideways: the menu stays on one line */
 @media (min-width: 821px) and (max-width: 1180px) {
   .logo { width: 12rem; }
+  .logo-line { font-size: 0.6rem; }
   .site-head { gap: 1rem; }
   .site-nav { gap: 0.35rem 1.05rem; font-size: 0.85rem; }
   a.lang { font-size: 0.85rem; padding: 0.3rem 0.75rem; }
