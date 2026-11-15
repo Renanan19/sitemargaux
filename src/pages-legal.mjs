@@ -54,14 +54,14 @@ const legal = {
   <div class="band-grid prose">
     <h2>Your personal data</h2>
     <div>
-      <p>This site sets no cookies, runs no analytics and has no contact form. It does not collect anything about you while you read it.</p>
+      <p>This site sets no cookies, runs no analytics and has no contact form. I collect nothing about you while you read it; only the host receives the technical data described below.</p>
       <h3>When you write to me</h3>
       <p>If you send a message by WhatsApp, email or Instagram, I receive what you choose to send: your name, your contact details and what you say about your project. I use it only to answer you and, if you go ahead, to carry out the work. It is not sold or passed on for marketing.</p>
       <p>Messages are kept for as long as the exchange or the project lasts, then for the period French law requires for business records.</p>
       <h3>Services that receive technical data</h3>
       <ul>
         <li>GitHub, the host, receives your IP address when your browser loads a page, as any web server does.</li>
-        <li>Google Fonts supplies the typefaces. Your browser requests them from Google, which receives your IP address.</li>
+        <li>The typefaces are served by this site: no request is sent to Google.</li>
         <li>WhatsApp and Instagram are run by Meta. Their own terms apply once you follow those links.</li>
       </ul>
       <h3>Your rights</h3>
@@ -74,7 +74,7 @@ const legal = {
   <div class="band-grid prose">
     <h2>Content of this site</h2>
     <div>
-      <p>Texts, plans and photographs belong to Stouls Studio or are used with permission. Please ask before reusing them.</p>
+      <p>Texts, plans and photographs belong to Stouls Studio or are used with permission. Any reuse requires prior permission.</p>
       <p>The guides and glossary give general information, checked against the official sources linked on each page on the date shown. They are not legal, tax or financial advice. Rules change: confirm with a notaire, lawyer or tax adviser before you act.</p>
     </div>
   </div>

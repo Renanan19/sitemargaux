@@ -4,11 +4,11 @@ export const projects = [
     "slug": "apartment-opera",
     "name": "Opéra Apartment",
     "type": "Apartment",
-    "use": "Main residence",
+    "use": "Primary residence",
     "place": "Paris, 9th arrondissement",
     "size": [
-      90,
-      969
+      130,
+      1399
     ],
     "scope": "Full renovation: design and technical drawings, sourcing and site supervision",
     "fr": {
@@ -16,23 +16,24 @@ export const projects = [
       "type": "Appartement",
       "use": "Résidence principale",
       "place": "Paris, 9e arrondissement",
-      "scope": "Rénovation complète : conception et dossier technique, sourcing et suivi de chantier"
+      "scope": "Rénovation complète : conception et dossier technique, sourcing et suivi de chantier",
+      "slug": "appartement-opera"
     },
     "photos": [
-      [
-        "main-11",
-        "Bedroom with a green headboard wall",
-        "Chambre avec mur de tête de lit vert"
-      ],
-      [
-        "main-14",
-        "Living room with a herringbone oak floor and tall windows",
-        "Séjour au parquet en point de Hongrie et hautes fenêtres"
-      ],
       [
         "x-sau25",
         "The living room seen from the kitchen, with the original wood posts",
         "Le séjour vu depuis la cuisine, avec les poteaux en bois d'origine"
+      ],
+      [
+        "main-14",
+        "Living room with a chevron oak floor and tall windows",
+        "Séjour au parquet en point de Hongrie et hautes fenêtres"
+      ],
+      [
+        "main-11",
+        "Bedroom with a green headboard wall",
+        "Chambre avec mur de tête de lit vert"
       ],
       [
         "main-10",
@@ -46,12 +47,12 @@ export const projects = [
       ],
       [
         "main-13",
-        "Bathroom with green tiling and a stone basin",
-        "Salle d'eau au carrelage vert et vasque en pierre"
+        "Bathroom with a green plaster finish and a stone sink",
+        "Salle d'eau à l'enduit vert et vasque en pierre"
       ],
       [
         "project-1",
-        "Curved mirror against the bedroom's green half-height wall",
+        "Curved mirror against the bedroom's green wainscoting",
         "Miroir aux lignes courbes sur le soubassement vert de la chambre"
       ],
       [
@@ -61,7 +62,7 @@ export const projects = [
       ],
       [
         "x-sau14",
-        "Powder room in terracotta zellige with a terrazzo basin",
+        "Powder room in terracotta zellige with a terrazzo sink",
         "Toilettes en zellige terracotta avec vasque en terrazzo"
       ],
       [
@@ -80,17 +81,20 @@ export const projects = [
     "slug": "apartment-bon-marche",
     "name": "Bon Marché Apartment",
     "type": "Apartment",
+    "use": "Rental investment",
     "place": "Paris, 6th arrondissement",
     "size": [
       50,
       538
     ],
-    "scope": "Full renovation: design and partial site supervision",
+    "scope": "Full renovation: design and technical drawings, partial site supervision",
     "fr": {
       "name": "Appartement Bon Marché",
       "type": "Appartement",
       "place": "Paris, 6e arrondissement",
-      "scope": "Rénovation complète : conception et suivi partiel de chantier"
+      "scope": "Rénovation complète : conception et dossier technique, suivi partiel de chantier",
+      "use": "Investissement locatif",
+      "slug": "appartement-bon-marche"
     },
     "photos": [
       [
@@ -100,12 +104,12 @@ export const projects = [
       ],
       [
         "x-bm11",
-        "Dining corner with an oval table under a mirror, on a beige wall",
+        "Dining nook with an oval table under a mirror, on a beige wall",
         "Coin repas avec table ovale sous un miroir, sur un mur beige"
       ],
       [
         "x-bm10",
-        "Dining table, upholstered bench and walnut cabinet, with checked floor tiles",
+        "Dining table, upholstered bench and walnut cabinet, with checkerboard tile floor",
         "Table de repas, banquette tapissée et meuble en noyer, sol en carreaux à damier"
       ],
       [
@@ -165,13 +169,14 @@ export const projects = [
       26,
       280
     ],
-    "scope": "Apartment search and full renovation: design, sourcing, furniture and site supervision",
+    "scope": "Apartment search and full renovation: design and technical drawings, sourcing, furniture and site supervision",
     "fr": {
       "name": "Studio Odéon",
       "type": "Studio",
       "use": "Investissement locatif",
       "place": "Paris, 6e arrondissement",
-      "scope": "Chasse d'appartement et rénovation complète : conception, sourcing, mobilier et suivi de chantier"
+      "scope": "Recherche d'appartement et rénovation complète : conception et dossier technique, sourcing, mobilier et suivi de chantier",
+      "slug": "studio-odeon"
     },
     "photos": [
       [
@@ -196,7 +201,7 @@ export const projects = [
       ],
       [
         "x-maz7",
-        "Sofa corner under the beams",
+        "Sofa area under the beams",
         "Coin canapé sous les poutres"
       ],
       [
@@ -231,13 +236,14 @@ export const projects = [
       24,
       258
     ],
-    "scope": "Full renovation: design, sourcing and site supervision",
+    "scope": "Full renovation: design and technical drawings, sourcing and site supervision",
     "fr": {
       "name": "Studio Saint-Michel",
       "type": "Studio",
       "use": "Investissement locatif",
       "place": "Paris, 6e arrondissement",
-      "scope": "Rénovation complète : conception, sourcing et suivi de chantier"
+      "scope": "Rénovation complète : conception et dossier technique, sourcing et suivi de chantier",
+      "slug": "studio-saint-michel"
     },
     "photos": [
       [
@@ -287,13 +293,14 @@ export const projects = [
       27,
       291
     ],
-    "scope": "Apartment search and full renovation: design, sourcing and site supervision",
+    "scope": "Apartment search and full renovation: design and technical drawings, sourcing and site supervision",
     "fr": {
       "name": "Studio Saint-Germain-des-Prés",
       "type": "Studio",
       "use": "Pied-à-terre",
       "place": "Paris, 6e arrondissement",
-      "scope": "Chasse d'appartement et rénovation complète : conception, sourcing et suivi de chantier"
+      "scope": "Recherche d'appartement et rénovation complète : conception et dossier technique, sourcing et suivi de chantier",
+      "slug": "studio-saint-germain-des-pres"
     },
     "photos": [
       [
@@ -308,7 +315,7 @@ export const projects = [
       ],
       [
         "x-stu5",
-        "Sleeping corner with the storage headboard and botanical wallpaper",
+        "Sleeping nook with the storage headboard and botanical wallpaper",
         "Coin nuit avec la tête de lit à rangements et le papier peint végétal"
       ],
       [
@@ -343,23 +350,24 @@ export const projects = [
       30,
       323
     ],
-    "scope": "Full renovation: design, sourcing and site supervision",
+    "scope": "Full renovation: design and technical drawings, sourcing and site supervision",
     "fr": {
       "name": "Studio Champ-de-Mars",
       "type": "Studio",
       "use": "Pied-à-terre",
       "place": "Paris, 7e arrondissement",
-      "scope": "Rénovation complète : conception, sourcing et suivi de chantier"
+      "scope": "Rénovation complète : conception et dossier technique, sourcing et suivi de chantier",
+      "slug": "studio-champ-de-mars"
     },
     "photos": [
       [
         "x-exp1",
-        "Living room with the glazed partition to the bedroom",
+        "Living room with the glass partition to the bedroom",
         "Séjour avec la verrière de la chambre"
       ],
       [
         "x-exp2",
-        "The glazed partition seen from the sofa",
+        "The glass partition seen from the sofa",
         "La verrière vue depuis le canapé"
       ],
       [
@@ -394,7 +402,7 @@ export const projects = [
       ],
       [
         "x-exp11",
-        "Bathroom in wood-effect tiles",
+        "Bathroom in wood-look tiles",
         "Salle d'eau en carreaux effet bois"
       ]
     ]
@@ -409,13 +417,14 @@ export const projects = [
       46,
       495
     ],
-    "scope": "Apartment search and full renovation: design, sourcing and site supervision",
+    "scope": "Apartment search and full renovation: design and technical drawings, sourcing and site supervision",
     "fr": {
       "name": "Appartement Montrouge",
       "type": "Appartement",
       "use": "Pied-à-terre",
-      "place": "Montrouge, au sud de Paris",
-      "scope": "Chasse d'appartement et rénovation complète : conception, sourcing et suivi de chantier"
+      "place": "Montrouge (92)",
+      "scope": "Recherche d'appartement et rénovation complète : conception et dossier technique, sourcing et suivi de chantier",
+      "slug": "appartement-montrouge"
     },
     "photos": [
       [
@@ -425,8 +434,8 @@ export const projects = [
       ],
       [
         "x-mtr1",
-        "Dining table on a storage bench, with the entrance beyond",
-        "Table à manger sur un banc de rangement, l'entrée en arrière-plan"
+        "Dining table beside a storage bench, with the entrance beyond",
+        "Table à manger à côté d'un banc de rangement, l'entrée en arrière-plan"
       ],
       [
         "x-mtr12",
@@ -485,13 +494,14 @@ export const projects = [
       27,
       291
     ],
-    "scope": "Full renovation: design package, sourcing and partial site supervision",
+    "scope": "Full renovation: design and technical drawings, sourcing and partial site supervision",
     "fr": {
       "name": "Appartement Montmartre",
       "type": "Appartement",
       "use": "Pied-à-terre",
       "place": "Paris, 18e arrondissement",
-      "scope": "Rénovation complète : dossier de conception, sourcing et suivi partiel de chantier"
+      "scope": "Rénovation complète : conception et dossier technique, sourcing et suivi partiel de chantier",
+      "slug": "appartement-montmartre"
     },
     "photos": [
       [
@@ -506,7 +516,7 @@ export const projects = [
       ],
       [
         "main-6",
-        "Bedroom with wallpaper panels above a green half-height wall",
+        "Bedroom with wallpaper panels above a green wainscoting",
         "Chambre aux panneaux de papier peint au-dessus d'un soubassement vert"
       ]
     ]
@@ -515,7 +525,7 @@ export const projects = [
     "slug": "apartment-lamarck",
     "name": "Lamarck Apartment",
     "type": "Apartment",
-    "use": "Main residence",
+    "use": "Primary residence",
     "place": "Paris, 18th arrondissement",
     "size": [
       45,
@@ -527,7 +537,8 @@ export const projects = [
       "type": "Appartement",
       "use": "Résidence principale",
       "place": "Paris, 18e arrondissement",
-      "scope": "Rénovation complète : conception et dossier technique, sourcing et suivi partiel de chantier"
+      "scope": "Rénovation complète : conception et dossier technique, sourcing et suivi partiel de chantier",
+      "slug": "appartement-lamarck"
     },
     "photos": [
       [
@@ -537,12 +548,12 @@ export const projects = [
       ],
       [
         "x-lam3",
-        "Dining corner under the ceiling rose, with three stone wall lights",
+        "Dining nook under the ceiling rose, with three stone wall lights",
         "Coin repas sous la rosace, avec trois appliques en pierre"
       ],
       [
         "x-lam2",
-        "Library with gray cabinets, an oak top and shelves on a rounded upright",
+        "bookcase with gray cabinets, an oak top and shelves on a rounded upright",
         "Bibliothèque aux placards gris, plateau de chêne et étagères sur montant arrondi"
       ]
     ]
@@ -551,7 +562,7 @@ export const projects = [
     "slug": "apartment-grands-boulevards",
     "name": "Grands Boulevards Apartment",
     "type": "Apartment",
-    "use": "Main residence",
+    "use": "Primary residence",
     "place": "Paris, 10th arrondissement",
     "size": [
       30,
@@ -563,7 +574,8 @@ export const projects = [
       "type": "Appartement",
       "use": "Résidence principale",
       "place": "Paris, 10e arrondissement",
-      "scope": "Rénovation complète : conception et dossier technique, sourcing et suivi partiel de chantier"
+      "scope": "Rénovation complète : conception et dossier technique, sourcing et suivi partiel de chantier",
+      "slug": "appartement-grands-boulevards"
     },
     "photos": [
       [
@@ -593,13 +605,14 @@ export const projects = [
       55,
       592
     ],
-    "scope": "Full renovation: design, sourcing and site supervision",
+    "scope": "Full renovation: design and technical drawings, sourcing and site supervision",
     "fr": {
       "name": "Appartement Levallois-Perret",
       "type": "Appartement",
       "use": "Pied-à-terre",
-      "place": "Levallois-Perret, à l'ouest de Paris",
-      "scope": "Rénovation complète : conception, sourcing et suivi de chantier"
+      "place": "Levallois-Perret (92)",
+      "scope": "Rénovation complète : conception et dossier technique, sourcing et suivi de chantier",
+      "slug": "appartement-levallois-perret"
     },
     "photos": [
       [
@@ -644,8 +657,8 @@ export const projects = [
       ],
       [
         "furniture-1",
-        "Desk niche lined with botanical wallpaper",
-        "Niche bureau tapissée de papier peint végétal"
+        "Cane-fronted chest of drawers under a botanical wallpaper",
+        "Commode à tiroirs cannés sous un papier peint végétal"
       ],
       [
         "furniture-3",
@@ -670,27 +683,28 @@ export const projects = [
     ]
   },
   {
-    "slug": "apartment-boulogne",
-    "name": "Boulogne Apartment",
+    "slug": "apartment-boulogne-billancourt",
+    "name": "Boulogne-Billancourt Apartment",
     "type": "Apartment",
-    "use": "Main residence",
-    "place": "Boulogne, west of Paris",
+    "use": "Primary residence",
+    "place": "Boulogne-Billancourt, west of Paris",
     "size": [
       55,
       592
     ],
-    "scope": "Apartment search and full renovation: design, sourcing and site supervision",
+    "scope": "Apartment search and full renovation: design and technical drawings, sourcing and site supervision",
     "fr": {
-      "name": "Appartement Boulogne",
+      "name": "Appartement Boulogne-Billancourt",
       "type": "Appartement",
       "use": "Résidence principale",
-      "place": "Boulogne, à l'ouest de Paris",
-      "scope": "Chasse d'appartement et rénovation complète : conception, sourcing et suivi de chantier"
+      "place": "Boulogne-Billancourt (92)",
+      "scope": "Recherche d'appartement et rénovation complète : conception et dossier technique, sourcing et suivi de chantier",
+      "slug": "appartement-boulogne-billancourt"
     },
     "photos": [
       [
         "x-b25-2",
-        "Living room with a red marble fireplace, brass-hung shelves and a corner bench",
+        "Living room with a red marble fireplace, shelves on brass uprights and a corner bench",
         "Séjour avec cheminée en marbre rouge, étagères sur montants en laiton et banc d'angle"
       ],
       [
@@ -724,19 +738,20 @@ export const projects = [
     "slug": "apartment-bagnolet",
     "name": "Bagnolet Apartment",
     "type": "Apartment",
-    "use": "Main residence",
+    "use": "Primary residence",
     "place": "Bagnolet, east of Paris",
     "size": [
       65,
       700
     ],
-    "scope": "Full renovation: technical drawings, sourcing and partial site supervision",
+    "scope": "Full renovation: design and technical drawings, sourcing and partial site supervision",
     "fr": {
       "name": "Appartement Bagnolet",
       "type": "Appartement",
       "use": "Résidence principale",
-      "place": "Bagnolet, à l'est de Paris",
-      "scope": "Rénovation complète : dossier technique, sourcing et suivi partiel de chantier"
+      "place": "Bagnolet (93)",
+      "scope": "Rénovation complète : conception et dossier technique, sourcing et suivi partiel de chantier",
+      "slug": "appartement-bagnolet"
     },
     "photos": [
       [
@@ -786,19 +801,20 @@ export const projects = [
       150,
       1615
     ],
-    "scope": "Full renovation: technical drawings, sourcing and site supervision",
+    "scope": "Full renovation: design and technical drawings, sourcing and site supervision",
     "fr": {
       "name": "Maison de campagne en Bourgogne",
       "type": "Maison de campagne",
       "use": "Résidence secondaire",
       "place": "Bourgogne, France",
-      "scope": "Rénovation complète : dossier technique, sourcing et suivi de chantier"
+      "scope": "Rénovation complète : conception et dossier technique, sourcing et suivi de chantier",
+      "slug": "maison-de-campagne-en-bourgogne"
     },
     "photos": [
       [
         "second-2",
-        "Living room with a beamed ceiling, wood stove and terracotta floor",
-        "Salon aux poutres apparentes, poêle à bois et sol en tomettes"
+        "Green entrance hall with oak paneling and a row of folding seats",
+        "Entrée verte avec soubassement en chêne et rangée de sièges rabattables"
       ],
       [
         "second-1",
@@ -807,8 +823,8 @@ export const projects = [
       ],
       [
         "second-3",
-        "Green entrance hall with oak paneling and a row of folding seats",
-        "Entrée verte avec soubassement en chêne et rangée de sièges rabattables"
+        "Living room with a beamed ceiling, wood stove and terracotta floor",
+        "Salon aux poutres apparentes, poêle à bois et sol en tomettes"
       ],
       [
         "x-bg9",
@@ -832,7 +848,7 @@ export const projects = [
       ],
       [
         "x-bg7",
-        "Walk-in shower with a stone basin and oak drawers",
+        "Walk-in shower with a stone sink and oak drawers",
         "Douche à l'italienne avec vasque en pierre et tiroirs en chêne"
       ]
     ]
@@ -847,13 +863,14 @@ export const projects = [
       160,
       1722
     ],
-    "scope": "Full renovation: technical drawings, sourcing and partial site supervision",
+    "scope": "Full renovation: design and technical drawings, sourcing and partial site supervision",
     "fr": {
       "name": "Maison à Sifnos",
       "type": "Maison",
       "use": "Résidence secondaire",
       "place": "Sifnos, Grèce",
-      "scope": "Rénovation complète : dossier technique, sourcing et suivi partiel de chantier"
+      "scope": "Rénovation complète : conception et dossier technique, sourcing et suivi partiel de chantier",
+      "slug": "maison-a-sifnos"
     },
     "photos": [
       [
@@ -893,28 +910,29 @@ export const projects = [
     "name": "Montparnasse Apartment",
     "type": "Apartment",
     "use": "Pied-à-terre",
-    "place": "Paris, Montparnasse",
+    "place": "Paris, 6th arrondissement",
     "size": [
       45,
       484
     ],
-    "scope": "Partial renovation of the living room and creation of the library, with site supervision",
+    "scope": "Partial renovation of the living room and a new built-in bookcase, with site supervision",
     "fr": {
       "name": "Appartement Montparnasse",
       "type": "Appartement",
       "use": "Pied-à-terre",
-      "place": "Paris, Montparnasse",
-      "scope": "Rénovation partielle du séjour et création de la bibliothèque, avec suivi de chantier"
+      "place": "Paris, 6e arrondissement",
+      "scope": "Rénovation partielle du séjour et création de la bibliothèque, avec suivi de chantier",
+      "slug": "appartement-montparnasse"
     },
     "photos": [
       [
         "x-ali2",
-        "Oak library around the television, with a window bench",
+        "Oak bookcase around the television, with a window seat",
         "Bibliothèque en chêne autour de la télévision, avec banc sous la fenêtre"
       ],
       [
         "x-ali4",
-        "Living room with the library wall, and the mezzanine above",
+        "Living room with the bookcase wall, and the mezzanine above",
         "Séjour avec le mur bibliothèque, mezzanine au-dessus"
       ],
       [
@@ -929,7 +947,7 @@ export const projects = [
       ],
       [
         "x-ali6",
-        "Tall cabinets with a niche for the coffee corner and a wine fridge",
+        "Tall cabinets with a niche for the coffee nook and a wine fridge",
         "Placards toute hauteur avec niche pour le coin café et cave à vin"
       ],
       [
@@ -943,60 +961,51 @@ export const projects = [
     "slug": "apartment-neuilly-sur-seine",
     "name": "Neuilly-sur-Seine Apartment",
     "type": "Apartment",
-    "use": "Main residence",
+    "use": "Primary residence",
     "place": "Neuilly-sur-Seine, west of Paris",
     "size": [
       90,
       969
     ],
-    "scope": "Custom millwork in several rooms: design, sourcing and partial site supervision",
+    "scope": "Custom millwork in several rooms: design and technical drawings, sourcing and partial site supervision",
     "fr": {
       "name": "Appartement Neuilly-sur-Seine",
       "type": "Appartement",
       "use": "Résidence principale",
-      "place": "Neuilly-sur-Seine, à l'ouest de Paris",
-      "scope": "Menuiseries sur mesure dans plusieurs pièces : conception, sourcing et suivi partiel de chantier"
+      "place": "Neuilly-sur-Seine (92)",
+      "scope": "Menuiseries sur mesure dans plusieurs pièces : conception et dossier technique, sourcing et suivi partiel de chantier",
+      "slug": "appartement-neuilly-sur-seine"
     },
     "photos": [
       [
         "furniture-14",
-        "Wooden arch through blue closets, framing the view to the library",
-        "Arche en bois traversant des penderies bleues, ouvrant la vue sur la bibliothèque"
+        "Bookcase wall in a rounded oak frame above sage green cabinets",
+        "Mur bibliothèque au cadre de chêne arrondi, au-dessus de meubles vert sauge"
       ],
       [
         "furniture-13",
-        "Library wall with a rounded oak frame above green cabinets",
-        "Mur bibliothèque au cadre de chêne arrondi, au-dessus de meubles bas verts"
+        "Detail of a fluted oak upright",
+        "Détail d'un montant en chêne cannelé"
       ],
       [
         "furniture-12",
-        "Detail of a fluted oak upright against woven wall covering",
-        "Détail d'un montant en chêne cannelé sur fond de revêtement tissé"
+        "Walnut arch through a wall of blue closets",
+        "Arche en noyer traversant un mur de penderies bleues"
       ],
       [
         "furniture-5",
-        "Sage headboard wall with niches under a landscape mural",
-        "Mur de tête de lit vert sauge avec niches, sous un panoramique de paysage"
+        "Sage green closet with corner shelves",
+        "Penderie vert sauge avec étagères d'angle"
       ],
       [
         "furniture-6",
-        "Sage closet with open corner shelves",
-        "Penderie vert sauge avec étagères d'angle ouvertes"
-      ],
-      [
-        "furniture-7",
-        "Closet doors with sculpted wooden handles",
+        "Closet doors with carved wood handles",
         "Portes de penderie aux poignées en bois sculpté"
       ],
       [
-        "x-cha4",
-        "The headboard wall, paneled in sage under the landscape mural",
-        "Le mur de tête de lit, lambrissé vert sauge sous le panoramique"
-      ],
-      [
-        "x-cha8",
-        "Closets meeting the mural wall",
-        "Les penderies à la rencontre du mur panoramique"
+        "furniture-7",
+        "Sage green headboard wall with niches under a panoramic wallpaper",
+        "Mur de tête de lit vert sauge avec niches, sous un papier peint panoramique"
       ]
     ]
   }

@@ -7,13 +7,19 @@ import { pages } from "./src/pages.mjs";
 
 const root = dirname(fileURLToPath(import.meta.url));
 // The stylesheet URL carries a hash of its content, so phones never keep an old copy against new pages.
-const cssVersion = createHash("sha1").update(readFileSync(join(root, "src", "styles.css"))).digest("hex").slice(0, 8);
+// The typefaces are served from this site (no request to Google), declared at the top of the stylesheet.
+const css = readFileSync(join(root, "src", "fonts", "fonts.css"), "utf8") + readFileSync(join(root, "src", "styles.css"), "utf8");
+const cssVersion = createHash("sha1").update(css).digest("hex").slice(0, 8);
+const jsVersion = createHash("sha1").update(readFileSync(join(root, "src", "zoom.js"))).digest("hex").slice(0, 8);
 const out = join(root, "docs");
 const cfg = JSON.parse(readFileSync(join(root, "site.config.json"), "utf8"));
 const siteUrl = cfg.siteUrl.replace(/\/$/, "");
 
 const photoDir = join(root, "photos");
 const photoFiles = existsSync(photoDir) ? readdirSync(photoDir).filter((f) => /\.(jpe?g|webp|png|avif)$/i.test(f)) : [];
+// photos/sm holds an 800 px copy of each photograph for phones; photos/og the link previews (JPEG, 1200 x 630).
+const smallFiles = new Set(existsSync(join(photoDir, "sm")) ? readdirSync(join(photoDir, "sm")) : []);
+const ogFiles = new Set(existsSync(join(photoDir, "og")) ? readdirSync(join(photoDir, "og")) : []);
 const photo = (name) => photoFiles.find((f) => f.replace(/\.[^.]+$/, "").toLowerCase() === name) || null;
 // Pixel sizes written by the photo export, so every <img> reserves its space before loading.
 const sizes = existsSync(join(photoDir, "manifest.json")) ? JSON.parse(readFileSync(join(photoDir, "manifest.json"), "utf8")) : {};
@@ -46,10 +52,10 @@ const UI = {
     switchTo: "fr", switchLabel: "Français", switchHome: "fr/",
     skip: "Skip to content", navLabel: "Main", logoLabel: "interior architecture, home",
     waText: "Hello Margaux, I'm looking at an apartment project in Paris.",
-    waLabel: "Message me on WhatsApp", emailLabel: (e) => `Email ${e}`, emailSubject: "Paris apartment project", igOnly: "Message me on Instagram",
+    waLabel: "Message me on WhatsApp", emailLabel: (e) => `Email ${e}`, emailSubject: "Paris apartment project", igOnly: "Message me on Instagram", igAlso: "or on Instagram",
     footTitle: "Tell me what you want in Paris.",
-    footText: "Budget, neighborhood if you have one, and whether you plan to live in it or rent it. I reply in English or in French.",
-    legal: ["legal/", "Legal notice and privacy"], tagline: "Interior architecture, Paris", disclaimer: "General information, not legal or tax advice.",
+    footText: "Budget, neighborhood if you have one, and whether you plan to live in the apartment or rent it out. I reply in English or in French.",
+    legal: ["legal/", "Legal notice and privacy"], tagline: "Interior architecture and design, Paris", disclaimer: "General information, not legal or tax advice.",
   },
   fr: {
     home: "fr/",
@@ -64,10 +70,10 @@ const UI = {
     switchTo: "en", switchLabel: "English", switchHome: "",
     skip: "Aller au contenu", navLabel: "Navigation principale", logoLabel: "architecture d'intérieur, accueil",
     waText: "Bonjour Margaux, j'ai un projet d'appartement.",
-    waLabel: "Écrivez-moi sur WhatsApp", emailLabel: (e) => `Écrire à ${e}`, emailSubject: "Projet d'appartement", igOnly: "Écrivez-moi sur Instagram",
+    waLabel: "Écrivez-moi sur WhatsApp", emailLabel: (e) => `Écrivez-moi à ${e}`, emailSubject: "Projet d'appartement", igOnly: "Écrivez-moi sur Instagram", igAlso: "ou sur Instagram",
     footTitle: "Parlez-moi de votre projet.",
-    footText: "Le lieu, le budget et ce que vous voulez en faire : y vivre, le louer ou le revendre. Je réponds en français ou en anglais.",
-    legal: ["fr/mentions-legales/", "Mentions légales et confidentialité"], tagline: "Architecture d'intérieur, Paris", disclaimer: "Informations générales, sans valeur de conseil juridique ou fiscal.",
+    footText: "Le lieu, le budget et ce que vous voulez faire de votre bien : y vivre, le louer ou le revendre. Je réponds en français ou en anglais.",
+    legal: ["fr/mentions-legales/", "Mentions légales et confidentialité"], tagline: "Architecture d'intérieur et design, Paris", disclaimer: "Informations générales, sans valeur de conseil juridique ou fiscal.",
   },
 };
 // Contact channels. Until a WhatsApp number or email is set in site.config.json,
@@ -76,13 +82,13 @@ const channelsFor = (ui) => {
   const channels = [];
   if (cfg.whatsapp) channels.push({ label: ui.waLabel, href: `https://wa.me/${cfg.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(ui.waText)}` });
   if (cfg.email) channels.push({ label: ui.emailLabel(cfg.email), href: `mailto:${cfg.email}?subject=${encodeURIComponent(ui.emailSubject)}` });
-  channels.push({ label: channels.length ? "Instagram" : ui.igOnly, href: `https://ig.me/m/${cfg.instagram}` });
+  channels.push({ label: channels.length ? ui.igAlso : ui.igOnly, href: `https://ig.me/m/${cfg.instagram}`, also: channels.length > 0 });
   return channels;
 };
 const langOf = (page) => page.lang || "en";
 // Each page carries the date its content last changed (page.updated). The build date is
 // never used: a lastmod that moves on every deploy teaches crawlers to ignore it.
-const DEFAULT_UPDATED = "2026-11-11";
+const DEFAULT_UPDATED = "2026-11-15";
 const updatedOf = (page) => page.updated || DEFAULT_UPDATED;
 
 const ctx = (page) => {
@@ -93,12 +99,15 @@ const ctx = (page) => {
   return {
     cfg, rel, photo, ui, lang: langOf(page),
     link: (p) => rel + p || "./",
-    img: (name, alt, cls = "", eager = false) => {
+    // `slot` is the width the image takes on screen (a CSS sizes value), so a phone downloads the 800 px copy.
+    img: (name, alt, cls = "", eager = false, slot = "(max-width: 820px) 100vw, 50vw") => {
       const f = photo(name);
       const s = sizes[name] ? ` width="${sizes[name].w}" height="${sizes[name].h}"` : "";
-      return f ? `<img src="${rel}photos/${f}" alt="${esc(alt)}"${s}${eager ? ' fetchpriority="high"' : ' loading="lazy"'} decoding="async"${cls ? ` class="${cls}"` : ""}>` : "";
+      const set = f && sizes[name] && smallFiles.has(f) ? ` srcset="${rel}photos/sm/${f} 800w, ${rel}photos/${f} ${sizes[name].w}w" sizes="${slot}"` : "";
+      return f ? `<img src="${rel}photos/${f}"${set} alt="${esc(alt)}"${s}${eager ? ' fetchpriority="high"' : ' loading="lazy"'} decoding="async"${cls ? ` class="${cls}"` : ""}>` : "";
     },
-    buttons: () => `<div class="actions">${channels.map((c, i) => `<a class="btn${i ? " quiet" : ""}" href="${c.href}">${esc(c.label)}</a>`).join("")}</div>`,
+    // Two buttons (WhatsApp, email), then Instagram as a plain link, so the row never breaks unevenly.
+    buttons: () => `<div class="actions">${channels.filter((c) => !c.also).map((c, i) => `<a class="btn${i ? " quiet" : ""}" href="${c.href}">${esc(c.label)}</a>`).join("")}${channels.filter((c) => c.also).map((c) => `<a class="also" href="${c.href}">${esc(c.label)}</a>`).join("")}</div>`,
   };
 };
 
@@ -107,7 +116,7 @@ const org = {
   "@id": `${siteUrl}/#studio`,
   name: cfg.studio,
   url: `${siteUrl}/`,
-  description: "Interior architecture studio in Paris. Apartment sourcing, design, renovation management and furnishing for buyers based in the United States and Canada.",
+  description: "Interior architecture and design studio in Paris. Apartment search, technical drawings, site supervision and furnishing, for a primary residence, a pied-à-terre, a rental investment or a resale.",
   founder: { "@id": `${siteUrl}/about/#margaux` },
   legalName: cfg.company.legalName,
   foundingDate: cfg.company.founded,
@@ -116,7 +125,7 @@ const org = {
   address: { "@type": "PostalAddress", streetAddress: cfg.company.street, postalCode: cfg.company.postalCode, addressLocality: cfg.company.city, addressRegion: "Île-de-France", addressCountry: "FR" },
   areaServed: { "@type": "City", name: "Paris" },
   knowsLanguage: ["en", "fr"],
-  sameAs: [`https://www.instagram.com/${cfg.instagram}/`],
+  sameAs: [`https://www.instagram.com/${cfg.instagram}/`, cfg.linkedin].filter(Boolean),
   ...(cfg.email ? { email: cfg.email } : {}),
   ...(cfg.whatsapp ? { telephone: cfg.whatsapp } : {}),
 };
@@ -142,8 +151,20 @@ function render(page) {
   const altUrl = hasAlt ? `${siteUrl}/${page.alt}` : null;
   const enUrl = lang === "en" ? url : altUrl;
   const frUrl = lang === "fr" ? url : altUrl;
-  const body = lang === "fr" ? page.body(c).replace(/>([^<]+)</g, (m) => m.replace(/ ([:;?!»])/g, "\u00a0$1").replace(/« /g, "«\u00a0")) : page.body(c);
-  const graph = [org, person, { "@type": "WebPage", "@id": url, url, name: page.title, description: page.description, isPartOf: { "@id": `${siteUrl}/#site` }, about: { "@id": `${siteUrl}/#studio` }, inLanguage: lang, dateModified: updatedOf(page), author: { "@id": `${siteUrl}/about/#margaux` } }];
+  // Typography of the visible text: curved apostrophes in both languages, curved quotation marks in English,
+  // non-breaking spaces before French double punctuation. Links to other sites open in a new tab.
+  const typo = (t) => {
+    t = t.replace(/'/g, "\u2019");
+    return lang === "fr" ? t.replace(/ ([:;?!»])/g, "\u00a0$1").replace(/« /g, "«\u00a0") : t.replace(/"([^"]*)"/g, "\u201c$1\u201d");
+  };
+  const outward = (h) => h.replace(/<a ([^>]*href="https?:\/\/[^>]*)>/g, (m, a) => (a.includes(siteUrl) || a.includes("target=") ? m : `<a ${a} target="_blank" rel="noopener">`));
+  // A photograph in a full-width band is as wide as the screen, whatever width its caller declared.
+  const fullWidth = (h) => h.replace(/(<figure class="bleed"><img [^>]*sizes=")[^"]*"/g, '$1100vw"');
+  const body = fullWidth(outward(page.body(c).replace(/>([^<]+)</g, (m) => typo(m))));
+  const title = typo(page.title);
+  const description = typo(page.description);
+  const orgFr = { ...org, description: "Studio d'architecture d'intérieur et de design à Paris. Recherche d'appartement, dossier technique, suivi de chantier et aménagement, pour une résidence principale, un pied-à-terre, un investissement locatif ou une revente." };
+  const graph = [lang === "fr" ? orgFr : org, person, { "@type": "WebPage", "@id": url, url, name: page.title, description: page.description, isPartOf: { "@id": `${siteUrl}/#site` }, about: { "@id": `${siteUrl}/#studio` }, inLanguage: lang, dateModified: updatedOf(page), author: { "@id": `${siteUrl}/about/#margaux` } }];
   if (!page.path) graph.push({ "@type": "WebSite", "@id": `${siteUrl}/#site`, url: `${siteUrl}/`, name: cfg.studio, inLanguage: "en" });
   if (page.crumb) {
     const trail = [[cfg.studio, `${siteUrl}/${ui.home}`], ...(page.parent ? [[page.parent[1], `${siteUrl}/${page.parent[0]}`]] : []), [page.crumb, url]];
@@ -153,35 +174,36 @@ function render(page) {
   if (page.service) graph.push({ "@type": "Service", name: page.service, provider: { "@id": `${siteUrl}/#studio` }, areaServed: { "@type": "City", name: "Paris" }, url });
   const defined = page.terms || (page.term ? [page.term] : null);
   if (defined) graph.push({ "@type": "DefinedTermSet", "@id": `${siteUrl}/glossary/#terms`, name: "Paris property glossary", hasDefinedTerm: defined.map(([name, description]) => ({ "@type": "DefinedTerm", name, description, inDefinedTermSet: `${siteUrl}/glossary/#terms` })) });
-  const og = photo("hero") ? `${siteUrl}/photos/${photo("hero")}` : null;
+  // Link preview: the page's own cover when it has one (project pages), the arch otherwise.
+  const ogName = [page.og, "hero"].find((n) => n && ogFiles.has(`${n}.jpg`));
+  const og = ogName ? `${siteUrl}/photos/og/${ogName}.jpg` : null;
 
   return `<!doctype html>
 <html lang="${lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${esc(page.title)}</title>
-<meta name="description" content="${esc(page.description)}">
+<title>${esc(title)}</title>
+<meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${url}">${hasAlt ? `\n<link rel="alternate" hreflang="en" href="${enUrl}">\n<link rel="alternate" hreflang="fr" href="${frUrl}">\n<link rel="alternate" hreflang="x-default" href="${enUrl}">` : ""}${cfg.indexable ? "" : '\n<meta name="robots" content="noindex, nofollow">'}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${esc(cfg.studio)}">
-<meta property="og:title" content="${esc(page.title)}">
-<meta property="og:description" content="${esc(page.description)}">
+<meta property="og:title" content="${esc(title)}">
+<meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${url}">
-${og ? `<meta property="og:image" content="${og}">\n<meta name="twitter:card" content="summary_large_image">` : `<meta name="twitter:card" content="summary">`}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+${og ? `<meta property="og:image" content="${og}">\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n<meta name="twitter:card" content="summary_large_image">` : `<meta name="twitter:card" content="summary">`}
+<link rel="preload" href="${c.rel}fonts/dm-serif-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="${c.rel}fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="${c.rel}styles.css?v=${cssVersion}">
 <link rel="icon" href="${c.rel}favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": graph })}</script>
+<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": graph })}</script>${page.zoom ? `\n<script src="${c.rel}zoom.js?v=${jsVersion}" defer></script>` : ""}
 </head>
 <body>
 <a class="skip" href="#main">${ui.skip}</a>
 <header class="site-head">
   <a class="logo" href="${c.link(ui.home)}" aria-label="${esc(cfg.studio)}, ${esc(ui.logoLabel)}"></a>
   <nav class="site-nav" aria-label="${ui.navLabel}">
-    ${ui.nav.map(([p, l]) => `<a href="${c.link(p)}"${p === page.path ? ' aria-current="page"' : ""}>${l}</a>`).join("\n    ")}
+    ${ui.nav.map(([p, l]) => `<a href="${c.link(p)}"${p === page.path ? ' aria-current="page"' : ""}>${typo(l)}</a>`).join("\n    ")}
   </nav>
   <a class="lang" href="${c.link(hasAlt ? page.alt : ui.switchHome)}" lang="${ui.switchTo}" hreflang="${ui.switchTo}">${ui.switchLabel}</a>
 </header>
@@ -191,19 +213,19 @@ ${body}
 <footer class="site-foot" id="contact">
   <div class="foot-grid">
     <div>
-      <h2>${ui.footTitle}</h2>
-      <p>${ui.footText}</p>
+      <h2>${typo(ui.footTitle)}</h2>
+      <p>${typo(ui.footText)}</p>
       ${c.buttons()}
     </div>
     <ul class="foot-links">
-      ${[...ui.nav, ...ui.footExtra].map(([p, l]) => `<li><a href="${c.link(p)}">${l}</a></li>`).join("\n      ")}
-      <li><a href="https://www.instagram.com/${cfg.instagram}/">Instagram @${cfg.instagram}</a></li>
+      ${[...ui.nav, ...ui.footExtra].map(([p, l]) => `<li><a href="${c.link(p)}">${typo(l)}</a></li>`).join("\n      ")}
     </ul>
   </div>
   <div class="legal">
     <span class="logo" role="img" aria-label="${esc(cfg.studio)}"></span>
     <span>${ui.tagline}</span>
     <a href="${c.link(ui.legal[0])}">${ui.legal[1]}</a>
+    <a href="https://www.instagram.com/${cfg.instagram}/" target="_blank" rel="noopener">Instagram</a>${cfg.linkedin ? `\n    <a href="${cfg.linkedin}" target="_blank" rel="noopener">LinkedIn</a>` : ""}
     <span>${ui.disclaimer}</span>
   </div>
 </footer>
@@ -219,18 +241,26 @@ for (const page of pages) {
   mkdirSync(dir, { recursive: true });
   writeFileSync(join(dir, "index.html"), render(page));
 }
-copyFileSync(join(root, "src", "styles.css"), join(out, "styles.css"));
+writeFileSync(join(out, "styles.css"), css);
+copyFileSync(join(root, "src", "zoom.js"), join(out, "zoom.js"));
+mkdirSync(join(out, "fonts"), { recursive: true });
+for (const f of readdirSync(join(root, "src", "fonts")).filter((f) => f.endsWith(".woff2"))) copyFileSync(join(root, "src", "fonts", f), join(out, "fonts", f));
 copyFileSync(join(root, "src", "logo.svg"), join(out, "logo.svg"));
 writeFileSync(join(out, "favicon.svg"), readFileSync(join(root, "src", "monogram.svg"), "utf8").replaceAll("currentColor", "#92916B"));
 if (photoFiles.length) {
   mkdirSync(join(out, "photos"), { recursive: true });
   for (const f of photoFiles) copyFileSync(join(photoDir, f), join(out, "photos", f));
+  for (const sub of ["sm", "og"]) {
+    if (!existsSync(join(photoDir, sub))) continue;
+    mkdirSync(join(out, "photos", sub), { recursive: true });
+    for (const f of readdirSync(join(photoDir, sub))) copyFileSync(join(photoDir, sub, f), join(out, "photos", sub, f));
+  }
 }
 writeFileSync(join(out, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map((p) => `  <url><loc>${siteUrl}/${p.path}</loc><lastmod>${updatedOf(p)}</lastmod></url>`).join("\n")}\n</urlset>\n`);
 writeFileSync(join(out, "robots.txt"), !cfg.indexable ? `User-agent: *\nDisallow: /\n` : `User-agent: *\nAllow: /\n\n# AI search and assistant crawlers are welcome.\n${["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "PerplexityBot", "Google-Extended", "Applebot-Extended", "Bingbot"].map((b) => `User-agent: ${b}\nAllow: /\n`).join("\n")}\nSitemap: ${siteUrl}/sitemap.xml\n`);
-writeFileSync(join(out, "llms.txt"), `# ${cfg.studio}\n\n> Interior architecture studio in Paris run by ${cfg.founder}. For buyers based in the United States and Canada: apartment sourcing, design, renovation management and furnishing, for a rental investment or a pied-à-terre.\n\n${pages.filter((p) => langOf(p) === "en").map((p) => `- [${p.title}](${siteUrl}/${p.path}): ${p.description}`).join("\n")}\n\n## French version\n\n- [Stouls Studio en français](${siteUrl}/fr/): the studio's services and portfolio in French.\n`);
+writeFileSync(join(out, "llms.txt"), `# ${cfg.studio}\n\n> Interior architecture and design studio in Paris run by ${cfg.founder}. Apartment search, technical drawings, site supervision and furnishing, in Paris and beyond, for a primary residence, a pied-à-terre, a rental investment or a resale. Works in English and in French.\n\n${pages.filter((p) => langOf(p) === "en").map((p) => `- [${p.title}](${siteUrl}/${p.path}): ${p.description}`).join("\n")}\n\n## French version\n\n- [Stouls Studio en français](${siteUrl}/fr/): the studio's services and portfolio in French.\n`);
 writeFileSync(join(out, ".nojekyll"), "");
 const host = new URL(siteUrl).hostname;
 if (!host.endsWith("github.io")) writeFileSync(join(out, "CNAME"), host + "\n");
-writeFileSync(join(out, "404.html"), render({ path: "404.html", absolute: true, title: `Page not found | ${cfg.studio}`, description: "This page does not exist.", body: () => `<section class="page-head"><h1>That page isn't here.</h1><p class="lede">Go back to the <a href="${siteUrl}/">studio page</a>.</p></section>` }).replace(/<link rel="canonical"[^>]*>(\n<meta name="robots"[^>]*>)?/, '<meta name="robots" content="noindex">'));
+writeFileSync(join(out, "404.html"), render({ path: "404.html", absolute: true, title: `Page not found | ${cfg.studio}`, description: "This page does not exist.", body: () => `<section class="page-head"><h1>That page isn't here.</h1><p class="lede">Go back to the <a href="${siteUrl}/">home page</a> or see the <a href="${siteUrl}/portfolio/">portfolio</a>.</p><p class="lede" lang="fr">Cette page n'existe pas. Retournez à l'<a href="${siteUrl}/fr/">accueil en français</a> ou voyez le <a href="${siteUrl}/fr/portfolio/">portfolio</a>.</p></section>` }).replace(/<link rel="canonical"[^>]*>(\n<meta name="robots"[^>]*>)?/, '<meta name="robots" content="noindex">'));
 console.log(`Built ${pages.length} pages, ${photoFiles.length} photos -> docs/`);
