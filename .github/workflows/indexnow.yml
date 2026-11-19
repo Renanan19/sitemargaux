@@ -1,0 +1,21 @@
+name: Announce changed pages to Bing (IndexNow)
+
+# Runs once GitHub Pages has finished publishing, so the engines fetch the new version.
+on:
+  page_build:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node indexnow.mjs
