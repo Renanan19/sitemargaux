@@ -2,6 +2,18 @@ User-agent: *
 Allow: /
 
 # AI search and assistant crawlers are welcome.
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
 User-agent: GPTBot
 Allow: /
 
@@ -17,7 +29,13 @@ Allow: /
 User-agent: Claude-SearchBot
 Allow: /
 
+User-agent: Claude-User
+Allow: /
+
 User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
 Allow: /
 
 User-agent: Google-Extended
@@ -26,7 +44,19 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-User-agent: Bingbot
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://stoulsstudio.com/sitemap.xml

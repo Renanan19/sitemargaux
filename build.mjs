@@ -185,7 +185,7 @@ function render(page) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
-<link rel="canonical" href="${url}">${hasAlt ? `\n<link rel="alternate" hreflang="en" href="${enUrl}">\n<link rel="alternate" hreflang="fr" href="${frUrl}">\n<link rel="alternate" hreflang="x-default" href="${enUrl}">` : ""}${cfg.indexable ? "" : '\n<meta name="robots" content="noindex, nofollow">'}
+<link rel="canonical" href="${url}">${hasAlt ? `\n<link rel="alternate" hreflang="en" href="${enUrl}">\n<link rel="alternate" hreflang="fr" href="${frUrl}">\n<link rel="alternate" hreflang="x-default" href="${enUrl}">` : ""}${cfg.indexable ? '\n<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">' : '\n<meta name="robots" content="noindex, nofollow">'}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${esc(cfg.studio)}">
 <meta property="og:title" content="${esc(title)}">
@@ -262,7 +262,7 @@ if (photoFiles.length) {
   }
 }
 writeFileSync(join(out, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map((p) => `  <url><loc>${siteUrl}/${p.path}</loc><lastmod>${updatedOf(p)}</lastmod></url>`).join("\n")}\n</urlset>\n`);
-writeFileSync(join(out, "robots.txt"), !cfg.indexable ? `User-agent: *\nDisallow: /\n` : `User-agent: *\nAllow: /\n\n# AI search and assistant crawlers are welcome.\n${["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "PerplexityBot", "Google-Extended", "Applebot-Extended", "Bingbot"].map((b) => `User-agent: ${b}\nAllow: /\n`).join("\n")}\nSitemap: ${siteUrl}/sitemap.xml\n`);
+writeFileSync(join(out, "robots.txt"), !cfg.indexable ? `User-agent: *\nDisallow: /\n` : `User-agent: *\nAllow: /\n\n# AI search and assistant crawlers are welcome.\n${["Googlebot", "Bingbot", "Applebot", "DuckDuckBot", "GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "Claude-User", "PerplexityBot", "Perplexity-User", "Google-Extended", "Applebot-Extended", "Meta-ExternalAgent", "Amazonbot", "DuckAssistBot", "MistralAI-User", "CCBot"].map((b) => `User-agent: ${b}\nAllow: /\n`).join("\n")}\nSitemap: ${siteUrl}/sitemap.xml\n`);
 writeFileSync(join(out, "llms.txt"), `# ${cfg.studio}\n\n> Interior architecture and design studio in Paris run by ${cfg.founder}. Apartment search, technical drawings, site supervision and furnishing, in Paris and beyond, for a primary residence, a pied-à-terre, a rental investment or a resale. Works in English and in French.\n\n${pages.filter((p) => langOf(p) === "en").map((p) => `- [${p.title}](${siteUrl}/${p.path}): ${p.description}`).join("\n")}\n\n## French version\n\n- [Stouls Studio en français](${siteUrl}/fr/): the studio's services and portfolio in French.\n`);
 // IndexNow (Bing, Yandex, Seznam): the key file proves the site owns the addresses it submits.
 if (cfg.indexable && cfg.indexNowKey) writeFileSync(join(out, `${cfg.indexNowKey}.txt`), cfg.indexNowKey);
