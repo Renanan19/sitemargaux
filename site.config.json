@@ -22,5 +22,6 @@
     "city": "Montrouge",
     "director": "Margaux Stouls"
   },
-  "indexable": false
+  "indexable": true,
+  "indexNowKey": "be2f99fff870b82be8c458203c33b43b"
 }

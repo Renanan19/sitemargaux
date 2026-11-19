@@ -264,6 +264,8 @@ if (photoFiles.length) {
 writeFileSync(join(out, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map((p) => `  <url><loc>${siteUrl}/${p.path}</loc><lastmod>${updatedOf(p)}</lastmod></url>`).join("\n")}\n</urlset>\n`);
 writeFileSync(join(out, "robots.txt"), !cfg.indexable ? `User-agent: *\nDisallow: /\n` : `User-agent: *\nAllow: /\n\n# AI search and assistant crawlers are welcome.\n${["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "PerplexityBot", "Google-Extended", "Applebot-Extended", "Bingbot"].map((b) => `User-agent: ${b}\nAllow: /\n`).join("\n")}\nSitemap: ${siteUrl}/sitemap.xml\n`);
 writeFileSync(join(out, "llms.txt"), `# ${cfg.studio}\n\n> Interior architecture and design studio in Paris run by ${cfg.founder}. Apartment search, technical drawings, site supervision and furnishing, in Paris and beyond, for a primary residence, a pied-à-terre, a rental investment or a resale. Works in English and in French.\n\n${pages.filter((p) => langOf(p) === "en").map((p) => `- [${p.title}](${siteUrl}/${p.path}): ${p.description}`).join("\n")}\n\n## French version\n\n- [Stouls Studio en français](${siteUrl}/fr/): the studio's services and portfolio in French.\n`);
+// IndexNow (Bing, Yandex, Seznam): the key file proves the site owns the addresses it submits.
+if (cfg.indexable && cfg.indexNowKey) writeFileSync(join(out, `${cfg.indexNowKey}.txt`), cfg.indexNowKey);
 writeFileSync(join(out, ".nojekyll"), "");
 const host = new URL(siteUrl).hostname;
 if (!host.endsWith("github.io")) writeFileSync(join(out, "CNAME"), host + "\n");
